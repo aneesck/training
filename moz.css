@@ -28,6 +28,7 @@ body{
 	height: 215px;
 	width: 1290px;
 	margin-left: -10px;
+	text-align: center;
 }	
 .img1 img{
 	position: absolute;
@@ -141,7 +142,8 @@ input.box{
 	width: 348px;
 	box-shadow: none;
 	border-radius: 4px;
-	font-size: 16px;	
+	font-size: 16px;
+	border: 1px;	
 }
 .com11 {
 	position: absolute;
@@ -158,12 +160,29 @@ input.box{
 	color: #fff;
 	border-radius: 3px;
 }
-.primary{
+.primary {
 	list-style-type: none;
 	color: black;
 	font-size: 14px;
 	text-align: center;
 	text-decoration: none;
-	display: inline;
+	display: inline-flex;
+	text-decoration: none;
 
+}
+
+.primary li{
+	padding: 0px 15px;
+	text-decoration: none;
+	color: #000;
+	margin-top: 10px;
+}
+
+.primary li::after{
+	color: #76B0D5;
+	content: "\00A0\00BB";
+}
+.primary a{
+	color: black;
+	text-decoration: none;
 }
