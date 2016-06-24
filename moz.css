@@ -139,11 +139,12 @@ body{
 	}
 input.box{
 	height: 40px;
-	width: 348px;
+	width: 343px;
 	box-shadow: none;
 	border-radius: 4px;
 	font-size: 16px;
-	border: 1px;	
+	border: 1px;
+	padding-left: 10px; 	
 }
 .com11 {
 	position: absolute;
@@ -162,27 +163,75 @@ input.box{
 }
 .primary {
 	list-style-type: none;
-	color: black;
 	font-size: 14px;
 	text-align: center;
-	text-decoration: none;
 	display: inline-flex;
-	text-decoration: none;
-
 }
 
-.primary li{
-	padding: 0px 15px;
-	text-decoration: none;
-	color: #000;
+.phase4 li{
+	padding: 0px 25px;
 	margin-top: 10px;
 }
 
-.primary li::after{
+.phase4 li::after{
 	color: #76B0D5;
 	content: "\00A0\00BB";
 }
-.primary a{
-	color: black;
+.phase4 a{
+	color: #484848;
 	text-decoration: none;
+}
+.secondary{
+	list-style-type: none;
+	font-size: 14px;
+	text-align: center;
+	display: inline-flex;
+	padding: 0px 35px;
+	margin-top: 10px;
+	top: 880px;
+	position: absolute;
+	left: 379px;
+	display: inline-flex;
+
+}
+.com12{
+	position: absolute;
+	left: 528px;
+	top: 949px;
+	color: #bbb;
+	font-size: 12px;
+}
+.com13{
+	position: absolute;
+	left: 620px;
+	top: 927px;
+	margin: 0 5px;
+	padding: 10px;
+}
+.com13 select{
+	height: 43px;
+	width: 188px;
+}
+.com14{
+	position: absolute;
+	left: 553px;
+	top: 967px;
+	display: inline-flex;
+}
+.com14 li
+{
+	display: inline-flex;
+	text-decoration: none;
+	padding: 0 5px;
+}
+.com14 a{
+	color: #bbb;
+	font-size: 12px;
+}
+.com14 li::after{
+	content: '.';
+	color: #bbb;
+}
+body a:hover{
+	text-decoration: underline;
 }
