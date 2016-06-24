@@ -173,7 +173,11 @@ input.box{
 	margin-top: 10px;
 }
 
-.phase4 li::after{
+.primary li::after{
+	color: #76B0D5;
+	content: "\00A0\00BB";
+}
+.secondary li::after{
 	color: #76B0D5;
 	content: "\00A0\00BB";
 }
@@ -223,14 +227,12 @@ input.box{
 	display: inline-flex;
 	text-decoration: none;
 	padding: 0 5px;
+	border: dotted #bbb;
+	border-width: 0 0 0 1px;
 }
 .com14 a{
 	color: #bbb;
 	font-size: 12px;
-}
-.com14 li::after{
-	content: '.';
-	color: #bbb;
 }
 body a:hover{
 	text-decoration: underline;
