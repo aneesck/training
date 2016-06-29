@@ -1,0 +1,66 @@
+body{
+	overflow-x: hidden;
+	background-color: black;
+}
+.vis{
+	display: none;
+}
+#back2{
+	display: block;
+}
+.one{
+	width: 1290px;
+	height:600px;
+}
+.but1{
+	position: absolute;
+	top: 275px;
+	left: 10px;
+}
+.but2{
+	position: absolute;
+	top: 275px;
+    left: 1217px;
+}
+.but{
+	width:80px;
+	height:60px;
+	background-color: transparent;
+	color:white;
+	border: none;
+}
+.but:hover{
+	font-size: 30px;
+	
+}
+@keyframes animf {
+    0% {opacity: .25;transform: translateX(-100%);}
+    50% {opacity: .5;}
+    75% {opacity: .75;}
+    100%{opacity: 1;transform: translateX(0%);}
+}
+@keyframes animr {
+    0% {opacity: .25;transform: translateX(100%);}
+    50% {opacity: .5;}
+    75% {opacity: .75;}
+    100%{opacity: 1;transform: translateX(0%);}
+}
+.index{
+	position: absolute;
+
+	left: 50%;
+	top: 630px;
+}
+.index div{
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	border: 1px solid red;
+	display: inline-block;
+}
+.cap{
+	color: white;
+	animation: animf 3s;
+	position: absolute;
+    left: 50%;
+ }
