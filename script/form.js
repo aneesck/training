@@ -77,6 +77,4 @@ function validate_res(){
  	alert(txt);
  	}	
 			
-					
-	
-	
+			
