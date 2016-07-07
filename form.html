@@ -95,7 +95,7 @@
 					</select>
                 </div>
                 <div>
-					<select id="dr2">
+					<select id="dr2" required>
   						<option>00</option>
   						<option>01</option>
   						<option>02</option>
@@ -112,8 +112,9 @@
 	  <script>
 $(function() {
     $( "#datee" ).datepicker({
-      showOn: "both", 
-      buttonText: "<i class='fa fa-calendar'></i>"
+      showOn: "button", 
+      buttonText: "<i class='fa fa-calendar'></i>",
+      dateFormat: 'yy-mm-dd'
     });
   });
   </script>
