@@ -3,6 +3,8 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/form.css">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 	
 	<script type="text/javascript" src="script/form.js"></script>
 	<title>Form</title>
@@ -17,16 +19,18 @@
 					Your Name:
 				</div>
 				<div class="in">
-					<input type="text" required id="nam" class="box" onfocusout="validate_name()">
+					<input type="text" id="nam" class="box" onfocusout="validate_name()" required>
 				</div>
 			</div>
 			<div class="boxes">
 				<div class="imp im">
 					Your Email Address: 
                 </div>
+               
                 <div class="in">
 					<input type="email" id="ema" class="box" onfocusout="validate_email()" required>
 				</div>
+				
 			</div>
 			<div class="boxes">
 				<div class="imp im">
@@ -69,11 +73,9 @@
 					Reservation date:
 				</div>
 				<div>
-					<input type="date" id="datee" class="box" required>
+					<input type="text" id="datee" class="box" required>
 				</div>	
-				<div id="cal">
-					<i class="fa fa-calendar open-datepicker"></i>
-				</div>	
+				
 				<div id="ic">
 				 	<i class="fa fa-caret-right"></i>
 				</div>
@@ -101,12 +103,20 @@
 				</div>	
 			</div>	
 			<div>
-				<button onclick="validate_res()">Submit</button>
+				<button onclick="validate_res()" id="sub">Submit</button>
 			</div>
 			
 			
 		</div>
 	</div>
+	  <script>
+$(function() {
+    $( "#datee" ).datepicker({
+      showOn: "both", 
+      buttonText: "<i class='fa fa-calendar'></i>"
+    });
+  });
+  </script>
 
 </body>
 </html>
