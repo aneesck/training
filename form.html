@@ -14,12 +14,13 @@
 		<h2>A meeting Room Reservation Form</h2>
 		<p>Notice how the php code remains basically unchanged, despite the template</p>
 		<div class="inner">
+		<form>
 			<div class="boxes">
 				<div class="imp im">
 					Your Name:
 				</div>
 				<div class="in">
-					<input type="text" id="nam" class="box" onfocusout="validate_name()" required>
+					<input type="text" id="nam" class="box" required>
 				</div>
 			</div>
 			<div class="boxes">
@@ -28,7 +29,7 @@
                 </div>
                
                 <div class="in">
-					<input type="email" id="ema" class="box" onfocusout="validate_email()" required>
+					<input type="email" id="ema" class="box" required>
 				</div>
 				
 			</div>
@@ -49,7 +50,7 @@
 					Which room would you like to reserve:
 				</div>
 				<div class="in clr">	
-					<input type="radio" name="room" value="Room A">Room A<br>
+					<input type="radio" name="room" value="Room A" required>Room A<br>
 				
 					<input type="radio" name="room" value="Room B">Room B<br>
 				
@@ -89,6 +90,7 @@
 				</div>
 				<div>	
 					<select id="dr1" required>
+						<option value="">--</option>
   						<option>09</option>
   						<option>08</option>
   						<option>07</option>
@@ -96,6 +98,7 @@
                 </div>
                 <div>
 					<select id="dr2" required>
+						<option value="">--</option>
   						<option>00</option>
   						<option>01</option>
   						<option>02</option>
@@ -105,18 +108,12 @@
 			<div>
 				<button onclick="validate_res()" id="sub">Submit</button>
 			</div>
-			
+		</form>	
 			
 		</div>
 	</div>
 	  <script>
-$(function() {
-    $( "#datee" ).datepicker({
-      showOn: "button", 
-      buttonText: "<i class='fa fa-calendar'></i>",
-      dateFormat: 'yy-mm-dd'
-    });
-  });
+
   </script>
 
 </body>
