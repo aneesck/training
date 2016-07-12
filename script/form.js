@@ -4,10 +4,12 @@
       buttonText: "<i class='fa fa-calendar'></i>",
       dateFormat: 'yy-mm-dd'
     });
-  });
+ 
 
 
-function validate_res(){
+document.getElementById("sub").addEventListener("click" , validate); 
+
+ function validate(evt){
 
   var f = document.getElementsByTagName('form')[0];
   if(f.checkValidity()) {
@@ -62,6 +64,7 @@ function validate_res(){
     var day = d.getDate();
     if( (yr > a[0]) || ( yr <= a[0] && mon > a[1]) || ( yr <= a[0] && mon <= a[1] && day > a[2]) ){
       alert("Invalid Date");
+      evt.preventDefault();
       return false;
     }
    
@@ -74,4 +77,5 @@ function validate_res(){
  	  alert(txt);
  	  }	
 			
-	}		
+	}	
+ });
