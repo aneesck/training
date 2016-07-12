@@ -3,8 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/form.css">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
 	
 	<script type="text/javascript" src="script/form.js"></script>
 	<title>Form</title>
@@ -20,7 +19,8 @@
 					Your Name:
 				</div>
 				<div class="in">
-					<input type="text" id="nam" class="box" required>
+					<input type="text" id="nam" class="box">
+					<div id="name" class="error">Enter Name</div>
 				</div>
 			</div>
 			<div class="boxes">
@@ -29,7 +29,8 @@
                 </div>
                
                 <div class="in">
-					<input type="email" id="ema" class="box" required>
+					<input type="text" id="ema" class="box">
+					<div id="email" class="error">Enter Valid Address</div>
 				</div>
 				
 			</div>
@@ -38,24 +39,26 @@
 					Department:
 				</div>
 				<div>
-					<select class="drop1" id="sel" required>
+					<select class="drop1" id="sel">
   						<option value="">-select-</option>
   						<option value="opel">Opel</option>
   						<option value="audi">Audi</option>
 					</select>
+					<div id="selection" class="error">Select Department</div>
 				</div>
 			</div>
 			<div class="boxes">
 				<div class="imp im">
 					Which room would you like to reserve:
 				</div>
-				<div class="in clr">	
-					<input type="radio" name="room" value="Room A" required>Room A<br>
+				<div class="in clr" id="radbox">	
+					<input type="radio" name="room" value="Room A">Room A<br>
 				
 					<input type="radio" name="room" value="Room B">Room B<br>
 				
 					<input type="radio" name="room" value="Room C">Room C<br>
                 </div>
+                <div id="radio" class="error">Room not Selected</div>
 			</div>
 			<div class="boxes">
 				<div class="im">
@@ -74,7 +77,7 @@
 					Reservation date:
 				</div>
 				<div>
-					<input type="text" id="datee" class="box" required>
+					<input type="date" id="datee" class="box">
 				</div>	
 				
 				<div id="ic">
@@ -83,13 +86,15 @@
 				<div class="dat">
 					Date format is YYYY-MM-DD
 				</div>
+				<div id="date" class="error"><br>Invalid Date</div>
 			</div>
+
 			<div class="boxes">
 				<div class="imp im">
 					Reservation time:
 				</div>
 				<div>	
-					<select id="dr1" required>
+					<select id="dr1">
 						<option value="">--</option>
   						<option>09</option>
   						<option>08</option>
@@ -97,12 +102,13 @@
 					</select>
                 </div>
                 <div>
-					<select id="dr2" required>
+					<select id="dr2">
 						<option value="">--</option>
   						<option>00</option>
   						<option>01</option>
   						<option>02</option>
 					</select>
+					<div id="time" class="error">Time not Selected</div>
 				</div>	
 			</div>	
 			<div>
