@@ -1,7 +1,8 @@
-var n=1, email=1, select=1, date=1, time=1, rad = 1;
 
+ var n = 1, e = 1, select = 1, d = 1, t = 1, rad = 1;
 
 window.onload = function(){
+ 
 //Name Validation
     document.getElementById("nam").addEventListener("blur" , function(){
       var na = document.getElementById("nam");
@@ -24,11 +25,11 @@ window.onload = function(){
       var dotpos = a.lastIndexOf(".");
       if (atpos<1 || dotpos<atpos+2 || dotpos+2>=a.length) {
         document.getElementById("email").style.display = "block";
-        email = 1;
+        e = 1;
       }
       else{
         document.getElementById("email").style.display = "none";
-        email = 0;
+        e = 0;
       }
     });
 
@@ -51,17 +52,17 @@ window.onload = function(){
     var na = document.getElementById("datee");
     var a = na.value; 
     a = a.split("-");
-    var d = new Date();
-    var mon = d.getMonth()+1;
-    var yr = d.getFullYear();
-    var day = d.getDate();
+    var currDate = new Date();
+    var mon = currDate.getMonth()+1;
+    var yr = currDate.getFullYear();
+    var day = currDate.getDate();
     if( (yr > a[0]) || ( yr <= a[0] && mon > a[1]) || ( yr <= a[0] && mon <= a[1] && day > a[2]) ){
        document.getElementById("date").style.display = "block";
-       date = 1;
+       d = 1;
     }
     else{
      document.getElementById("date").style.display = "none";
-     date = 0;
+     d = 0;
     
     }
   });
@@ -70,16 +71,17 @@ window.onload = function(){
 //Time Validation
   document.getElementById("dr1").addEventListener("input" , validate_time);
   document.getElementById("dr2").addEventListener("input" , validate_time);
-  function validate_time(){ 
-    var dr1 = document.getElementById("dr1").value;
-    var dr2 = document.getElementById("dr2").value;
+  function validate_time(){  
+    var dr1 = "", dr2 = "";
+     dr1 = document.getElementById("dr1").value;
+     dr2 = document.getElementById("dr2").value;
     if (dr1 === "" || dr2 === "") {
       document.getElementById("time").style.display = "block";
-      time = 1;
+      t = 1;
     }
     else{
       document.getElementById("time").style.display = "none";
-      time = 0;
+      t = 0;
     
     }
   }
@@ -108,7 +110,7 @@ window.onload = function(){
 
   
   document.getElementById("sub").addEventListener("click" , function(evt){
-    if(n || email || select || date ||time || rad){
+    if(n || e || select || d ||t || rad){
       alert("form Incomplete");
       evt.preventDefault();
       return false;
@@ -131,15 +133,15 @@ window.onload = function(){
 
     //Resesrvation Validation
  	  var Radio = document.getElementsByName("room");
-    var rad = "";
+    radio = "";
  	  for(var i = 0; i < Radio.length; i++)
  	  {
       if(Radio[i].checked)
       {
-       rad = Radio[i].value;
+       radio = Radio[i].value;
       }
     }
-    txt = txt + "\nReservation:\t\t\t\t\t"+rad;
+    txt = txt + "\nReservation:\t\t\t\t\t"+radio;
 
     var ch = "";
     var Chec = document.getElementsByName("check");
