@@ -34,7 +34,7 @@ window.onload = function(){
     });
 
 //Selection
-    document.getElementById("sel").addEventListener("blur" , function(){ 
+    document.getElementById("sel").addEventListener("click" , function(){ 
       var na = document.getElementById("sel");
       var a = na.value; 
       if (a === "") {
@@ -69,9 +69,7 @@ window.onload = function(){
 
 
 //Time Validation
-  document.getElementById("dr1").addEventListener("input" , validate_time);
-  document.getElementById("dr2").addEventListener("input" , validate_time);
-  function validate_time(){  
+ function validate_time(evr){  
     var dr1 = "", dr2 = "";
      dr1 = document.getElementById("dr1").value;
      dr2 = document.getElementById("dr2").value;
@@ -85,6 +83,9 @@ window.onload = function(){
     
     }
   }
+  document.getElementById("dr1").addEventListener("click" , validate_time);
+  document.getElementById("dr2").addEventListener("click" , validate_time);
+ 
 
 
   document.getElementById("radbox").addEventListener("mouseout" , function(){
