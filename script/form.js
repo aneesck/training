@@ -1,15 +1,18 @@
+var n=1, email=1, select=1, date=1, time=1, rad = 1;
+
+
 window.onload = function(){
 //Name Validation
     document.getElementById("nam").addEventListener("blur" , function(){
       var na = document.getElementById("nam");
       var a = na.value;
-      name = 1; 
       if (a === "") {
         document.getElementById("name").style.display = "block";
-        name = 0;
+        n = 1;
       }
       else{
         document.getElementById("name").style.display = "none";
+        n = 0; 
       }
     });
 
@@ -17,29 +20,29 @@ window.onload = function(){
     document.getElementById("ema").addEventListener("blur" , function(){   
       var na = document.getElementById("ema");
       var a = na.value; 
-      email = 1;
       var atpos = a.indexOf("@");
       var dotpos = a.lastIndexOf(".");
       if (atpos<1 || dotpos<atpos+2 || dotpos+2>=a.length) {
         document.getElementById("email").style.display = "block";
-        email = 0;
+        email = 1;
       }
       else{
         document.getElementById("email").style.display = "none";
+        email = 0;
       }
     });
 
 //Selection
     document.getElementById("sel").addEventListener("blur" , function(){ 
       var na = document.getElementById("sel");
-      select = 1;
       var a = na.value; 
       if (a === "") {
         document.getElementById("selection").style.display = "block";
-        select = 0;
+        select = 1;
       }
       else{
         document.getElementById("selection").style.display = "none";
+         select = 0;
       }
     });
 
@@ -47,18 +50,18 @@ window.onload = function(){
   document.getElementById("datee").addEventListener("input" , function(){ 
     var na = document.getElementById("datee");
     var a = na.value; 
-    date = 1;
-    a = a.split("/");
+    a = a.split("-");
     var d = new Date();
     var mon = d.getMonth()+1;
     var yr = d.getFullYear();
     var day = d.getDate();
     if( (yr > a[0]) || ( yr <= a[0] && mon > a[1]) || ( yr <= a[0] && mon <= a[1] && day > a[2]) ){
        document.getElementById("date").style.display = "block";
-       date = 0;
+       date = 1;
     }
     else{
      document.getElementById("date").style.display = "none";
+     date = 0;
     
     }
   });
@@ -67,16 +70,16 @@ window.onload = function(){
 //Time Validation
   document.getElementById("dr1").addEventListener("input" , validate_time);
   document.getElementById("dr2").addEventListener("input" , validate_time);
-  time = 1;
   function validate_time(){ 
     var dr1 = document.getElementById("dr1").value;
     var dr2 = document.getElementById("dr2").value;
     if (dr1 === "" || dr2 === "") {
       document.getElementById("time").style.display = "block";
-      time = 0;
+      time = 1;
     }
     else{
       document.getElementById("time").style.display = "none";
+      time = 0;
     
     }
   }
@@ -85,7 +88,6 @@ window.onload = function(){
   document.getElementById("radbox").addEventListener("mouseout" , function(){
     var Radio = document.getElementsByName("room");
     var a = "";
-    rad = 1;
      for(var i = 0; i < Radio.length; i++)
      {
         if(Radio[i].checked)
@@ -95,22 +97,23 @@ window.onload = function(){
       }
       if(a === ""){
         document.getElementById("radio").style.display = "block";
-        rad = 0;
+        rad = 1;
        }
       else{
         document.getElementById("radio").style.display = "none";
-        
+        rad = 0;
       }
     });
 
 
   
   document.getElementById("sub").addEventListener("click" , function(evt){
-    if(name && email && select && date && time && rad){
+    if(n || email || select || date ||time || rad){
       alert("form Incomplete");
       evt.preventDefault();
+      return false;
     }
-    
+   
 
     //name validation ----------
 
@@ -161,6 +164,7 @@ window.onload = function(){
     txt = txt + ":" + document.getElementById("dr2").value;
   
  	  alert(txt);
+  
  	  }	);
 			
 	
