@@ -1,0 +1,79 @@
+.form1{
+	background-image: url("http://localhost/training/images/housebg.jpg");
+	min-height: 450px;
+	background-color: #34495e;
+	background-position: center;
+	background-size: cover;
+	
+}
+header{
+	
+	padding:0px 12px;
+}
+.header_left{
+	float: left;
+	display: absolute;
+}
+.header_right{
+	float:right;
+}
+#first{
+	height: 44px;
+    background-image: url("http://localhost/training/images/housicon.gif");
+    background-size: contain;
+    background-repeat: no-repeat;  
+    background-position: center;
+    padding: 0px;
+    width: 140px;
+    float:left;
+}
+#second{
+	padding: 1px 10px;
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 17px;
+}
+
+.header_links{
+	color: white;
+	position: relative;
+	top: 3px;
+	padding-left: 38px;
+	font-family: 'Gotham';
+	font-size: 12px;
+	font-weight: 700;
+}
+.mob-gif{
+	background-repeat: no-repeat;
+    background-size: contain;
+    height: 36px;
+    width: 18px;
+    padding-bottom: 8px;
+}
+#lab{
+	
+	font-size: 48px;
+	color: #fff;
+	letter-spacing: -2px;
+	font-weight: 400;
+	font-family: 'Gotham';
+	vertical-align: middle;
+	font-size: 48px;
+}
+.bottom2{
+	background-color: #1F1F1F;
+	height: 95px;
+}
+.bottom1{
+	background-color: #191919;
+	height: 250px;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.eot");
+  src: url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.eot?#iefix") format("embedded-opentype"),
+  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff2") format("woff2"),
+  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff") format("woff"),
+  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.ttf") format("truetype"),
+  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.svg#Gotham") format("svg");
+}
