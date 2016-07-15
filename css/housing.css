@@ -1,14 +1,94 @@
+#pop{
+	display: none;
+}
+.city{
+	height: 250px;
+    padding: 6px 15px;
+    z-index: 3000;
+    color: #000;
+    white-space: nowrap;
+    background-color: #f4f4f4;
+    position: relative;
+    width: 102.5%;
+    font-family: 'Gotham';
+}
+.select_city{
+	font-size: 22px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Gotham';
+}
+.city_text{
+	text-align: center;
+	position: relative;
+	top: 45px;
+}
+.city_text input{
+    line-height: 40px;
+    border: 1px solid #E6E6E6;
+    border-radius: 2px;
+    padding: 10px;
+ 	background-color: #fff;
+    font-size: 12px;
+    color: #333;
+    height: 42px;
+    width: 635px;
+}
+.country_list{
+	position: relative;
+	top: 80px;
+}
+.country_list a{
+	color: black; 
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 100px;
+    border: 1px solid #f4f4f4;    	
+}
+.country_list a:hover{
+	text-decoration: none; 
+	color: black;
+	border: 1px solid #7323dc
+}
+.country_list img{
+	vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: cover;
+    margin-right: 5px;
+}
+.country_list li{
+	list-style: none;
+	display: inline-block;
+	padding: 5px;
+}
+.country_list ul{
+	text-align: center;	
+}
 .form1{
 	background-image: url("http://localhost/training/images/housebg.jpg");
 	min-height: 450px;
 	background-color: #34495e;
 	background-position: center;
 	background-size: cover;
-	
+	display: block;
 }
-header{
-	
+header{	
 	padding:0px 12px;
+	top: 0;
+    height: 65px;
+    width: 100%;
+    z-index: 1;
+    background-image: -webkit-linear-gradient(top,rgba(0,0,0,.6) 0,rgba(0,0,0,0) 100%);
+}
+header a:hover{
+	text-decoration: none;
+	color: white;
 }
 .header_left{
 	float: left;
@@ -19,8 +99,7 @@ header{
 }
 #first{
 	height: 44px;
-    background-image: url("http://localhost/training/images/housicon.gif");
-    background-size: contain;
+    background-image: url(https://assets-0.housingcdn.com/website/images/brand/logo-5d8f135d98794b428313ad3276909221.png);    background-size: contain;
     background-repeat: no-repeat;  
     background-position: center;
     padding: 0px;
@@ -33,7 +112,14 @@ header{
     border-color: transparent;
     margin-left: 17px;
 }
-
+#second i{
+	position: relative;
+    top: 5px;
+}
+#fifth i{
+	position: absolute;
+    margin-left: -17px;
+}
 .header_links{
 	color: white;
 	position: relative;
@@ -51,18 +137,22 @@ header{
     padding-bottom: 8px;
 }
 #lab{
-	
-	font-size: 48px;
-	color: #fff;
-	letter-spacing: -2px;
-	font-weight: 400;
-	font-family: 'Gotham';
-	vertical-align: middle;
-	font-size: 48px;
+    color: #fff;
+    letter-spacing: -1px;
+    font-weight: 500;
+    font-family: 'Gotham';
+    vertical-align: middle;
+    font-size: 49px;
+    text-align: center;
+    top: 120px;
+    position: absolute;
+    width: 100%;
 }
 .bottom2{
-	background-color: #1F1F1F;
-	height: 95px;
+	    text-align: center;
+    background: #1F1F1F;
+    border-top: 1px solid #252525;
+    padding: 30px 10px;
 }
 .bottom1{
 	background-color: #191919;
@@ -76,4 +166,162 @@ header{
   url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff") format("woff"),
   url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.ttf") format("truetype"),
   url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.svg#Gotham") format("svg");
+  font-weight: 500;
+}
+.search{
+	text-align: center;
+	position: relative;
+	top: 135px;
+	width: 100%;
+}
+#search_button{
+	margin-left: -3px;
+	width: 130px;
+    height: 50px;
+    line-height: 48px;
+    border: 1px solid #7323dc; 
+    background: #7323dc; 
+    color: #fff; 
+}
+#search_box{
+	padding: 5px 15px;
+    width: 600px;
+    height: 50px;
+    border: none;
+    border-radius: 2px 0 0 2px;
+    font-size: 12px;
+    font-family: 'Gotham';
+}
+.link{
+	background-image: url(https://assets-0.housingcdn.com/website/images/footer_logos-4b5dd9b9f6ebc72fef40b63253f096fb.png);
+    height: 28px;
+    margin: 0 30px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .4;
+    width: 100%;
+}
+#first_link{
+	    width: 136px;
+    background-position: 36% 0;
+}
+#second_link{
+	    width: 57px;
+    background-position: 69% 0;
+}
+#third_link{
+	    width: 94px;
+    background-position: 100% 0;
+}
+.hs_icon{
+	height: 24px;
+    background-image: url(https://assets-0.housingcdn.com/website/images/brand/logo-5d8f135d98794b428313ad3276909221.png);
+    width: 184px;
+    display: inline-block;
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    margin-bottom: 4px;
+}
+#desc{
+	color: #7f7f7f;
+    font-size: 11px;
+    line-height: 22px;
+}
+.footer_icon{
+	font-family: 'Gotham';
+    width: 30%;
+    padding: 0 20px 0 60px;
+    box-sizing: border-box;
+    position: relative;
+    top: 104px;
+}
+.group_links{
+	font-family: 'Gotham';
+	font-size: 12px;
+    width: 70%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: inline-flex;
+    position: relative;
+    left: 300px;
+}
+.heading{
+    display: inline-block;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 11px;
+    opacity: 1;
+    color: white;
+    font-weight: 500;
+}
+.head1{
+	position: relative;
+    left: 104px;
+}
+.head2{
+	position: relative;
+    left: 230px;
+}
+.head3{
+	position: relative;
+    left: 310px;
+}
+.company{
+	display: inline-flex;
+}
+.follow{
+	display: inline-flex;
+}
+.group_links a{
+	line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #7f7f7f;
+    font-size: 12px;
+}
+.group_links a:hover{
+	color: #cdcdcd; 
+    text-decoration: none; 
+}
+.group_links li{
+	list-style: none;
+}
+.links1{
+	position: absolute;
+    top: 39px;
+    left: 62px;
+}
+.links2{
+	position: relative;
+    top: 39px;
+    left: 122px;
+}
+.links3{
+	position: relative;
+    top: 39px;
+    left: 190px;
+}
+.links4{
+	position: relative;
+    top: 39px;
+    left: 212px;
+}
+.links5{
+	position: relative;
+    top: 39px;
+    left: 272px;
+}
+@keyframes animf {
+    0% {transform: translateY(0%);}
+    50% {}
+    75% {}
+    100%{transform: translateY(100%);}
+}
+@keyframes animr {
+    0% {transform: translateY(100%);}
+    50% {}
+    75% {}
+    100%{transform: translateY(0%);}
 }

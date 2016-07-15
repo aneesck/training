@@ -8,9 +8,47 @@
 	<link rel="stylesheet" type="text/css" href="css/housing.css">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type="text/javascript" src="script/housing.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" id="sam">
+		<div class="row city" id="pop">
+			<div class="select_city">
+				SELECT YOUR CITY
+			</div>
+			<div class="city_text">
+				<input type="text" name=""  placeholder="Type Your City">
+			</div>
+			<div class="country_list">
+				<ul>
+					<li>
+						<a href="#"><img src="https://is1-3.housingcdn.com/6da31eea/dd3ef40ba6bc6ca43e6354327f0f9723/v0/original.png" class="img-circle">Mumbai</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-3.housingcdn.com/6da31eea/9bfbf91bf7bc290446f5829b60cace01/v0/original.png" class="img-circle">Hyderabad</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-2.housingcdn.com/6da31eea/155867a9470eda63ff8c1538694fdcb6/v0/original.png" class="img-circle">Pune</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-3.housingcdn.com/6da31eea/7d277686c54a5bfda68cfcd91e831330/v0/original.png" class="img-circle">Bengaluru</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-3.housingcdn.com/6da31eea/13fcb03fe1e0a96642c00843cfa8f541/v0/original.png" class="img-circle">Delhi NCR</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-3.housingcdn.com/6da31eea/c7d48ff0b8e861fb89ef8cec12d87fcc/v0/original.png" class="img-circle">Chennai</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-2.housingcdn.com/6da31eea/6bd76d02621ec4ddc7ab8dacbfa572ee/v0/original.png" class="img-circle">Kolkata</a>
+					</li>
+					<li>
+						<a href="#"><img src="https://is1-3.housingcdn.com/6da31eea/dfb503059ea777f118a72df0d77d19ac/v0/original.png" class="img-circle">Ahmedabad</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
 		<div class="row form1">
 			<header>
 				<div class="header_left">
@@ -20,7 +58,7 @@
 				<div class="header_right">
 				   <a href="#" id="third" class="header_links"><img src="images/mob.gif" class="mob-gif">DOWNLOAD APP</a>
 					<a href="#" id="fourth" class="header_links">NEWS</a>
-					<a href="#" id="fifth" class="header_links"><i class="fa fa-dot-circle-o fa-2x"></i></a>
+					<a href="#" id="fifth" class="header_links"><i class="fa fa-dot-circle-o fa-3x"></i></a>
 					<a href="#" id="sixth" class="header_links">LOGIN</a>
 					<a href="#" id="seventh" class="header_links">MENU <i class="fa fa-bars fa-lg"></i></a>
 				</div>
@@ -30,18 +68,90 @@
 			<div id="lab">
 				Trusted Place to Find a Home
 			</div>
-			<div>
-				<input type="text" name="">
-			</div>
-			<button>
-				<i class="fa fa-search"></i>
-			</button>
+			<div class="search">
+				<input type="text" id="search_box" placeholder="Enter locality, landmark, project or developer" name="">
+				<button id="search_button">
+					<i class="fa fa-search"></i> Search
+				</button>
+			</div>	
 		</div>
 		<div class="bottom2 row">
-			
+			<a href="#" class="link" id="first_link"></a>
+			<a href="#" class="link" id="second_link"></a>
+			<a href="#" class="link" id="third_link"></a>
 		</div>
 		<div class="bottom1 row">
-			<footer></footer>
+			<footer>
+				<div class="footer_icon">
+					<div class="hs_icon"></div>
+					<div id="desc">
+						© 2012-16 Locon Solutions Pvt. Ltd.
+					</div>
+				</div>
+				<div class="group_links">
+					<div class="company">
+						<div class="heading head1">
+							COMPANY
+						</div>
+						<div class="links1">
+							<ul>
+								<li>
+									<a href="#">Careers</a>
+								</li>
+								<li>
+									<a href="#">About Us</a>
+								</li>
+								<li>
+									<a href="#">Testimonial</a>
+								</li>
+								<li>
+									<a href="#">Media Kit</a>
+								</li>
+							</ul>
+						</div>
+						<div class="links2">
+							<ul>
+								<li><a href="#">Terms</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Feedback</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="explore">
+						<div class="heading head2">
+							EXPLORE
+						</div>
+						<div class="links3">
+							<ul>
+								<li><a href="#">News</a></li>
+								<li><a href="#">Data Science</a></li>
+								<li><a href="#">Site Map</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="follow">
+						<div class="heading head3">
+							FOLLOW
+						</div>
+						<div class="links4">
+							<ul>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Linkedln</a></li>
+								<li><a href="#">Google+</a></li>
+							</ul>
+						</div>
+						<div class="links5">
+							<ul>
+								<li><a href="#">Instagram</a></li>
+								<li><a href="#">Pinterest</a></li>
+								<li><a href="#">Youtube</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</div>
 </body>
