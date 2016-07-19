@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+	<script type="text/javascript" src="script/FileSaver.js"></script>
+	<script type="text/javascript" src="script/canvas.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/canvas.css">
+</head>
+<body>
+	<div id="outline">
+		<canvas id="can"></canvas>
+		<div class="colours">
+			<div class="box" id="green" onclick="color('green')"></div>
+			<div class="box" id="black" onclick="color('black')"></div>
+			<div class="box" id="yellow" onclick="color('yellow')"></div>
+			<div class="box" id="red" onclick="color('red')"></div>
+			<div class="box" id="blue" onclick="color('blue')"></div>
+			<div class="box" id="grey" onclick="color('grey')"></div>
+			<div class="eraser" onclick="erase()"></div>
+			<button id="but" onclick="clr()">Clear</button>
+			<button id="save" download="image.png">Save</button>
+			<div id="img"></div>
+
+		</div>	
+	</div>	
+</body>
+</html>

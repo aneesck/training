@@ -1,0 +1,87 @@
+body{
+	margin: 0px;
+}
+#can{
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+	margin: 0px;
+	margin-left: 250px;
+	cursor: cell;
+}
+.colours{
+	display: inline-block;
+	border: 1px solid black;
+	top: -200px;
+    height: 180px;
+    width: 50px;
+    position: relative;
+}
+.box{
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+}
+#green{
+	background-color: green;
+	top: 70px;
+	left: 2px;
+}
+#black{
+	background-color: black;
+	top: 70px;
+}
+#grey{
+	background-color: grey;
+	top: -50px;
+	
+}
+#yellow{
+	background-color: yellow;
+	top: 10px;
+	left: 2px;
+}
+#blue{
+	background-color: blue;
+	top: -50px;
+	left: 2px;
+}
+#red{
+	background-color: red;
+	top: 10px;
+}
+.eraser{
+	border: 1px solid black;
+	width: 40px;
+	height: 20px;
+	position: relative;
+    top: 60px;
+    left: 4px;
+}
+#but{
+	width: 50px;
+	height: 35px;
+	position: relative;
+	top: 100px;
+}
+#save{
+	position: relative;
+	top: 120px;
+	height: 35px;
+	width: 50px;
+}
+#img{
+	border: 1px solid red;
+	position: fixed;
+	left: 800px;
+	top: 0px;
+    width: 400px;
+    height: 400px;
+    display: block;
+}
+a{
+	position: relative;
+    top: 130px;
+}
