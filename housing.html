@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript" src="script/housing.js"></script>
 </head>
-<body>
+<body id="bod">
 	<div class="container-fluid" id="sam">
 		<div class="row city" id="pop">
 			<div class="select_city">
@@ -75,6 +75,49 @@
 					<i class="fa fa-search"></i> Search
 				</button>
 			</div>	
+		</div>
+		<div class="search_pop" id="to_pop">
+			<div id="pop_click">
+				<div id="close"><i class="fa fa-times fa-lg"></i></div>
+				<div id="top">
+					<div id="comp1">You are in</div>
+					<button id="select">Pune <i id="primary" class="fa fa-angle-down fa-lg"></i></button>
+					<input type="text" name="" placeholder="Enter Locality, Landmark, Developer or Project">
+					<button id="search">Search</button>
+				</div>
+				<div id="bottom">
+					<div id="popular_localities">
+						<div class="head">
+							popular localities
+						</div>
+						<ul>
+							<li>Bavdhan</li>
+							<li>Wakad</li>
+							<li>Kothrud</li>
+						</ul>
+					</div>
+					<div id="top_developers">
+						<div class="head">
+							top developers
+						</div>
+						<ul>
+							<li>VTP Group</li>
+							<li>Yogesh Enterprises</li>
+							<li>puravankara Projects Limited</li>
+						</ul>
+					</div>
+					<div id="featured_projects">
+						<div class="head">
+							featured projects
+						</div>
+						<ul>
+							<li>Shiv Zen World</li>
+							<li>Park Ivory</li>						
+						</ul>
+					</div>
+					<div id="box"></div>
+				</div>	
+			</div>
 		</div>
 		<div class="bottom2 row">
 			<a href="#" class="link" id="first_link"></a>

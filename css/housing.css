@@ -1,5 +1,6 @@
 body{
-	overflow-x: hidden;
+	font-family: 'Gotham';
+   
 }
 #pop{
 	display: none;
@@ -156,8 +157,135 @@ header a:hover{
     position: relative;
     width: 100%;
 }
+.search_pop{
+    letter-spacing: .5px;
+    min-height: 102%;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    position: fixed;
+    background-color: white;
+    margin-left: -15px;
+    z-index: 3000;
+    padding-top: 50px;
+    display: none;
+    
+}
+.search_pop #close{
+        float: right;
+    position: relative;
+    top: -44px;
+    right: 10px;
+}
+.search_pop #comp1{
+    position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    left: 10px;
+    letter-spacing: 1px;
+
+}
+.search_pop #select{
+    position: relative;
+    background-color: transparent;
+    font-size: 12px;
+    margin-left: 5px;
+    border: 1px solid #E6E6E6;
+    border-radius: 20px;  
+    padding: 6px 10px; 
+    top: -40px;
+    left: 75px; 
+}
+.search_pop input{
+    position: relative;
+    width: 780px;
+
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 8px;
+    background: transparent;
+    left: -72px;
+    top: 40px;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: black;
+    border-style: none none solid none;
+}
+.search_pop input::-webkit-input-placeholder {
+    color: #e6e6e6 !important;
+    font-weight: 500;
+}
+.search_pop #search{
+    position: relative;
+    height: 50px;
+    width: 210px;
+    font-size: 14px;
+    border: none;
+    top: -20px;
+    left: 790px;
+    background-color: #E6E6E6;
+    border-radius: 2px;
+    color: #999;
+    letter-spacing: 1px;
+}
+.head{
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.head::after{
+    content: '';
+    border-top: 1px solid #E6E6E6;
+    width: 200px;
+    margin-left: 20px;
+    
+    display: block;
+    position: relative;
+    margin-left: 185px;
+    margin-top: -10px;
+}
+
+.search_pop ul{
+    list-style: none;
+    color: #7f7f7f;
+    padding-left: 12px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+.search_pop li{
+    padding: 5px;
+}
+.search_pop #box{
+    height: 360px;
+    padding: 20px;
+    border: 1px solid #E6E6E6;
+    margin-left: 22px;
+    
+    position: relative;
+    top: -370px;
+    left: 402px;
+    width: 575px;
+}
+.search_pop #top{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.search_pop #bottom{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    overflow: scroll;
+    height: 800px;
+}
 .bottom2{
-	    text-align: center;
+	text-align: center;
     background: #1F1F1F;
     border-top: 1px solid #252525;
     padding: 30px 10px;
@@ -167,14 +295,14 @@ header a:hover{
 	height: 250px;
 }
 @font-face {
-  font-family: 'Gotham';
-  src: url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.eot");
-  src: url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.eot?#iefix") format("embedded-opentype"),
-  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff2") format("woff2"),
-  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff") format("woff"),
-  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.ttf") format("truetype"),
-  url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.svg#Gotham") format("svg");
-  font-weight: 500;
+    font-family: 'Gotham';
+    src: url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.eot");
+    src: url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.eot?#iefix") format("embedded-opentype"),
+        url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff2") format("woff2"),
+        url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.woff") format("woff"),
+        url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.ttf") format("truetype"),
+        url("http://db.onlinewebfonts.com/t/d547aef890f72e341f3398e358ef6610.svg#Gotham") format("svg");
+    font-weight: 500;
 }
 .search{
 	text-align: center;
@@ -332,4 +460,9 @@ header a:hover{
     0% {transform: translateY(0px);}
     
     100%{transform: translateY(-250px);}
+}
+@keyframes popup{
+     0% {opacity: .25;transform: translateY(25%);}
+    50%{opacity: .5;}
+    100%{opacity: 1;transform: translateY(0px);}
 }

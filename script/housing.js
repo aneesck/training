@@ -16,6 +16,23 @@ window.onload = function(){
 			
 		}
 
-		//setTimeout(function(){ loc.style.display = 'none'; }, 400);
+	});	
+
+	document.getElementById('search_box').addEventListener("click", function(){
+		document.getElementById('bod').style.overflow = 'hidden';
+		document.getElementById('to_pop').style.display = 'block';
+		document.getElementById('pop_click').style.animation = 'popup 1s';
+		
 	});
+
+	document.getElementById('close').addEventListener("click", function(){
+		document.getElementById('bod').style.overflow = 'visible';
+		document.getElementById('to_pop').style.display = 'none';
+	});
+
+
+
+
+
+	
 }
