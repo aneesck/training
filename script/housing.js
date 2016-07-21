@@ -1,38 +1,41 @@
 window.onload = function(){
-	document.getElementById('second').addEventListener("click", function(){
-		var loc = document.getElementById('pop');
-		if(loc.style.display === 'block'){
-			document.getElementById('primary').style.display = 'inline';
-			document.getElementById('secondary').style.display = 'none';
-			document.getElementById('sam').style.animation = 'animr .25s';
+	var body = document.getElementById('bod');
+	var header_button = document.getElementById('second');
+	var loc = document.getElementById('pop');
+	var login_button = document.getElementById('sixth');
+	var search_box = document.getElementById('search_box');
+	var background = document.getElementById('bg');
+	var close = document.getElementById('close');
 
-			setTimeout(function(){ loc.style.display = 'none'; }, 250);
+
+	header_button.addEventListener("click", function(){
+		if(loc.style.display === 'block'){
+			body.classList.add('button_inactive');
+			body.classList.remove('button_active');
+			setTimeout(function(){ loc.style.display = 'none'; }, 250);	
 		}
 		else{
 			loc.style.display = 'block';
-			document.getElementById('primary').style.display = 'none';
-			document.getElementById('secondary').style.display = 'inline';
-			document.getElementById('sam').style.animation = 'animf .25s';
-			
+			body.classList.remove('button_inactive');
+			body.classList.add('button_active');	
 		}
-
 	});	
 
-	document.getElementById('search_box').addEventListener("click", function(){
-		document.getElementById('bod').style.overflow = 'hidden';
-		document.getElementById('to_pop').style.display = 'block';
-		document.getElementById('pop_click').style.animation = 'popup 1s';
-		
+	search_box.addEventListener("click", function(){
+		body.classList.add('search_active');
 	});
 
-	document.getElementById('close').addEventListener("click", function(){
-		document.getElementById('bod').style.overflow = 'visible';
-		document.getElementById('to_pop').style.display = 'none';
+	close.addEventListener("click", function(){
+		body.classList.remove('search_active');
 	});
 
+	login_button.addEventListener("click", function(){
+		body.classList.add('login_active');
+	});
 
-
-
-
-	
+	background.addEventListener("click", function(){
+		body.classList.remove('search_active','login_active','button_active');
+		body.classList.add('button_inactive','close_active');
+		setTimeout(function(){ loc.style.display = 'none'; }, 250);	
+	});	
 }

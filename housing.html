@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript" src="script/housing.js"></script>
 </head>
-<body id="bod">
+<body id="bod" class="button_inactive">
 	<div class="container-fluid" id="sam">
 		<div class="row city" id="pop">
 			<div class="select_city">
@@ -76,8 +76,29 @@
 				</button>
 			</div>	
 		</div>
+		<div id="bg">
+		</div>
+		<div class="login_popup" id="loginpop">
+			<div id="left">
+				<div id="why">
+					Why sign up?<hr>
+					<ul>
+						<li>Save time filling forms</li>
+						<li>Access your recent searches</li>
+						<li>Track shortlisted, message properties</li>
+					</ul>
+				</div>
+			</div>
+			<div id="right">
+				<button id="g"><i class="fa fa-google-plus"></i> Continue with Google+</button>
+				<button id="fb"><i class="fa fa-facebook"></i> Continue with facebook</button>
+				<div id="or">Or use your email address</div>
+				<button id="lg">Login</button>
+				<button id="si">Sign Up</button>
+			</div>
+		</div>
 		<div class="search_pop" id="to_pop">
-			<div id="pop_click">
+			<div id="pop_click" class="popclick">
 				<div id="close"><i class="fa fa-times fa-lg"></i></div>
 				<div id="top">
 					<div id="comp1">You are in</div>

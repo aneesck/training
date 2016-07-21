@@ -1,7 +1,47 @@
 body{
 	font-family: 'Gotham';
-   
 }
+.button_active{
+    overflow: hidden;
+}
+.button_active #primary{
+    display: none;
+}
+.button_active #secondary{
+    display: inline;
+}
+.button_active #sam{
+    animation : animf .25s;
+}
+.button_active #bg{
+    display: block;
+}
+.button_active #second{
+    z-index: 3500;
+}
+.button_inactive #sam{
+    animation: animr .25s;
+}   
+.search_active{
+    overflow: hidden;
+} 
+.search_active .search_pop{
+    display: block;
+}
+.search_active .popclick{
+    animation: search_popup .5s;
+}
+.login_active{
+    overflow: hidden;
+}
+.login_active #bg{
+    display: block; 
+}
+.login_active #loginpop{
+    display: block;
+    animation: login_popup .5s;
+}
+
 #pop{
 	display: none;
 	padding: 0px;
@@ -83,6 +123,7 @@ body{
 	background-size: cover;
 	display: block;
 }
+
 header{	
 	padding:0px 12px;
 	top: 0;
@@ -94,6 +135,10 @@ header{
 header a:hover{
 	text-decoration: none;
 	color: white;
+}
+header a:focus{
+    text-decoration: none;
+    color: white;
 }
 .header_left{
 	float: left;
@@ -156,6 +201,108 @@ header a:hover{
     top: 55px;
     position: relative;
     width: 100%;
+}
+#bg{
+    min-width: 5000px;
+    min-height: 5000px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    background-color: black;
+    opacity: .7;
+    display: none;
+}
+.login_popup{
+    height: 520px;
+    background-color: white;
+    overflow: hidden;
+    width: 640px;
+    position: absolute;
+    top: 55px;
+    left: 300px;
+    opacity: 1;
+    z-index: 3000;
+    display: none;
+}
+.login_popup #left{
+    width: 280px;
+    height: 100%;
+    background: url(https://assets-0.housingcdn.com/website/images/login/login_background-32f5b07735cbc8a1d1fb5afce1cfb1d5.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.login_popup #why{
+    color: white;
+    font-family: 'Gotham';
+    padding: 25px;
+    position: relative;
+    top: 270px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.login_popup ul{
+    font-size: 12px;
+    letter-spacing: 0px;
+    margin-left: -25px;
+}
+.login_popup hr{
+    margin-top: 8px;
+    border-top: 1px solid grey;
+}
+.login_popup li{
+    padding-bottom: 5px;
+}
+.login_popup #right{
+    position: relative;
+    top: -520px;
+    left: 280px;
+    width: 360px;
+    height: 100%;
+    padding-left: 30px;
+    padding-top: 110px;
+}
+.login_popup button{
+    position: relative;
+    margin: 10px 0;
+    font-size: 14px;
+    height: 42px;
+    width: 300px;
+    font-family: 'Gotham';
+    letter-spacing: 1px;
+    border-radius: 2px;
+    margin-bottom: 3px;
+}
+.login_popup #g{
+    background: #dd4b39;
+    border-width: 0px 0px 0px 0px;
+    color: white;
+}
+.login_popup #fb{
+    background: #3b5998;
+    border-width: 0px 0px 0px 0px;
+    color: white;
+}
+.login_popup #or{
+    color: #999;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+    letter-spacing: 1px;
+}
+.login_popup #lg{
+    border: 1px solid #7323dc;
+    background: #7323dc;
+    color: white;
+}
+.login_popup #si{
+    border-color: #7323dc;
+    background: 0 0;
+    color: #7323dc;
+    }
+.login_popup #si:hover{
+    background-color: #7323dc;
+    color: white;
 }
 .search_pop{
     letter-spacing: .5px;
@@ -259,17 +406,20 @@ header a:hover{
     padding-bottom: 10px;
 }
 .search_pop li{
-    padding: 5px;
+    padding: 8px 5px;
+    width: 375px;
+}
+.search_pop li:hover{
+    background-color: #7323dc;
+
 }
 .search_pop #box{
     height: 360px;
     padding: 20px;
     border: 1px solid #E6E6E6;
-    margin-left: 22px;
-    
     position: relative;
-    top: -370px;
-    left: 402px;
+    top: -418px;
+    left: 427px;
     width: 575px;
 }
 .search_pop #top{
@@ -461,8 +611,13 @@ header a:hover{
     
     100%{transform: translateY(-250px);}
 }
-@keyframes popup{
+@keyframes search_popup{
      0% {opacity: .25;transform: translateY(25%);}
     50%{opacity: .5;}
     100%{opacity: 1;transform: translateY(0px);}
+}
+@keyframes login_popup{
+     0% {opacity: .25; transform: scale(.25);}
+    
+    100%{opacity: 1; transform: scale(1);}
 }
