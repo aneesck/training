@@ -41,7 +41,22 @@ body{
     display: block;
     animation: login_popup .5s;
 }
-
+.log .email_login{
+    display: block;
+    font-family: 'Gotham';
+}
+.sin .sign_email{
+    display: block;
+    font-family: 'Gotham';
+}
+.log .login_popup #right{
+    display: none;
+    font-family: 'Gotham';
+}
+.sin .login_popup #right{
+    display: none;
+    font-family: 'Gotham';
+}
 #pop{
 	display: none;
 	padding: 0px;
@@ -303,6 +318,147 @@ header a:focus{
 .login_popup #si:hover{
     background-color: #7323dc;
     color: white;
+}
+.email_login{
+    background-color: white;
+    position: relative;
+    font-family: 'Gotham';
+    top: -520px;
+    left: 280px;
+    width: 360px;
+    height: 100%;
+    padding: 20px 30px;
+    display: none;
+
+}
+.email_login input{
+    width: 100%;
+    height: 100%;
+    background: 0 0;
+    border: 1px solid #e5e5e5;
+    outline: 0;
+    padding: 20px 20px;
+    font-size: 12px;
+
+}
+.email_login #label1{
+    position: relative;
+    top: -20px;
+    left: 40px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+.email_login #label2{
+    font-size: 13px;
+    float: right;
+    color: #7323dc;
+} 
+.email_login #footer{
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    left: 60px;
+}   
+.email_login a{
+    font-size: 12px;
+    color: #7323dc;
+    text-decoration: none;
+    position: relative;
+    top: -29px;
+    left: 165px;
+}
+.email_login hr{
+    border-top: 1px solid #dcdcdc;
+    margin-top: 250px;
+}
+.email_login button{
+    width: 100%;
+    height: 100%;
+    background-color: #7323dc;
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border: 1px;
+    border-radius: 2px;
+    margin-top: 0px;
+}
+.sign_email{
+    background-color: white;
+    position: relative;
+    font-family: 'Gotham';
+    top: -520px;
+    left: 280px;
+    width: 360px;
+    height: 100%;
+    padding: 20px 30px;
+    display: none;
+}
+.sign_email #label1{
+    position: relative;
+    top: -20px;
+    left: 40px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+.sign_email #label2{
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 22px;
+    color: #7f7f7f;
+    padding: 5px 10px;
+
+}
+.sign_email input{
+    width: 100%;
+    height: 100%;
+    background: 0 0;
+    border: 1px solid #e5e5e5;
+    outline: 0;
+    padding: 20px 20px;
+    font-size: 12px;
+
+}
+.sign_email button{
+    width: 100%;
+    height: 100%;
+    background-color: #7323dc;
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border: 1px;
+    border-radius: 2px;
+}
+.sign_email hr{
+    border-top: 1px solid #dcdcdc;
+    margin-top: 130px;
+}
+.sign_email #footer{
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    left: 22px;
+}
+.sign_email a{
+    font-size: 12px;
+    color: #7323dc;
+    text-decoration: none;
+   
+
+}
+.sign_email a:hover{
+    text-decoration: none;
+}
+.sign_email a:focus{
+    text-decoration: none;
+}
+.sign_email #last{
+    position: relative;
+        top: -29px;
+    left: 225px;
 }
 .search_pop{
     letter-spacing: .5px;

@@ -38,4 +38,17 @@ window.onload = function(){
 		body.classList.add('button_inactive','close_active');
 		setTimeout(function(){ loc.style.display = 'none'; }, 250);	
 	});	
+
+	document.getElementById('lg').addEventListener("click", function(){
+		body.classList.add('log');
+	});
+
+	document.getElementById('si').addEventListener("click", function(){
+		body.classList.add('sin');
+		
+	});
+	document.getElementById('Loginback').addEventListener("click", function(){
+		body.classList.remove('log','sin');
+		
+	});
 }
