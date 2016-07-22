@@ -1,3 +1,4 @@
+
 body{
 	font-family: 'Gotham';
 }
@@ -41,11 +42,29 @@ body{
     display: block;
     animation: login_popup .5s;
 }
+.anim_lin{
+    animation: login_slideinleft .5s;
+}
+.anim_lout{
+    animation: login_slideoutleft .5s;
+}
+.anim_rin{
+    animation: login_slideinright .5s;
+}
+.anim_rout{
+    animation: login_slideoutright .5s;
+}
 .log .email_login{
     display: block;
     font-family: 'Gotham';
+
 }
 .sin .sign_email{
+    display: block;
+    font-family: 'Gotham';
+
+}
+.reset .reset_email{
     display: block;
     font-family: 'Gotham';
 }
@@ -54,6 +73,10 @@ body{
     font-family: 'Gotham';
 }
 .sin .login_popup #right{
+    display: none;
+    font-family: 'Gotham';
+}
+.reset .login_popup #right{
     display: none;
     font-family: 'Gotham';
 }
@@ -240,12 +263,40 @@ header a:focus{
     z-index: 3000;
     display: none;
 }
+.login_popup input::-webkit-input-placeholder{
+    font-size: 12px;
+    color: grey;
+}
+.login_popup input:focus{
+    border: 1px solid #7323dc;
+    font-size: 12px;
+    color: black;
+}
+.login_popup input:focus::-webkit-input-placeholder{
+    color: #7323dc;
+    font-size: 11px; 
+    opacity: 1;
+    position: relative;
+    top: -18px;
+    transition: 0.5s ease all;   
+}
+.login_popup a:focus{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: #7323dc;
+}
+.login_popup a:hover{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: #7323dc;
+}
 .login_popup #left{
     width: 280px;
     height: 100%;
     background: url(https://assets-0.housingcdn.com/website/images/login/login_background-32f5b07735cbc8a1d1fb5afce1cfb1d5.jpg) center no-repeat;
     background-size: cover;
     position: relative;
+    z-index: 5000;
 }
 .login_popup #why{
     color: white;
@@ -329,7 +380,6 @@ header a:focus{
     height: 100%;
     padding: 20px 30px;
     display: none;
-
 }
 .email_login input{
     width: 100%;
@@ -350,10 +400,11 @@ header a:focus{
     font-weight: 500;
     padding-bottom: 15px;
 }
-.email_login #label2{
+.email_login #forgot{
     font-size: 13px;
     float: right;
     color: #7323dc;
+    cursor: pointer;
 } 
 .email_login #footer{
     font-size: 12px;
@@ -394,6 +445,8 @@ header a:focus{
     height: 100%;
     padding: 20px 30px;
     display: none;
+   
+   
 }
 .sign_email #label1{
     position: relative;
@@ -410,7 +463,6 @@ header a:focus{
     line-height: 22px;
     color: #7f7f7f;
     padding: 5px 10px;
-
 }
 .sign_email input{
     width: 100%;
@@ -420,7 +472,6 @@ header a:focus{
     outline: 0;
     padding: 20px 20px;
     font-size: 12px;
-
 }
 .sign_email button{
     width: 100%;
@@ -446,8 +497,6 @@ header a:focus{
     font-size: 12px;
     color: #7323dc;
     text-decoration: none;
-   
-
 }
 .sign_email a:hover{
     text-decoration: none;
@@ -459,6 +508,51 @@ header a:focus{
     position: relative;
         top: -29px;
     left: 225px;
+}
+.reset_email{
+      background-color: white;
+    position: relative;
+    font-family: 'Gotham';
+    top: -520px;
+    left: 280px;
+    width: 360px;
+    height: 100%;
+    padding: 20px 30px;
+    display: none;
+}
+.reset_email #label1{
+    position: relative;
+    top: -20px;
+    left: 40px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+.reset_email #label2{
+    font-size: 12px;
+    letter-spacing: 0px;
+}   
+.reset_email input{
+    width: 100%;
+    height: 100%;
+    background: 0 0;
+    border: 1px solid #e5e5e5;
+    outline: 0;
+    padding: 20px 20px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+.reset_email button{
+    width: 100%;
+    height: 100%;
+    background-color: #7323dc;
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border: 1px;
+    border-radius: 2px;
 }
 .search_pop{
     letter-spacing: .5px;
@@ -503,7 +597,6 @@ header a:focus{
 .search_pop input{
     position: relative;
     width: 780px;
-
     border-bottom: 1px solid #e6e6e6;
     padding-bottom: 8px;
     background: transparent;
@@ -514,6 +607,9 @@ header a:focus{
     font-weight: 500;
     color: black;
     border-style: none none solid none;
+}
+.search_pop input:focus{
+    outline: none;
 }
 .search_pop input::-webkit-input-placeholder {
     color: #e6e6e6 !important;
@@ -776,4 +872,24 @@ header a:focus{
      0% {opacity: .25; transform: scale(.25);}
     
     100%{opacity: 1; transform: scale(1);}
+}
+@keyframes login_slideinright{
+    0% {transform: translateX(100%);}
+    
+    100%{transform: translateX(0%);}
+}
+@keyframes login_slideinleft{
+0% {transform: translateX(-100%);}
+    
+    100%{transform: translateX(0%);}
+}
+@keyframes login_slideoutright{
+    0% {transform: translateX(0%);}
+    
+    100%{transform: translateX(100%);}
+}
+@keyframes login_slideoutleft{
+0% {transform: translateX(0%);}
+    
+    100%{transform: translateX(-100%);}
 }
