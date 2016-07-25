@@ -2,6 +2,9 @@
 body{
 	font-family: 'Gotham';
 }
+i{
+    cursor: pointer;
+}
 .button_active{
     overflow: hidden;
 }
@@ -69,7 +72,7 @@ body{
     font-family: 'Gotham';
 }
 .log .login_popup #right{
-    display: none;
+    ;display: none;
     font-family: 'Gotham';
 }
 .sin .login_popup #right{
@@ -79,6 +82,42 @@ body{
 .reset .login_popup #right{
     display: none;
     font-family: 'Gotham';
+}
+.menu_bar .display_list + ul{
+    animation: popdown .15s;
+    display: block;
+}
+.menu_bar .display_list #primary{
+    display: none;
+}
+.menu_bar .display_list #secondary{
+    display: inline;
+}
+.display_list, .display_list + ul{
+    background-color: #242424;
+}
+.display_sublist, .display_sublist + ul{
+    background-color: #414141;
+}
+.menu_bar .display_sublist #primary{
+    display: none;
+}
+.menu_bar .display_sublist #secondary{
+    display: inline;
+}
+.menu_bar .display_sublist + ul{
+    animation: popdown .15s;
+    display: block;
+}  
+.menu_visibility{
+    overflow: hidden;
+}
+.menu_visibility #bg{
+    display: block;
+    opacity: .5;
+}
+.menu_visibility .menu_bar{
+    display: block;
 }
 #pop{
 	display: none;
@@ -248,8 +287,119 @@ header a:focus{
     left: 0px;
     z-index: 2000;
     background-color: black;
-    opacity: .7;
+    opacity: .5;
     display: none;
+}
+.menu_bar{
+    position: fixed;
+    right: 0px;
+    width: 261px;
+    z-index: 5000;
+    background-color: black;
+    font-family: 'Gotham';
+    padding-top: 30px;
+    padding-right: 15px;
+    height: 100%;
+    overflow-y: scroll;
+    display: none;
+
+}
+.menu_bar #secondary{
+    display: none;
+}
+.menu_bar a{
+    text-decoration: none;
+    color: #b3b3b3;
+    padding-left: 25px;
+    padding-top: 15px;
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.menu_bar ul a{
+    padding: 0;
+}
+.menu_bar a:focus{
+    text-decoration: none;
+}
+.menu_bar a:hover{
+    color: white;
+    text-decoration: none;
+}
+.menu_bar span{
+    background-color: green;
+    float: right;
+    font-size: 12px;
+    padding: 2px;
+    color: white;
+}
+.menu_bar i{
+    float: right;
+}
+.menu_bar ul{
+    list-style: none;
+    font-size: 14px;
+    font-family: 'Gotham';
+    letter-spacing: 1px;
+    padding-left: 35px;
+    font-weight: 600;
+    display: none;
+}
+.menu_bar ul ul{
+    padding-left: 10px;
+    display: none;     
+}   
+.menu_bar li{
+    color: #b3b3b3;
+    padding-top: 25px;
+}
+.menu_bar li:hover{
+    color: white;
+}
+
+.menu_bar .feedback a{ 
+    padding-top: 35px;
+}
+.menu_bar .support{
+    
+    padding-left: 25px;
+    display: inline;
+    padding-top: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.menu_bar .support a{
+    color: #b3b3b3;
+    font-size: 13px;
+    letter-spacing: 0px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.menu_bar .support a:hover{
+    color: white;
+}    
+.menu_bar .support i{
+    float: none;
+}    
+.menu_bar .footer{
+    color: #b3b3b3;
+    font-size: 13px;
+    padding-left: 25px;
+    display: inline;
+    padding-top: 20px;
+    letter-spacing: 0px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+.menu_bar .footer i{
+    float: none;     
+}
+.menu_bar .footer .social_links{
+    display: inline-flex;
 }
 .login_popup{
     height: 520px;
@@ -296,7 +446,7 @@ header a:focus{
     background: url(https://assets-0.housingcdn.com/website/images/login/login_background-32f5b07735cbc8a1d1fb5afce1cfb1d5.jpg) center no-repeat;
     background-size: cover;
     position: relative;
-    z-index: 5000;
+    z-index: 6000;
 }
 .login_popup #why{
     color: white;
@@ -327,6 +477,7 @@ header a:focus{
     height: 100%;
     padding-left: 30px;
     padding-top: 110px;
+    z-index: 5000;
 }
 .login_popup button{
     position: relative;
@@ -380,6 +531,7 @@ header a:focus{
     height: 100%;
     padding: 20px 30px;
     display: none;
+    z-index: 5100;
 }
 .email_login input{
     width: 100%;
@@ -445,7 +597,7 @@ header a:focus{
     height: 100%;
     padding: 20px 30px;
     display: none;
-   
+   z-index: 5200;
    
 }
 .sign_email #label1{
@@ -519,6 +671,7 @@ header a:focus{
     height: 100%;
     padding: 20px 30px;
     display: none;
+    z-index: 5200;
 }
 .reset_email #label1{
     position: relative;
@@ -893,3 +1046,10 @@ header a:focus{
     
     100%{transform: translateX(-100%);}
 }
+@keyframes popdown{
+0% {transform: translateY(-100%);opacity: 0;}
+    50%{opacity: 0;}
+    100%{transform: translateY(0%);opacity: 1;}
+}
+
+
