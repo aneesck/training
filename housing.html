@@ -7,106 +7,110 @@
 	<title>Housing</title>
 	<link rel="stylesheet" type="text/css" href="css/housing.css">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="script/housing.js"></script>
 </head>
 <body id="bod" class="button_inactive">
 	<div class="container-fluid" id="sam">
 		<div class="menu_bar" id="menubar">
-			<div><a>Home</a></div>
-			<div><a>New Projects</a></div>
-			<div>
-				<a id="collections">Collections<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
-				<ul>
-					<li><a>Value For Money</a></li>
-					<li><a>Luxury</a></li>
-					<li><a>Ready To Move-In</a></li>
-					<li><a>Townships</a></li>
-					<li><a>Row House</a></li>
-				</ul>
-			</div>
-			<div>
-				<a id="topdevelopers">Top Developers<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
-				<ul>
-					<li><a>Puravankara Projects L...</a></li>
-					<li><a>Sobha Limited</a></li>
-					<li><a>I Build Supreme</a></li>
-					<li><a>Yogesh Enterprises</a></li>
-					<li><a>VTP Group</a></li>
-					<li><a>Wadhwani Construction</a></li>
-					<li><a>Shubh housing</a></li>
-					<li><a>Pride Purple Group</a></li>
-				</ul>
-			</div>
-			<div>
-				<a id="featuredlocalities">Featured Localites<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
-				<ul>
-					<li><a>Tathawade</a></li>
-					<li><a id="top">Top<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
-						<ul>
-							<li><a>Kharadi</a></li>
-							<li><a>Hadapsar</a></li>
-							<li><a>Pimple Gurav</a></li>
-							<li><a>Wakad</a></li>
-							<li><a>Baner</a></li>
-							<li><a>Pimple Saudagar</a></li>
-							<li><a>Bavdhan</a></li>
-							<li><a>Viman Nagar</a></li>
-							<li><a>Aundh</a></li>
-							<li><a>Kothrud</a></li>	
-						</ul>
-					</li>
-					<li><a id="hd">Highly Developed<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i>
-						<ul>
-							<li><a>Shiavani</a></li>
-							<li><a>Kharadi</a></li>
-							<li><a>Hadapsar</a></li>
-							<li><a>Lohegaon</a></li>
-							<li><a>Moshe</a></li>
-							<li><a>Narhe</a></li>
-							<li><a>Wakad</a></li>
-							<li><a>Ambegaopn Budruk</a></li>
-							<li><a>Dhayari</a></li>
-							<li><a>Wagholi</a></li>	
-						</ul>
-					</li>
-					<li><a id="gl">Graet Lifestyle<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
-						<ul>
-							<li><a>Rastha Ped</a></li>
-							<li><a>Kothrud</a></li>
-							<li><a>Karvenagar</a></li>
-							<li><a>Gultekdi</a></li>
-							<li><a>Parvati Darshan</a></li>
-							<li><a>Erandwane</a></li>
-							<li><a>Kalyani Nagar</a></li>
-							<li><a>Koregaon Park</a></li>
-							<li><a>Prabhag 36</a></li>
-							<li><a>Shiavjinagar</a></li>	
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div><a>Privilege Price Card<span>NEW</span></a></div>
-			<div><a>List Your property</a></div>
-			<div><a>Real Estate News</a></div>
-			<div><a>Iref</a></div>
-			<div class="feedback"><a>Give Us Your Feedback</a></div>
-			<div class="support">
-				<a href="#">Need any help? write to us at<br>
-				<i class="fa fa-envelope-o" aria-hidden="true"></i>support@housing.com
-				</a>
-			</div>
-			<div class="footer">Follow Us
-				<div class="social_links">
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>	
-				</div>	
-			</div>
-		</div>	
+			<ul>
+				<li><a>Home</a></li>
+				<li><a>New Projects</a></li>
+				<li class="dropdown">
+					<a id="collections" class="dropdown-toggle" data-toggle="dropdown">Collections<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
+					<ul class="dropdown-menu">
+						<li><a>Value For Money</a></li>
+						<li><a>Luxury</a></li>
+						<li><a>Ready To Move-In</a></li>
+						<li><a>Townships</a></li>
+						<li><a>Row House</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a id="topdevelopers" class="dropdown-toggle" data-toggle="dropdown">Top Developers<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
+					<ul class="dropdown-menu">
+						<li><a>Puravankara Projects L...</a></li>
+						<li><a>Sobha Limited</a></li>
+						<li><a>I Build Supreme</a></li>
+						<li><a>Yogesh Enterprises</a></li>
+						<li><a>VTP Group</a></li>
+						<li><a>Wadhwani Construction</a></li>
+						<li><a>Shubh housing</a></li>
+						<li><a>Pride Purple Group</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a id="featuredlocalities" class="dropdown-toggle" data-toggle="dropdown">Featured Localites<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
+					<ul class="dropdown-menu">
+						<li><a>Tathawade</a></li>
+						<li class="dropdown-submenu"><a id="top">Top<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
+							<ul class="dropdown-menu">
+								<li><a>Kharadi</a></li>
+								<li><a>Hadapsar</a></li>
+								<li><a>Pimple Gurav</a></li>
+								<li><a>Wakad</a></li>
+								<li><a>Baner</a></li>
+								<li><a>Pimple Saudagar</a></li>
+								<li><a>Bavdhan</a></li>
+								<li><a>Viman Nagar</a></li>
+								<li><a>Aundh</a></li>
+								<li><a>Kothrud</a></li>	
+							</ul>
+						</li>
+						<li class="dropdown-submenu"><a id="hd">Highly Developed<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
+							<ul class="dropdown-menu">
+								<li><a>Shiavani</a></li>
+								<li><a>Kharadi</a></li>
+								<li><a>Hadapsar</a></li>
+								<li><a>Lohegaon</a></li>
+								<li><a>Moshe</a></li>
+								<li><a>Narhe</a></li>
+								<li><a>Wakad</a></li>
+								<li><a>Ambegaopn Budruk</a></li>
+								<li><a>Dhayari</a></li>
+								<li><a>Wagholi</a></li>	
+							</ul>
+						</li>
+						<li class="dropdown-submenu"><a id="gl">Great Lifestyle<i id="primary" class="fa fa-angle-down fa-lg"></i><i id="secondary" class="fa fa-angle-up fa-lg"></i></a>
+							<ul class="dropdown-menu">
+								<li><a>Rastha Ped</a></li>
+								<li><a>Kothrud</a></li>
+								<li><a>Karvenagar</a></li>
+								<li><a>Gultekdi</a></li>
+								<li><a>Parvati Darshan</a></li>
+								<li><a>Erandwane</a></li>
+								<li><a>Kalyani Nagar</a></li>
+								<li><a>Koregaon Park</a></li>
+								<li><a>Prabhag 36</a></li>
+								<li><a>Shiavjinagar</a></li>	
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a>Privilege Price Card<span>NEW</span></a></li>
+				<li><a>List Your property</a></li>
+				<li><a>Real Estate News</a></li>
+				<li><a>Iref</a></li>
+				<li class="feedback"><a>Give Us Your Feedback</a></li>
+				<li class="support">
+					<a href="#">Need any help? write to us at<br>
+					<i class="fa fa-envelope-o" aria-hidden="true"></i>support@housing.com
+					</a>
+				</li>
+				<li class="footer">Follow Us
+					<ul class="social_links">
+						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+					</ul>	
+				</li>
+			</ul>
+		</div>		
 		<div class="row city" id="pop">
 			<div class="select_city">
 				SELECT YOUR CITY

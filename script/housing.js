@@ -104,40 +104,40 @@ window.onload = function(){
 		body.classList.add('menu_visibility');
 	});	
 
-	col.addEventListener("click", function(){
-		fl.classList.remove('display_list');
-		td.classList.remove('display_list');
-		col.classList.toggle('display_list');
-	});
+	// col.addEventListener("click", function(){	
+	// 	fl.classList.remove('display_list');
+	// 	td.classList.remove('display_list');
+	// 	col.classList.toggle('display_list');
+	// });
 
-	td.addEventListener("click", function(){
-		fl.classList.remove('display_list');
-		col.classList.remove('display_list');
-		td.classList.toggle('display_list');
-	});
+	// td.addEventListener("click", function(){
+	// 	fl.classList.remove('display_list');
+	// 	col.classList.remove('display_list');
+	// 	td.classList.toggle('display_list');
+	// });
 
-	fl.addEventListener("click", function(){
-		col.classList.remove('display_list');
-		td.classList.remove('display_list');
-		fl.classList.toggle('display_list');
+	// fl.addEventListener("click", function(){
+	// 	col.classList.remove('display_list');
+	// 	td.classList.remove('display_list');
+	// 	fl.classList.toggle('display_list');
 		
-	});
+	// });
 
-	top.addEventListener("click", function(){
-		gl.classList.remove('display_sublist');
-		hd.classList.remove('display_sublist');
-		top.classList.toggle('display_sublist');
-	});
+	// top.addEventListener("click", function(){
+	// 	gl.classList.remove('display_sublist');
+	// 	hd.classList.remove('display_sublist');
+	// 	top.classList.toggle('display_sublist');
+	// });
 
-	hd.addEventListener("click", function(){
-		gl.classList.remove('display_sublist');
-		top.classList.remove('display_sublist');
-		document.getElementById('hd').classList.toggle('display_sublist');
-	});
+	// hd.addEventListener("click", function(){
+	// 	gl.classList.remove('display_sublist');
+	// 	top.classList.remove('display_sublist');
+	// 	document.getElementById('hd').classList.toggle('display_sublist');
+	// });
 
-	gl.addEventListener("click", function(){
-		top.classList.remove('display_sublist');
-		hd.classList.remove('display_sublist');
-		gl.classList.toggle('display_sublist');
-	});
+	// gl.addEventListener("click", function(){
+	// 	top.classList.remove('display_sublist');
+	// 	hd.classList.remove('display_sublist');
+	// 	gl.classList.toggle('display_sublist');
+	// });
 }
