@@ -1,4 +1,3 @@
-
 body{
 	font-family: 'Gotham';
 }
@@ -60,12 +59,10 @@ i{
 .log .email_login{
     display: block;
     font-family: 'Gotham';
-
 }
 .sin .sign_email{
     display: block;
     font-family: 'Gotham';
-
 }
 .reset .reset_email{
     display: block;
@@ -118,6 +115,14 @@ i{
 }
 .menu_visibility .menu_bar{
     display: block;
+}
+.download #arrow_up{
+    display: block;
+
+}
+.download .download_drop{
+    display: block;
+
 }
 #pop{
 	display: none;
@@ -193,14 +198,13 @@ i{
 	text-align: center;	
 }
 .form1{
-	background-image: url("http://localhost/training/images/housebg.jpg");
+	background-image: url("../images/housebg.jpg");
 	min-height: 450px;
 	background-color: #34495e;
 	background-position: center;
 	background-size: cover;
 	display: block;
 }
-
 header{	
 	padding:0px 12px;
 	top: 0;
@@ -239,7 +243,6 @@ header a:focus{
     border-color: transparent;
     margin-left: 17px;
 }
-
 #secondary {
 	display: none;
 }
@@ -289,6 +292,74 @@ header a:focus{
     background-color: black;
     opacity: .5;
     display: none;
+}
+#arrow_up{
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    margin: auto;
+    z-index: 2;
+    position: absolute;
+    right: 355px;
+    top: 33px;
+    display: none;
+}
+.download_drop{
+    font-family: 'Gotham';
+    position: absolute;
+    background-color: #fff;
+    padding: 20px 20px 0;
+    height: 225px;
+    width: 425px;
+    right: 160px;
+    top: 40px;
+    z-index: 1;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.4);
+    display: none;
+}
+.download_drop #google_play{
+    background-image: url(../images/g_play.png);
+    height: 51px;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+    display: block;
+    background-size: 300px;
+    width: 150px;
+    margin-top: 0;
+}
+.download_drop #app_store{
+    background-image: url(../images/g_play.png);
+    height: 51px;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+    display: block;
+    background-size: 300px;
+    width: 150px;
+    margin-top: 0;
+    background-position: -150px 0;
+}   
+.download_drop #mob_img{
+    background-image: url(../images/mob_img.jpg);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 164px;
+    float: right;
+    position: relative;
+    top: -188px;
+} 
+.download_drop #large_text{
+    font-size: 16px;
+    font-weight: 600;
+}
+.download_drop #small_text{
+    font-size: 12px;
+    color: #7f7f7f;
+    width: 200px;
 }
 .menu_bar{
     position: fixed;
@@ -355,30 +426,33 @@ header a:focus{
 .open{
     background-color: #242424;
 }
-
 .menu_bar li{
     color: #b3b3b3;
     margin-top: 15px;
+    width: 110%;
+    padding-right: 25px;
 }
 .menu_bar li:hover{
-    color: white;
-    background-color: #242424;
-}
-.menu_bar  li:focus{
-    background-color: #242424;
-}
-.menu_bar .dropmenu li:focus{
-    background-color: #414141;
+    color: white;   
 }
 .dropdown-submenu {
     position: relative;
     width: 100%;
+    margin-left: 30px;
 }
-.dropdown-submenu:hover>.dropdown-menu {
-    display: block;
+.open>.dropdown-menu .dropdown-submenu a{
+    padding-left: 10px;
+    margin-left: 0px;   
+}
+.open>.dropdown-menu .dropdown-submenu .dropdown-menu a{
+    padding-left: 20px;
 }
 .dropdown-submenu:hover{
     background-color: #414141;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block; 
+    animation: popdown .25s; 
 }
 .dropdown-submenu .dropdown-menu {
     width: 100%;
@@ -387,39 +461,55 @@ header a:focus{
     font-weight: 600;
     letter-spacing: 1px;
     background-color: #414141;
-}
-.dropdown-menu>.dropdown-submenu>.dropdown-menu a{
-    padding-left: 50px;
+    border-radius: 0px;
+    margin-left: 0px;
 }
 .open>.dropdown-menu>li>a:hover {
     color: white;
     text-decoration: none;
-    background-color: #414141;
+    background-color: #242424;
 }    
-.open>.dropdown-menu>li:hover{
-    background-color: #414141;
-}
 .open>.dropdown-menu a{
    color: #b3b3b3;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px; 
-    padding-left: 40px;
+    padding-left: 10px;
+    margin-left: 30px;
 }
 .dropdown-submenu>.dropdown-menu>li>a:hover {
     color: white;
     text-decoration: none;
     background-color: #414141;
-}    
+}   
+.open>.dropdown-menu .dropdown-submenu a:hover{
+    background-color: #414141;
+}
+.dropdown-submenu i {
+    margin-right: 40px;
+}
 .open>.dropdown-menu {
     width: 110%;
     background-color: #242424;
-}    
+    border-radius: 0px;
+    animation: popdown .25s;
+}  
+.open .dropdown-submenu:hover #primary{
+    display: none;
+}
+.open .dropdown-submenu:hover #secondary{
+    display: inline;
+}
+.open>a #primary{
+    display: none;
+} 
+.open>a #secondary{
+    display: inline;
+}  
 .menu_bar .feedback a{ 
     padding-top: 35px;
 }
-.menu_bar .support{
-    
+.menu_bar .support{    
     padding-left: 25px;
     display: inline;
     padding-top: 20px;
@@ -433,7 +523,6 @@ header a:focus{
     font-weight: 500;
     padding-bottom: 20px;
 }
-
 .menu_bar .support a:hover{
     color: white;
 }    
@@ -596,7 +685,6 @@ header a:focus{
     outline: 0;
     padding: 20px 20px;
     font-size: 12px;
-
 }
 .email_login #label1{
     position: relative;
@@ -652,8 +740,7 @@ header a:focus{
     height: 100%;
     padding: 20px 30px;
     display: none;
-   z-index: 5200;
-   
+    z-index: 5200;
 }
 .sign_email #label1{
     position: relative;
@@ -713,11 +800,11 @@ header a:focus{
 }
 .sign_email #last{
     position: relative;
-        top: -29px;
+    top: -29px;
     left: 225px;
 }
 .reset_email{
-      background-color: white;
+    background-color: white;
     position: relative;
     font-family: 'Gotham';
     top: -520px;
@@ -775,10 +862,9 @@ header a:focus{
     z-index: 3000;
     padding-top: 50px;
     display: none;
-    
 }
 .search_pop #close{
-        float: right;
+    float: right;
     position: relative;
     top: -44px;
     right: 10px;
@@ -789,7 +875,6 @@ header a:focus{
     font-weight: 500;
     left: 10px;
     letter-spacing: 1px;
-
 }
 .search_pop #select{
     position: relative;
@@ -850,13 +935,11 @@ header a:focus{
     border-top: 1px solid #E6E6E6;
     width: 200px;
     margin-left: 20px;
-    
     display: block;
     position: relative;
     margin-left: 185px;
     margin-top: -10px;
 }
-
 .search_pop ul{
     list-style: none;
     color: #7f7f7f;
@@ -871,7 +954,6 @@ header a:focus{
 }
 .search_pop li:hover{
     background-color: #7323dc;
-
 }
 .search_pop #box{
     height: 360px;
@@ -951,15 +1033,15 @@ header a:focus{
     width: 100%;
 }
 #first_link{
-	    width: 136px;
+	width: 136px;
     background-position: 36% 0;
 }
 #second_link{
-	    width: 57px;
+	width: 57px;
     background-position: 69% 0;
 }
 #third_link{
-	    width: 94px;
+	width: 94px;
     background-position: 100% 0;
 }
 .hs_icon{
@@ -1063,48 +1145,40 @@ header a:focus{
 }
 @keyframes animf {
     0% {transform: translateY(-250px);}
-   
     100%{transform: translateY(0px);}
 }
 @keyframes animr {
     0% {transform: translateY(0px);}
-    
     100%{transform: translateY(-250px);}
 }
 @keyframes search_popup{
-     0% {opacity: .25;transform: translateY(25%);}
+    0% {opacity: .25;transform: translateY(25%);}
     50%{opacity: .5;}
     100%{opacity: 1;transform: translateY(0px);}
 }
 @keyframes login_popup{
-     0% {opacity: .25; transform: scale(.25);}
-    
+    0% {opacity: .25; transform: scale(.25);}
     100%{opacity: 1; transform: scale(1);}
 }
 @keyframes login_slideinright{
     0% {transform: translateX(100%);}
-    
     100%{transform: translateX(0%);}
 }
 @keyframes login_slideinleft{
-0% {transform: translateX(-100%);}
-    
+    0% {transform: translateX(-100%);}
     100%{transform: translateX(0%);}
 }
 @keyframes login_slideoutright{
     0% {transform: translateX(0%);}
-    
     100%{transform: translateX(100%);}
 }
 @keyframes login_slideoutleft{
-0% {transform: translateX(0%);}
-    
+    0% {transform: translateX(0%);}
     100%{transform: translateX(-100%);}
 }
 @keyframes popdown{
-0% {transform: translateY(-100%);opacity: 0;}
-    50%{opacity: 0;}
-    100%{transform: translateY(0%);opacity: 1;}
+    0% {transform: translateY(-10%)}
+    100%{transform: translateY(0%);}
 }
 
 
