@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="script/housing.js"></script>
+	<script type="text/javascript" src="script/housing2.js"></script>
 </head>
 <body id="bod" class="button_inactive">
 	<div class="container-fluid" id="sam">
@@ -247,15 +248,15 @@
 				<div id="top">
 					<div id="comp1">You are in</div>
 					<button id="select">Pune <i id="primary" class="fa fa-angle-down fa-lg"></i></button>
-					<input type="text" name="" placeholder="Enter Locality, Landmark, Developer or Project">
+					<input type="text" name="" placeholder="Enter Locality, Landmark, Developer or Project" onkeydown="requestLocation()" id="search_keyword">
 					<button id="search">Search</button>
 				</div>
 				<div id="bottom">
 					<div id="popular_localities">
-						<div class="head">
+						<div class="head" id="head">
 							popular localities
 						</div>
-						<ul>
+						<ul id="localities">
 							<li>Bavdhan</li>
 							<li>Wakad</li>
 							<li>Kothrud</li>
@@ -280,9 +281,252 @@
 							<li>Park Ivory</li>						
 						</ul>
 					</div>
-					<div id="box"></div>
+					<div id="box">
+							<h2>Bavdhan</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							
+							</div>	
+					</div>
 				</div>	
 			</div>
+		</div>
+		<div class="top_developer row" id="topdeveloper">
+			<div><h1>Top Developers in Pune</h1></div>
+			<div class="img_indicators">
+				<div class="small_box" onmouseover="scrol(0)"></div>
+				<div class="small_box" onmouseover="scrol(1000)"></div>
+				<div class="small_box" onmouseover="scrol(2000)"></div>
+				<div class="small_box" onmouseover="scrol(3000)"></div>
+				<div class="small_box" onmouseover="scrol(4000)"></div>
+				<div class="small_box" onmouseover="scrol(5000)"></div>
+				<div class="small_box" onmouseover="scrol(6000)"></div>
+				<div class="small_box" onmouseover="scrol(7000)"></div>
+			</div>
+			<div class="image_slide" id="imageslide">
+				<div class="slide" id="slide1">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>Puravankara Projects Limited</h1>
+					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
+					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1975</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">49</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Purva Silversands</h1>
+						<h3>1, 2, 3 BHK Apartments<br>
+						Keshav Nagar Road, Near Mauli Auto Garage</h3>
+						<h2>29.19 Lacs-79.32 Lacs</h2>
+					</div>
+				</div>	
+				<div class="slide" id="slide2">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>Sobha Limited</h1>
+					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1994</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">111</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Sobha Ivory</h1>
+						<h3>3 BHK Apartments<br>
+						Kondhwa</h3>
+						<h2>90.72 Lacs-1.06 Cr</h2>
+					</div>
+				</div>
+				<div class="slide" id="slide3">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>I Build Supreme</h1>
+					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
+					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1975</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">49</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Purva Silversands</h1>
+						<h3>1, 2, 3 BHK Apartments<br>
+						Keshav Nagar Road, Near Mauli Auto Garage</h3>
+						<h2>29.19 Lacs-79.32 Lacs</h2>
+					</div>
+				</div>	
+				<div class="slide" id="slide4">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>Yogesh Enterprises</h1>
+					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1994</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">111</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Sobha Ivory</h1>
+						<h3>3 BHK Apartments<br>
+						Kondhwa</h3>
+						<h2>90.72 Lacs-1.06 Cr</h2>
+					</div>
+				</div>
+				<div class="slide" id="slide5">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>VTP Group</h1>
+					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
+					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1975</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">49</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Purva Silversands</h1>
+						<h3>1, 2, 3 BHK Apartments<br>
+						Keshav Nagar Road, Near Mauli Auto Garage</h3>
+						<h2>29.19 Lacs-79.32 Lacs</h2>
+					</div>
+				</div>	
+				<div class="slide" id="slide6">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>Wadhwani Construction</h1>
+					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1994</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">111</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Sobha Ivory</h1>
+						<h3>3 BHK Apartments<br>
+						Kondhwa</h3>
+						<h2>90.72 Lacs-1.06 Cr</h2>
+					</div>
+				</div>
+				<div class="slide" id="slide7">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>Shubh Housing</h1>
+					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
+					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1975</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">49</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Purva Silversands</h1>
+						<h3>1, 2, 3 BHK Apartments<br>
+						Keshav Nagar Road, Near Mauli Auto Garage</h3>
+						<h2>29.19 Lacs-79.32 Lacs</h2>
+					</div>
+				</div>	
+				<div class="slide" id="slide8">
+					<div id="premium">PREMIUM</div> 
+					<div id="box"></div>
+					<h1>Pride Purple Group</h1>
+					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
+					<div class="label1">
+						<p>ESTABLISHED<br></p>
+						<p id="number">1994</p>
+					</div>
+					<div class="label2">
+						<p>PROJECTS<br></p>
+						<p id="number">111</p>
+					</div>
+					<button>View Developer</button>
+					<div class="big_box">
+						<h1>Sobha Ivory</h1>
+						<h3>3 BHK Apartments<br>
+						Kondhwa</h3>
+						<h2>90.72 Lacs-1.06 Cr</h2>
+					</div>
+				</div>
+				<div class="xtra_space"></div>
+			</div>
+			<div class="xtra_space_left">
+				<div class="image_previous round" onclick="scrolRight()" id="leftarrow">
+					<i class="fa fa-arrow-left fa-lg"></i>
+				</div>
+			</div>
+			<div class="xtra_space_right">
+				<div class="image_next round" onclick="scrolLeft()" id="rightarrow">
+					<i class="fa fa-arrow-right fa-lg"></i>
+				</div>
+			</div>	
 		</div>
 		<div class="bottom2 row">
 			<a href="#" class="link" id="first_link"></a>

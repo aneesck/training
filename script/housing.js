@@ -1,4 +1,5 @@
 window.onload = function(){
+
 	var body = document.getElementById('bod');
 	var header_button = document.getElementById('second');
 	var loc = document.getElementById('pop');
@@ -17,8 +18,9 @@ window.onload = function(){
 	var gl = document.getElementById('gl');
 	var hd = document.getElementById('hd');
 	var download_app = document.getElementById('third');
+	var imageslide = document.getElementById('imageslide');
 
-
+	
 	header_button.addEventListener("click", function(){
 		if(loc.style.display === 'block'){
 			body.classList.add('button_inactive');
@@ -105,43 +107,6 @@ window.onload = function(){
 		body.classList.add('menu_visibility');
 	});	
 
-	// col.addEventListener("click", function(){		
-	// 	fl.classList.remove('display_list');
-	// 	td.classList.remove('display_list');
-	// 	col.classList.toggle('display_list');
-	// });
-
-	// td.addEventListener("click", function(){
-	// 	fl.classList.remove('display_list');
-	// 	col.classList.remove('display_list');
-	// 	td.classList.toggle('display_list');
-	// });
-
-	// fl.addEventListener("click", function(){
-	// 	col.classList.remove('display_list');
-	// 	td.classList.remove('display_list');
-	// 	fl.classList.toggle('display_list');
-		
-	// });
-
-	// top.addEventListener("click", function(){
-	// 	gl.classList.remove('display_sublist');
-	// 	hd.classList.remove('display_sublist');
-	// 	top.classList.toggle('display_sublist');
-	// });
-
-	// hd.addEventListener("click", function(){
-	// 	gl.classList.remove('display_sublist');
-	// 	top.classList.remove('display_sublist');
-	// 	document.getElementById('hd').classList.toggle('display_sublist');
-	// });
-
-	// gl.addEventListener("click", function(){
-	// 	top.classList.remove('display_sublist');
-	// 	hd.classList.remove('display_sublist');
-	// 	gl.classList.toggle('display_sublist');
-	// });
-
 
 	download_app.addEventListener("mouseover", function(){
 		body.classList.add('download');
@@ -162,3 +127,48 @@ window.onload = function(){
 		body.classList.remove('download');
 	});
  }
+ function scrol(position_index){
+
+ 	imageslide.scrollLeft = position_index;	
+ 	if(imageslide.scrollLeft >= 6800){
+		document.getElementById('rightarrow').style.display = 'none';
+	}
+	else{
+		document.getElementById('rightarrow').style.display = 'block';
+
+	}
+	if(imageslide.scrollLeft === 0){
+		document.getElementById('leftarrow').style.display = 'none';
+	}
+	else{
+		document.getElementById('leftarrow').style.display = 'block';
+	}
+ }
+ function scrolLeft(){
+ 	imageslide.scrollLeft += 1000;
+ 	document.getElementById('leftarrow').style.display = 'block';	
+ 	if(imageslide.scrollLeft >= 6800){
+		document.getElementById('rightarrow').style.display = 'none';
+	}
+ }
+  function scrolRight(){
+ 	imageslide.scrollLeft -= 1000;	
+ 	document.getElementById('rightarrow').style.display = 'block';
+ 	if(imageslide.scrollLeft === 0){
+		document.getElementById('leftarrow').style.display = 'none';
+	}
+ }
+
+ function requestLocation(){
+ 	 var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     	processData(xhttp.responseText);
+    }
+  }
+  xhttp.open("GET", "../training/json/ind.json", true);
+  xhttp.send();
+ }
+
+
+
