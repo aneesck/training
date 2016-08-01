@@ -307,6 +307,7 @@ header a:focus{
     top: 33px;
     display: none;
 }
+
 .download_drop{
     font-family: 'Gotham';
     position: absolute;
@@ -935,7 +936,7 @@ header a:focus{
     padding-top: 5px;
     padding-bottom: 10px;
     display: inline-block;
-    width: 39%;
+    width: 89%;
 }
 .head::after{
     content: '';
@@ -961,96 +962,114 @@ header a:focus{
     width: 375px;
     font-size: 14px;
 }
-.search_pop li:hover{
-    background-color: #7323dc;
-    color: white;
-}
-.search_pop #box{
+
+.box{
     height: 400px;
     padding: 20px;
     border: 1px solid #E6E6E6;
     position: relative;
-    bottom: 404px;
-    left: 430px;
+    top: 12px;
     width: 575px;
     font-family: 'Gotham';
+    display: none;
 }
-.search_pop #box h2{
+.search_pop .box h2{
     font-size: 16px;
     font-weight: 600;
     padding: 0px;
     margin: 0px;
     display: inline-block;
 }
-.search_pop #box #right_comp1{
+.search_pop .box #right_comp1{
     display: inline-block;
     float: right;
 }
-.search_pop #box #right_comp2{
+.search_pop .box #right_comp2{
     display: inline-block;
     float: right;
     margin-right: 30px;
 }
-.search_pop #box .number{
+.search_pop .box .number{
     font-weight: 600;
     display: inline-block;
 }
-.search_pop #box .number_label{
+.search_pop .box .number_label{
     font-size: 12px;
     letter-spacing: -.5px;
     color: #7f7f7f;
 }
-.search_pop #box #percentage{
+.search_pop .box #percentage{
     display: inline-block;
     font-size: 13px;
     color: green;
 }
-.search_pop #box #left_comp3{
+.search_pop .box #left_comp3{
     padding-top: 10px;
 }
-.search_pop #box #left_comp4{
+.search_pop .box #left_comp4{
     padding-top: 10px;
 }
-.search_pop #box .boxes{
+.search_pop .box .boxes{
     height: 60px;
     width: 60px;
     border: 1px solid #e6e6e6;
     display: inline-block;
 }
-.search_pop #box .lengthy_box{
+.search_pop .box .lengthy_box{
     height: 60px;
     width: 120px;
     border: 1px solid #e6e6e6;
     display: inline-block;
     margin-left: 4px;
     margin-right: 5px;
-}    
-.search_pop #box .box_label{
+}  
+.search_pop .active{
+    background-color: #7323dc;
+    color: white;
+}  
+.active::after{
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border-left: 2px solid #E6E6E6;
+    border-bottom: 2px solid #E6E6E6;
+    transform: rotate(45deg);
+    background-color: #fff;
+    z-index: 1;
+    float: right;
+    left: 62px;
+}
+.box_active{
+    display: block;
+}
+.search_pop .box .box_label{
     font-size: 13px;
     font-weight: 600;
 }
-.search_pop #box h3{
+.search_pop .box h3{
     font-size: 13px;
     font-weight: 600;
 }
-.search_pop #box #box1{
+.search_pop .box #box1{
     display: inline-block;
     position: relative;
     
 }
-.search_pop #box #box2{
+.search_pop .box #box2{
     display: inline-block;
     position: relative;
     left: 60px;
   
 }
-.search_pop #box #box3{
+.search_pop .box #box3{
     display: inline-block;
     position: relative;
     left: 90px;
    
 }
-.search_pop #box #box4{
+.search_pop .box #box4{
     display: inline-block;
     position: relative;
     left: 100px;
@@ -1061,12 +1080,14 @@ header a:focus{
 }
 .search_pop #bottom{
     padding-left: 150px;
-    padding-right: 150px;
+    padding-right: 124px;
     padding-top: 100px;
-    padding-bottom: 50px;
+   
+    padding-bottom: 150px;
     overflow: scroll;
-    height: 465px;
+    height: 480px;
 }
+
 .bottom2{
 	text-align: center;
     background: #1F1F1F;
@@ -1133,6 +1154,11 @@ header a:focus{
     display: inline-block;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-position-y: 10px;
+    background-position-x: 8px;
 }
 .small_box:hover{
     border-color: #7323dc;
@@ -1141,9 +1167,10 @@ header a:focus{
     display: -webkit-inline-box;
     overflow-x: scroll;
     width: 100%;
-    transition-delay: .5s;
+    transition-delay: 2s;
     padding: 0px;
-    padding-left: 7%;      
+    padding-left: 7%;    
+    transition-property: margin;  
 }
 .image_slide::-webkit-scrollbar { 
     display: none; 
@@ -1152,7 +1179,7 @@ header a:focus{
 .slide{
     height: 500px;
     width: 900px;
-    border: 1px solid #ccc;
+    box-shadow: 0 2px 64px 0 rgba(208,208,208,.5);
     padding: 10px 20px 40px 20px;
     margin-left: 100px; 
     display: block;
@@ -1183,6 +1210,9 @@ header a:focus{
     border: 1px solid #ccc;
     margin-top: 10px;
     margin-bottom: 10px;
+        background-repeat: no-repeat;
+    background-position-x: 8px;
+    background-position-y: 8px;
 }
 .image_slide p{
     width: 420px;

@@ -252,36 +252,39 @@
 					<button id="search">Search</button>
 				</div>
 				<div id="bottom">
-					<div id="popular_localities">
-						<div class="head" id="head">
-							popular localities
+					<div style="width:435px;display:inline-block">
+						<div id="popular_localities">
+							<div class="head" id="head">
+								popular localities
+							</div>
+							<ul id="localities">
+								<li onmouseover="addInformation(this,0)" class="active">Bavdhan</li>
+								<li onmouseover="addInformation(this,1)">Wakad</li>
+								<li onmouseover="addInformation(this,2)">Kothrud</li>
+							</ul>
 						</div>
-						<ul id="localities">
-							<li>Bavdhan</li>
-							<li>Wakad</li>
-							<li>Kothrud</li>
-						</ul>
-					</div>
-					<div id="top_developers">
-						<div class="head">
-							top developers
+						<div id="top_developers">
+							<div class="head">
+								top developers
+							</div>
+							<ul>
+								<li onmouseover="addInformation(this,3)">VTP Group</li>
+								<li onmouseover="addInformation(this,4)">Yogesh Enterprises</li>
+								<li onmouseover="addInformation(this,5)">Puravankara Projects Limited</li>
+							</ul>
 						</div>
-						<ul>
-							<li>VTP Group</li>
-							<li>Yogesh Enterprises</li>
-							<li>puravankara Projects Limited</li>
-						</ul>
-					</div>
-					<div id="featured_projects">
-						<div class="head">
-							featured projects
+						<div id="featured_projects">
+							<div class="head">
+								featured projects
+							</div>
+							<ul>
+								<li onmouseover="addInformation(this,6)">Shiv Zen World</li>
+								<li onmouseover="addInformation(this,7)">Park Ivory</li>						
+							</ul>
 						</div>
-						<ul>
-							<li>Shiv Zen World</li>
-							<li>Park Ivory</li>						
-						</ul>
-					</div>
-					<div id="box">
+					</div>	
+					<div style="display:inline-block;float:right;">
+						<div class="box box_active" id="boxfor_bavdhan">
 							<h2>Bavdhan</h2>
 							<div id="right_comp1">
 								<div class="number">965</div>
@@ -324,8 +327,323 @@
 								<div class="lengthy_box"></div>
 								<div class="lengthy_box"></div>
 								<div class="lengthy_box"></div>
-							
 							</div>	
+						</div>
+						<div class="box" id="boxfor_wakad">
+							<h2>Wakad</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>
+						<div class="box" id="boxfor_kothrud">
+							<h2>Kothrud</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>
+						<div class="box" id="boxfor_vtp">
+							<h2>VTP Group</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>
+						<div class="box" id="boxfor_yogesh">
+							<h2>Yogesh enterpises</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>
+						<div class="box" id="boxfor_puravankara">
+							<h2>Puravankara Projects Limited</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>
+						<div class="box" id="boxfor_shiv">
+							<h2>Shiv Zen World</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+								</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>
+						<div class="box" id="boxfor_park">
+							<h2>Park Ivory</h2>
+							<div id="right_comp1">
+								<div class="number">965</div>
+								<div class="number_label">RESALE UNITS</div>
+							</div>
+							<div id="right_comp2">
+								<div class="number">48</div>
+								<div class="number_label">PROJECTS</div>
+							</div>
+							<div id="left_comp3">
+								<div class="number">7,330</div>
+								<span class="number_label">per sq.ft.</span>
+							</div>
+							<div id="left_comp4">
+								<div id="percentage">14.07 %</div>
+								<span class="number_label">in last 1 year</span>
+							</div>
+							<hr>
+							<h3>TOP DEVELOPERS</h3>
+							<div id="box1">
+								<div class="boxes"></div>
+								<div class="box_label">Mont Vert</div>
+							</div>
+							<div id="box2">
+								<div class="boxes"></div>
+								<div class="box_label">Rohan Builders</div>
+							</div>
+							<div id="box3">
+								<div class="boxes"></div>
+								<div class="box_label">Kolte Patil Devel...</div>
+							</div>
+							<div id="box4">
+								<div class="boxes"></div>
+								<div class="box_label">Axis Paradigm S...</div>
+							</div>
+							<hr>
+							<div>
+								<h3>NEARBY LOCALITIES</h3>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+								<div class="lengthy_box"></div>
+							</div>	
+						</div>					
 					</div>
 				</div>	
 			</div>
@@ -333,19 +651,19 @@
 		<div class="top_developer row" id="topdeveloper">
 			<div><h1>Top Developers in Pune</h1></div>
 			<div class="img_indicators">
-				<div class="small_box" onmouseover="scrol(0)"></div>
-				<div class="small_box" onmouseover="scrol(1000)"></div>
-				<div class="small_box" onmouseover="scrol(2000)"></div>
-				<div class="small_box" onmouseover="scrol(3000)"></div>
-				<div class="small_box" onmouseover="scrol(4000)"></div>
-				<div class="small_box" onmouseover="scrol(5000)"></div>
-				<div class="small_box" onmouseover="scrol(6000)"></div>
-				<div class="small_box" onmouseover="scrol(7000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/puravankara.jpg')" onmouseover="scrol(0)"></div>
+				<div class="small_box" style="background-image: url('/training/images/sobha.jpg')" onmouseover="scrol(1000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/supreme.jpg')" onmouseover="scrol(2000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/yogesh.jpg')" onmouseover="scrol(3000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/vtp.jpg')" onmouseover="scrol(4000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/wadhwani.jpg')" onmouseover="scrol(5000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/shubh.jpg')" onmouseover="scrol(6000)"></div>
+				<div class="small_box" style="background-image: url('/training/images/pride.jpg')" onmouseover="scrol(7000)"></div>
 			</div>
 			<div class="image_slide" id="imageslide">
 				<div class="slide" id="slide1">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/puravankara.jpg')"></div>
 					<h1>Puravankara Projects Limited</h1>
 					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
 					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
@@ -367,7 +685,7 @@
 				</div>	
 				<div class="slide" id="slide2">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/sobha.jpg')"></div>
 					<h1>Sobha Limited</h1>
 					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
 					<div class="label1">
@@ -388,7 +706,7 @@
 				</div>
 				<div class="slide" id="slide3">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/supreme.jpg')"></div>
 					<h1>I Build Supreme</h1>
 					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
 					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
@@ -410,7 +728,7 @@
 				</div>	
 				<div class="slide" id="slide4">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/yogesh.jpg')"></div>
 					<h1>Yogesh Enterprises</h1>
 					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
 					<div class="label1">
@@ -431,7 +749,7 @@
 				</div>
 				<div class="slide" id="slide5">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/vtp.jpg')"></div>
 					<h1>VTP Group</h1>
 					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
 					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
@@ -453,7 +771,7 @@
 				</div>	
 				<div class="slide" id="slide6">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/wadhwani.jpg')"></div>
 					<h1>Wadhwani Construction</h1>
 					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
 					<div class="label1">
@@ -474,7 +792,7 @@
 				</div>
 				<div class="slide" id="slide7">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/shubh.jpg')"></div>
 					<h1>Shubh Housing</h1>
 					<p>Puravankara is an established real estate developer with diversified offerings across various segments having presence in Bangalore, Chennai, Coimbatore, Kochi, Hyderabad, Mumbai, Pune, Kolkata 
 					& Mysore. Established in 1975, they have delivered more than 10,000 homes, elevating lifestyles of numerou...</p>
@@ -496,7 +814,7 @@
 				</div>	
 				<div class="slide" id="slide8">
 					<div id="premium">PREMIUM</div> 
-					<div id="box"></div>
+					<div id="box" style="background-image: url('/training/images/pride.jpg')"></div>
 					<h1>Pride Purple Group</h1>
 					<p>Largest and only backward integrated real estate player in the country, Sobha Limited is a big name in the construction industry.The company has always striven for benchmark quality, customer centric approach, robust engineering, in-house research, timeless values and transparency in all spheres of ...</p>
 					<div class="label1">

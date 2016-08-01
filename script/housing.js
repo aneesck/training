@@ -129,7 +129,26 @@ window.onload = function(){
  }
  function scrol(position_index){
 
- 	imageslide.scrollLeft = position_index;	
+ 	var interval1, interval2;
+ 	if(position_index >= imageslide.scrollLeft){
+ 		clearInterval(interval2);
+		interval1 = setInterval(function(){
+    		if(imageslide.scrollLeft === position_index){
+        		clearInterval(interval1);
+        	
+    		}
+   			imageslide.scrollLeft += 10;}, 1);
+		}
+	else{
+		interval2 = setInterval(function(){
+			clearInterval(interval1);
+    		if(imageslide.scrollLeft === position_index){
+        		clearInterval(interval2);
+        	
+    		}
+   			imageslide.scrollLeft -= 10;}, 1);
+		}	
+
  	if(imageslide.scrollLeft >= 6800){
 		document.getElementById('rightarrow').style.display = 'none';
 	}
@@ -145,14 +164,30 @@ window.onload = function(){
 	}
  }
  function scrolLeft(){
- 	imageslide.scrollLeft += 1000;
+ 	
+ 	var timesRun = 0;
+	var interval = setInterval(function(){
+    	timesRun += 10;
+    	if(timesRun === 1000){
+        	clearInterval(interval);
+    	}
+   		imageslide.scrollLeft += 10;}, 1);
+	
  	document.getElementById('leftarrow').style.display = 'block';	
  	if(imageslide.scrollLeft >= 6800){
 		document.getElementById('rightarrow').style.display = 'none';
 	}
  }
   function scrolRight(){
- 	imageslide.scrollLeft -= 1000;	
+
+ 	var timesRun = 0;
+	var interval = setInterval(function(){
+    	timesRun += 10;
+    	if(timesRun === 1000){
+        	clearInterval(interval);
+    	}
+   		imageslide.scrollLeft -= 10;}, 1);
+
  	document.getElementById('rightarrow').style.display = 'block';
  	if(imageslide.scrollLeft === 0){
 		document.getElementById('leftarrow').style.display = 'none';
@@ -169,6 +204,16 @@ window.onload = function(){
   xhttp.open("GET", "../training/json/ind.json", true);
   xhttp.send();
  }
+function addInformation(e,i){ 
+	var active_element = document.getElementsByClassName('active');
+	if(active_element[0])
+		active_element[0].classList.remove('active');
+	e.classList.add('active');
+	var active_box = document.getElementsByClassName('box_active');
+	active_box[0].classList.remove('box_active');
+	var active_box = document.getElementsByClassName('box');
+	active_box[i].classList.add('box_active');
+}
 
 
 

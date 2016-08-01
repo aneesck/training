@@ -28,6 +28,7 @@ function processData(data){
  		var name = arr[i].name.toLowerCase();
  		if(arr[i].class === 'regions' && name.indexOf(keyword) !== -1){
  			var li = document.createElement('li');
+ 			li.setAttribute("onmouseover","addInformation(this,0)");
  			heading1.innerHTML = 'LOCALITIES';
  			heading1.setAttribute("class","head");
  			li.innerHTML = arr[i].name;
@@ -50,7 +51,9 @@ function processData(data){
  		{
  			var li = document.createElement('li');
  			li.innerHTML = arr[i].name;
+ 			li.setAttribute("onmouseover","addInformation(this,0)");
  			heading2_ul.appendChild(li);
+
  			heading2.innerHTML = 'PROJECTS';
  			heading2.setAttribute('class','head');
  		}
