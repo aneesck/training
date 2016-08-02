@@ -131,21 +131,23 @@ window.onload = function(){
 
  	var interval1, interval2;
  	if(position_index >= imageslide.scrollLeft){
- 		clearInterval(interval2);
+		clearInterval(interval2)
 		interval1 = setInterval(function(){
     		if(imageslide.scrollLeft === position_index){
         		clearInterval(interval1);
         	
     		}
+    		else
    			imageslide.scrollLeft += 10;}, 1);
 		}
-	else{
+	else {
+		clearInterval(interval1);
 		interval2 = setInterval(function(){
-			clearInterval(interval1);
-    		if(imageslide.scrollLeft === position_index){
+			if(imageslide.scrollLeft === position_index){
         		clearInterval(interval2);
         	
     		}
+    		else
    			imageslide.scrollLeft -= 10;}, 1);
 		}	
 

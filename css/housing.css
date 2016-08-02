@@ -374,6 +374,7 @@ header a:focus{
     padding-right: 15px;
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
     display: none;
 
 }
@@ -538,7 +539,7 @@ header a:focus{
 .menu_bar .footer{
     color: #b3b3b3;
     font-size: 13px;
-    padding-left: 25px;
+    padding-left: 0px;
     display: inline;
     padding-top: 20px;
     letter-spacing: 0px;
@@ -550,6 +551,10 @@ header a:focus{
 }
 .menu_bar .footer .social_links{
     display: inline-flex;
+}
+.menu_bar .footer li{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .login_popup{
     height: 520px;
@@ -1134,17 +1139,159 @@ header a:focus{
     font-size: 12px;
     font-family: 'Gotham';
 }
+.top2{
+    
+    display: inline-block;
+    font-family: 'Gotham';
+    height: 270px;
+}
+
+.top2_comp1{
+    
+    display: inline-block;
+    height: 135px;
+    width: 1024px;
+    position: relative;
+    left: 137px;
+    bottom: 35px;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 0 2px 64px 0 rgba(197,197,197,.5);
+}
+.top2_comp1 h2{
+    font-size: 18px;
+    line-height: 28px;
+    display: inline-block;
+    font-weight: 600;
+    position: relative;
+    bottom: 70px;
+    left: 10px;
+}
+.top2_comp1 p{
+    width: 580px;
+    margin: 0px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #7f7f7f;
+    position: relative;
+    left: 180px;
+    bottom: 75px;
+}
+.top2_comp1 button{
+    color: #7323dc;
+    letter-spacing: .5px;
+    font-weight: 600;
+    background-color: white;
+    font-size: 12px;
+    padding: 0 20px;
+    border: 1px solid #7323dc;
+    line-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    position: relative;
+    bottom: 135px;
+    left: 835px;
+}
+.top2_comp1 button:hover{
+    background-color: #7323dc;
+    color: white;
+}    
+.top2_comp1 #top2_comp1_img{
+    background-image: url("../images/cards.png");
+    width: 165px;
+    height: 115px;
+    margin: 0px;
+    padding: 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.top2_comp2{
+    display: inline-block;
+    position: relative;
+    left: 137px;
+    bottom: 95px;
+    box-shadow: 0 2px 64px 0 rgba(197,197,197,.5);
+}
+.top2_boxes h2{
+    font-size: 17px;
+    line-height: 28px;
+    display: inline-block;
+    font-weight: 600;
+    position: relative;
+    bottom: 45px;
+    left: 10px;
+}
+.top2_boxes p{
+    width: 374px;
+    color: #7f7f7f;
+    font-size: 13px;
+    line-height: 22px;
+    position: relative;
+    left: 100px;
+    bottom: 55px;
+}
+.top2_boxes a{
+    font-size: 12px;
+    letter-spacing: .5px;
+    font-weight: 600;
+    color: #7323dc;
+    position: relative;
+    bottom: 55px;
+    left: 375px;
+}
+.top2_boxes a:hover{
+    color: #7323dc;
+}    
+.top2_comp2 #top2_comp2_img{
+    background-image: url("../images/placards.png");
+    width: 75px;
+    height: 70px;
+    margin: 0px;
+    padding: 0px;
+    background-size: 200%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.top2_boxes{
+    width: 502px;
+    height: 135px;
+}
+.top2_comp3{
+    display: inline-block;
+    position: relative;
+    left: 154px;
+    bottom: 95px;
+    box-shadow: 0 2px 64px 0 rgba(197,197,197,.5);
+}
+.top2_comp3 #top2_comp3_img{
+    background-image: url("../images/placards.png");
+    background-position: 100%;
+    width: 75px;
+    height: 70px;
+    margin: 0px;
+    padding: 0px;
+    background-size: 200%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
 .top_developer{
     background-color: white;
     height: 800px;
     font-family: 'Gotham';  
+    margin-top: -100px;
 }
 .top_developer  h1{
     text-align: center;
     margin-bottom: 20px;
 }
 .img_indicators{
-  text-align: center;  
+    text-align: center;  
 }
 .small_box{
     border: 1px solid #ccc;
@@ -1165,7 +1312,10 @@ header a:focus{
 }
 .image_slide{
     display: -webkit-inline-box;
+    display: -moz-inline-box;
     overflow-x: scroll;
+    overflow-y: hidden;
+    overflow: -moz-scrollbars-none;
     width: 100%;
     transition-delay: 2s;
     padding: 0px;
@@ -1174,7 +1324,9 @@ header a:focus{
 }
 .image_slide::-webkit-scrollbar { 
     display: none; 
-
+}
+.image_slide::-moz-scrollbar { 
+    display: none; 
 }
 .slide{
     height: 500px;
