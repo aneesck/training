@@ -1,0 +1,64 @@
+{
+  "length": {
+    "mm": {
+      "multiplier": "1000"
+    },
+    "cm": {
+      "multiplier": "100"
+    },
+    "m": {
+      "multiplier": "1"
+    },
+    "km": {
+      "multiplier": ".0001"
+    }
+  },
+  "temp": {
+    "farenheit": {
+      "multiplier": "1.8",
+      "adder": "32"
+    },
+    "celcius": {
+      "multiplier": "1",
+      "adder": "0"
+    },
+    "kelvin": {
+      "multiplier": "1",
+      "adder": "273"
+    }
+  },
+  "time": {
+    "seconds": {
+      "multiplier": "0.00027777777"
+    },
+    "minutes": {
+      "multiplier": "0.01666666666"
+    },
+    "hours": {
+      "multiplier": "1"
+    },
+    "days": {
+      "multiplier": "24"
+    },
+    "weeks": {
+      "multiplier": "168"
+    }
+  },
+  "area": {
+    "square_meter": {
+      "multiplier": ".00001"
+    },
+    "square_km": {
+      "multiplier": "100"
+    },
+    "hectare": {
+      "multiplier": "1"
+    },
+    "square_foot": {
+      "multiplier": "0.0000092903 "
+    },
+    "acre": {
+      "multiplier": "0.40467807858"
+    }
+  }
+}

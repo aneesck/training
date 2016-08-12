@@ -1,0 +1,193 @@
+body{
+	margin: 0px;
+	font-family: HelveticaNeue;
+}
+.navbar{
+	margin: 0px;
+	width: 100%;
+	background-color: #580f8b;
+	padding-top: 27.4px;
+	padding-bottom: 26.6px;
+	padding-left: 35px;
+	padding-right: 34px;
+	color: white;
+	display: inline-block;
+}
+.navbar .heading{
+	font-size: 20px;
+	text-align: center;
+	position: relative;
+    left: 40%;
+    width: 230px;
+  	height: 25px;
+  	font-weight: 700;
+
+}
+.navbar .logout{
+	width: 48px;
+  	height: 17px;
+  	float: right;
+  	font-size: 14px;
+  	font-weight: 700;
+  	color: #ffffff;
+}
+.container {
+    padding-right: 35px;
+    padding-left: 35px;
+    margin: 0px;
+    width: 100%;
+}
+.Peter {
+	margin-top: 3%;
+  	width: 150px;
+  	height: 29px;
+ 	font-size: 24px;
+  	font-weight: 700;
+  	color: #2272cc;
+}
+.Admin {
+  	width: 52px;
+  	height: 21px;
+	font-size: 18px;
+  	font-weight: 400;
+  	color: #2272cc;
+}
+.Lorem {
+	margin-top: 12%;
+  	width: 75%;
+  	height: 75px;
+  	font-size: 18px;
+  	font-weight: 400;
+  	line-height: 1.33;
+  	color: #777777;
+  	margin-bottom: 14%;
+}
+.Lorem .Lorem_heading{
+	width: 278px;
+  	height: 22px;
+  	font-size: 18px;
+  	font-weight: 700;
+  	color: #777777;
+}
+.dates{
+	margin-bottom: 500px;
+}
+.active_date{
+	display: inline-block;
+	width: 35%;
+}
+.closing_date{
+	display: inline-block;
+	width: 35%;
+	margin: 0px 3%;
+}
+.Active_Survey{
+	width: 263px;
+  	height: 22px;
+  	font-size: 18px;
+  	font-weight: 400;
+}
+.Closing_Survey{
+	width: 189px;
+  	height: 22px;
+    font-size: 18px;
+  	font-weight: 400;
+  	color: #333333;
+}
+.dates input{
+	width: 100%;
+  	height: 43px;
+  	border-radius: 5px;
+  	background-color: #ffffff;
+  	border: solid 1px #979797;
+  	padding: 10px 18px;
+}
+.dates input:focus{
+	border-radius: 5px 5px 0px 0px;
+}
+.dates .align_icon{
+	display: inline;
+    position: relative;
+    top: -30px;
+    left: 90%;
+}
+.dates #save{
+	width: 20%;
+  	height: 43px;
+  	border-radius: 5px;
+  	background-color: #979797;
+  	border: solid 1px #979797;
+  	position: relative;
+    top: -30px;
+}
+ul{
+	width: 33%;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+tbody{
+	font-size: 18px;
+}
+.uib-datepicker-popup.dropdown-menu {
+	border-radius: 0px 0px 5px 5px;
+	padding: 20px;
+}/*
+th {
+    width: 60px;
+}*/
+.btn-group, .btn-group-vertical{
+	display: none;
+}
+.btn.btn-sm.btn-success.pull-right.uib-close.ng-binding{
+	color: #979797;
+	font-size: 18px;
+	background-color: #fff;
+	border-width: 0px;
+	position: relative;
+    left: -160px; 
+    font-weight: 700;
+}
+tr td button {
+    height: 54px;
+}
+.small, small {
+    font-size: 19.5px;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 18px;
+    line-height: 1.5;
+    border: 1px solid #d8d8d8;
+    border-radius: 0px; 
+    border-collapse: collapse;
+}
+.uib-datepicker .uib-title {
+    width: 100%;
+    border-width: 0px;
+    font-size: 21px;
+}
+.glyphicon{
+	font-size: 24px;
+	color: #580f8b;
+}
+.btn.btn-default.btn-sm.pull-right.uib-right{
+	border-width: 0px;
+}	
+.btn.btn-default.btn-sm.pull-left.uib-left{
+	border-width: 0px;
+}	
+.text-muted{
+	display: none;
+}
+.btn-info, .btn-info.active.focus, .btn-info.active:focus, .btn-info.active:hover, .btn-info:active.focus, .btn-info:active:focus, .btn-info:active:hover, .open>.dropdown-toggle.btn-info.focus, .open>.dropdown-toggle.btn-info:focus, .open>.dropdown-toggle.btn-info:hover, .btn-info.active, .btn-info:active, .open>.dropdown-toggle.btn-info {
+	background-color: #9933cc;
+	border-color: #9933cc; 
+}
+:focus, :active, :hover, :visited {
+	outline: none;
+}
+thead tr{
+	height: 50px;
+}

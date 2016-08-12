@@ -1,0 +1,28 @@
+body{
+	text-align: center;
+}
+select{
+	width: 204px;
+	height: 30px;
+	border-radius: 4px;
+	background-color: white;
+}
+ul{
+	list-style: none;
+}
+li{
+	display: inline-block;
+	padding: 10px;
+	border: 1px solid purple;
+	border-radius: 4px;
+	color: purple;
+}
+input{
+	width: 200px;
+	height: 30px;
+	border-radius: 4px;
+}
+.active{
+	background-color: purple;
+	color: white;
+}
