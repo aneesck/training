@@ -1,0 +1,29 @@
+{
+  "name": "ob-daterangepicker",
+  "version": "0.7.0",
+  "main": [
+    "dist/scripts/ob-daterangepicker.js",
+    "dist/styles/ob-daterangepicker.css"
+  ],
+  "dependencies": {
+    "moment": "~2.10.6",
+    "angular": "~1.4.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
+  },
+  "homepage": "https://github.com/outbrain/pure-angular-date-range-picker",
+  "_release": "0.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.7.0",
+    "commit": "72a4120849e5715674a1840696da0d33bb6cf5fb"
+  },
+  "_source": "https://github.com/outbrain/pure-angular-date-range-picker.git",
+  "_target": "^0.7.0",
+  "_originalSource": "ob-daterangepicker",
+  "_direct": true
+}

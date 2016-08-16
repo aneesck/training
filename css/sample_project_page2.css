@@ -1,0 +1,37 @@
+body{
+	margin: 0px;
+}
+.navbar-default{
+	margin: 0px;
+	width: 100%;
+	background-color: #580f8b;
+	padding-top: 27.4px;
+	padding-bottom: 26.6px;
+	padding-left: 35px;
+	padding-right: 34px;
+	color: white;
+	display: inline-block;
+}
+.navbar .heading{
+	font-size: 20px;
+	text-align: center;
+	position: relative;
+  	left: 40%;
+  	width: 230px;
+  	height: 25px;
+  	font-weight: 700;
+}
+.navbar .logout{
+	width: 48px;
+	height: 17px;
+  	float: right;
+  	font-size: 14px;
+  	font-weight: 700;
+  	color: #ffffff;
+}
+.container {
+  	padding-right: 35px;
+  	padding-left: 35px;
+  	margin: 0px;
+  	width: 100%;
+}
