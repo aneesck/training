@@ -11,15 +11,13 @@
 
   	<script type="text/javascript" src="script/angular.js"></script>
 
- 	<link rel="stylesheet" type="text/css" href="css/sample_project_page2.css">
+ 	
+
+  	<script type="text/javascript" src="select_plugin/bower_components/angular-ui-select/dist/select.js"></script>
+  	<link rel="stylesheet" type="text/css" href="select_plugin/bower_components/angular-ui-select/dist/select.css">
+
+  	<link rel="stylesheet" type="text/css" href="css/sample_project_page2.css">
   	<script type="text/javascript" src="script/sample_project_page2.js"></script>
-
-  	<link rel="stylesheet" href="bower_components/select2/select2.css">
-	<!-- <script type="text/javascript" src="bower_components/jquery/jquery.js"></script> -->
-	<script type="text/javascript" src="bower_components/select2/select2.js"></script>
-	<!-- <script type="text/javascript" src="bower_components/angular/angular.js"></script> -->
-	<script type="text/javascript" src="bower_components/angular-ui-select2/src/select2.js"></script>
-
 
 </head>
 <body>
@@ -32,409 +30,477 @@
 			<span class="logout">Logout</span>
 		</div>
 	</nav>
-	<div class="container" ng-app="" ng-controller="MyController">
-		<div>
-			<div class="Joe">Joe Smith, MD</div>
-			<div class="Save">Save | Submit</div>
+	<div class="container" ng-app=" " ng-controller="MyController as cont">
+		<div class="row">
+			<div class="Joe col-sm-6">Joe Smith, MD</div>
+			<div class="Save col-sm-6">Save | Submit</div>
 		</div>	
 		<hr><br>
-		<div>
-			<div class="description">Please enter hours for which you were compensated by the hospital into the boxes provided in whole numbers or .5 increments (example: 3 or 3.5)</div><br><br>
-			<div class="Week">Week One: March 4 - March 10, 2016 </div>
-			<div class="Survey">Survey Close Date: 5/16</div><br>
-			<div class="Hours">Hours Spent on Activities</div>
-			<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-			<br><br>
-			<select ui-select2 ng-model="select2" data-placeholder="Pick a number">
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span>	
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span>
-			<ul>
+		<div class="row">
+			<div class="description col-sm-12 col-lg-12 col-md-12">Please enter hours for which you were compensated by the hospital into the boxes provided in whole numbers or .5 increments (example: 3 or 3.5)</div>	
+			<div class="Week col-sm-12 col-lg-12 col-md-12">Week One: March 4 - March 10, 2016 </div>
+			<div class="Survey col-sm-12 col-lg-12 col-md-12">Survey Close Date: 5/16</div>
+		</div>	
+		<div class="row">
+			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
+			<ul class="col-sm-6 col-lg-6 col-md-6">
 				<li>
 					Mon<br>
-					3/4<br>
-					<input class="small_box" type="text" name="">
+					3/4
 				</li>
 				<li>
 					Tues<br>
-					3/5<br>
-					<input class="small_box" type="text" name="">
+					3/5
 				</li>
 				<li>
 					Wed<br>
-					3/6<br>
-					<input class="small_box" type="text" name="">
+					3/6
 				</li>
 				<li>
 					Thurs<br>
-					3/7<br>
-					<input class="small_box" type="text" name="">
-				</li>
+					3/7
+				</li>	
 				<li>
 					Fri<br>
-					3/8<br>
-					<input class="small_box" type="text" name="">
+					3/8
 				</li>
 				<li>
 					Sat<br>
-					3/9<br>
-					<input class="small_box" type="text" name="">
+					3/9
 				</li>
 				<li>
 					Sun<br>
-					3/10<br>
-					<input class="small_box" type="text" name="">
+					3/10
 				</li>
-				<li class="total_list">
+				<li>
 					Activity<br>
-					Totals<br>
-					<input class="total_box" type="text" name="">
+					Totals
 				</li>
 			</ul>
-			<span class="first_close">
-				<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
-			</span>
-			<br><br>
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span>	
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span><br><br>
-			<ul class="NoLabel">
+		</div>
+		<!-- <div class="row">
+			<div class="col-md-6 col-lg-6 col-sm-6">
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="selected.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>	
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="selected.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>
+				</div>
+			</div>	
+			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li>
-					<input type="text" class="small_box" name="">
+					<input class="small_box" type="text" name="" ng-model="value[1][1]" ng-keyup="evaluate1()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input class="small_box" type="text" name="" ng-model="value[1][2]" ng-keyup="evaluate1()">
 				</li>
-				<li>
-					<input type="text" class="small_box" name="">
+				<li>	
+					<input class="small_box" type="text" name="" ng-model="value[1][3]" ng-keyup="evaluate1()">
 				</li>
-				<li>
-					<input type="text" class="small_box" name="">
+				<li>		
+					<input class="small_box" type="text" name="" ng-model="value[1][4]" ng-keyup="evaluate1()">
 				</li>
-				<li>
-					<input type="text" class="small_box" name="">
+				<li>			
+					<input class="small_box" type="text" name="" ng-model="value[1][5]" ng-keyup="evaluate1()">
 				</li>
-				<li>
-					<input type="text" class="small_box" name="">
+				<li>	
+					<input class="small_box" type="text" name="" ng-model="value[1][6]" ng-keyup="evaluate1()">
 				</li>
-				<li>
-					<input type="text" class="small_box" name="">
+				<li>	
+					<input class="small_box" type="text" name="" ng-model="value[1][7]" ng-keyup="evaluate1()">
 				</li>
-				<li>
-					<input type="text" class="total_box" name="">
+				<li class="total_list">	
+					<input class="total_box" type="text" name="" ng-model="activitytotal[1]" readonly="">
 				</li>
 			</ul>
-			<span class="second_close">
-				<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
-			</span>
-			<div class="Report">
+		</div> -->
+		<div class="row" ng-repeat="item in activity">	
+			<div class="col-md-6 col-lg-6 col-sm-6">
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="activities[$index].locationName.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>	
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="activities[$index].activityName.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>
+				</div>
+			</div>	
+			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[0]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[1]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[2]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[3]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[4]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[5]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="small_box" name="" ng-model="activities[$index].time[6]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="activitytotal[$index]" readonly="">
+				</li>
+				<span>
+					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity($index)"></i>
+				</span>
+			</ul>	
+		</div>
+		<div class="row" ng-click="addActivity()">	
+			<div class="Report col-sm-12 col-lg-12 col-md-12">
 				<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
 				<span>Report another activity</span>
 			</div><br>
-			<div class="WeekOnTotals">Week on Totals:</div>
-			<ul class="BorderBox">
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="">
-				</li>
-			</ul>
-			<br><br><br><br>
-			<div class="Unscheduled">Unscheduled Days</div><br>
-			<div class="If">If not scheduled to work, or if off on vacation or sick for the entire day, check the box for that day. Check the box again to clear it. </div>
-			<ul class="Checkbox">
-					<li>
-					Mon<br>
-					3/4<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Tues<br>
-					3/5<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Wed<br>
-					3/6<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Thurs<br>
-					3/7<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Fri<br>
-					3/8<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Sat<br>
-					3/9<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Sun<br>
-					3/10<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>	
-			</ul>
 		</div>
-		<br><br>
+		<div class="row">	
+			<div class="WeekOnTotals col-sm-6 col-lg-6 col-md-6">Week on Totals:</div>
+			<ul class="col-sm-6 col-lg-6 col-md-6">
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[0]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[1]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[2]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[3]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[4]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[5]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="total[6]" readonly="">
+				</li>
+				<li>
+					<input type="text" class="total_box" name="" ng-model="weektotal[1]" readonly="">
+				</li>
+			</ul>
+		</div><br>
+		<div class="row">
+			<div class="col-sm-6 col-lg-6 col-md-6">
+				<div class="Unscheduled">Unscheduled Days</div><br>
+				<div class="If">If not scheduled to work, or if off on vacation or sick for the entire day, check the box for that day. Check the box again to clear it. </div>
+			</div>	
+			<div class="col-sm-6 col-lg-6 col-md-6 checkbox-container">
+				<ul class="Checkbox">
+					<li>
+						Mon<br>
+						3/4<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Tues<br>
+						3/5<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Wed<br>
+						3/6<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Thurs<br>
+						3/7<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Fri<br>
+						3/8<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Sat<br>
+						3/9<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Sun<br>
+						3/10<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>	
+				</ul>
+			</div>	
+		</div>
+		<br>
 		<hr><br>
-		<div>
-			<br>
-			<div class="Week">Week One: March 11 - March 17, 2016 </div>
-			<div class="Survey">Survey Close Date: 5/16</div><br>
-			<div class="Hours">Hours Spent on Activities</div>
-			<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-
-			<br><br>
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span>	
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span>
-			<ul>
+		<div class="row">
+			<div class="Week col-sm-12 col-lg-12 col-md-12">Week Two: March 11 - March 17, 2016 </div>
+			<div class="Survey col-sm-12 col-lg-12 col-md-12">Survey Close Date: 5/16</div>
+		</div>	
+		<div class="row">
+			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
+			<ul class="col-sm-6 col-lg-6 col-md-6">
 				<li>
 					Mon<br>
-					3/11<br>
-					<input class="small_box" type="text" name="">
+					3/11
 				</li>
 				<li>
 					Tues<br>
-					3/12<br>
-					<input class="small_box" type="text" name="">
+					3/12
 				</li>
 				<li>
 					Wed<br>
-					3/13<br>
-					<input class="small_box" type="text" name="">
+					3/13
 				</li>
 				<li>
 					Thurs<br>
-					3/14<br>
-					<input class="small_box" type="text" name="">
-				</li>
+					3/14
+				</li>	
 				<li>
 					Fri<br>
-					3/15<br>
-					<input class="small_box" type="text" name="">
+					3/15
 				</li>
 				<li>
 					Sat<br>
-					3/16<br>
-					<input class="small_box" type="text" name="">
+					3/16
 				</li>
 				<li>
 					Sun<br>
-					3/17<br>
-					<input class="small_box" type="text" name="">
+					3/17
+				</li>
+				<li>
+					Activity<br>
+					Totals
+				</li>
+			</ul>
+		</div><br>
+		<div class="row">	
+			<div class="col-md-6 col-lg-6 col-sm-6">
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="selected.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>	
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="selected.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>
+				</div>
+			</div>	
+			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][1]" ng-keyup="evaluate2()">
+				</li>
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][2]" ng-keyup="evaluate2()">
+				</li>
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][3]" ng-keyup="evaluate2()">
+				</li>
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][4]" ng-keyup="evaluate2()">
+				</li>
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][5]" ng-keyup="evaluate2()">
+				</li>
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][6]" ng-keyup="evaluate2()">
+				</li>
+				<li>
+					<input class="small_box" type="text" name="" ng-model="value[3][7]" ng-keyup="evaluate2()">
 				</li>
 				<li class="total_list">
-					Activity<br>
-					Totals<br>
-					<input class="total_box" type="text" name="">
+					<input class="total_box" type="text" name="" ng-model="activitytotal[3]" readonly="">
 				</li>
 			</ul>
-			<span class="first_close">
-				<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
-			</span>
-			<br><br>
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span>	
-			<select>
-				<option>Option1</option>
-				<option>Option2</option>
-				<option>Option3</option>
-			</select>
-			<span>
-				<i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-				<i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
-			</span><br><br>
-			<ul class="NoLabel">
+		</div><br>
+		<div class="row">
+			<div class="col-md-6 col-lg-6 col-sm-6">
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="selected.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>	
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+					<ui-select ng-model="selected.value">
+			    		<ui-select-match placeholder="Choose an option">
+			        		<span ng-bind="$select.selected.name"></span>
+			    		</ui-select-match>
+			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+			        		<span ng-bind="item.name"></span>
+			    		</ui-select-choices>
+					</ui-select>
+				</div>
+			</div>
+			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][1]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][2]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][3]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][4]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][5]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][6]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="">
+					<input type="text" class="small_box" name="" ng-model="value[4][7]" ng-keyup="evaluate2()">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="activitytotal[4]" readonly="">
 				</li>
 			</ul>
-			<span class="second_close">
-				<i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
-			</span>
-			<div class="Report">
+		</div>
+		<div class="row"">	
+			<div class="Report col-sm-12 col-lg-12 col-md-12">
 				<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
 				<span>Report another activity</span>
-			</div><br>
-			<div class="WeekOnTotals">Week on Totals:</div>
-			<ul class="BorderBox">
+			</div>
+		</div>
+		<div class="row">	
+			<div class="WeekOnTotals col-sm-6">Week on Totals:</div>
+			<ul class="BorderBox col-sm-6">
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][1]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][2]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][3]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][4]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][5]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][6]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="total[2][7]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="">
+					<input type="text" class="total_box" name="" ng-model="weektotal[2]" readonly="">
 				</li>
 			</ul>
-			<br><br><br><br>
-			<div class="Unscheduled">Unscheduled Days</div><br>
-			<div class="If">If not scheduled to work, or if off on vacation or sick for the entire day, check the box for that day. Check the box again to clear it. </div>
-			<ul class="Checkbox">
+		</div><br>
+		<div class="row">
+			<div class="col-sm-6 col-lg-6 col-md-6">
+				<div class="Unscheduled">Unscheduled Days</div><br>
+				<div class="If">If not scheduled to work, or if off on vacation or sick for the entire day, check the box for that day. Check the box again to clear it. </div>
+			</div>	
+			<div class="col-sm-6 col-lg-6 col-md-6 checkbox-container">
+				<ul class="Checkbox">
+						<li>
+						Mon<br>
+						3/4<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
 					<li>
-					Mon<br>
-					3/4<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Tues<br>
-					3/5<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Wed<br>
-					3/6<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Thurs<br>
-					3/7<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Fri<br>
-					3/8<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Sat<br>
-					3/9<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>
-				<li>
-					Sun<br>
-					3/10<br>
-					<input type="checkbox" class="tiny_box" name="">
-				</li>	
-			</ul>
+						Tues<br>
+						3/5<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Wed<br>
+						3/6<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Thurs<br>
+						3/7<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Fri<br>
+						3/8<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Sat<br>
+						3/9<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>
+					<li>
+						Sun<br>
+						3/10<br>
+						<input type="checkbox" class="tiny_box" name="">
+					</li>	
+				</ul>
+			</div>	
 		</div>
-		<br><br><br><br>
+		<br>
 		<hr><br>
-		<div>
-			<div class="Questions">Questions</div>
-			<div class="For">For questions regarding how to properly code specific activites on this survey use the following contact information:</div><br>
-			<div class="Bellvevue">Bellvevue Hospital: </div><br>
-			<div class="For">Vivian Diaz<br>212-562-3422 </div><br>
-			<div class="Vivian">Vivian.Diaz2@bellevue.nychhc.org</div><br>
-			<div class="Bellvevue">NYUHC/HJD:</div><br>
-			<div class="For">Robert Toso<br>212-404-4165</div><br>
-			<div class="Vivian">Robert.Toso@nyumc.org</div><br>
-			<div class="Bellvevue">Lutheran:</div><br>
-			<div class="For">Contact info TBD</div><br>
-		</div>
+		<div class="row footer">
+			<span class="Questions">Questions</span>
+			<span class="For">For questions regarding how to properly code specific activites on this survey use the following contact information:</span><br>
+			<span class="Bellvevue">Bellvevue Hospital:</span>
+			<span class="For">Vivian Diaz</span>
+			<span class="For">212-562-3422</span>
+			<span class="Vivian">Vivian.Diaz2@bellevue.nychhc.org</span>
+			<span class="Bellvevue">NYUHC/HJD:</span>
+			<span class="For">Robert Toso</span>
+			<span class="For">212-404-4165</span>
+			<span class="Vivian">Robert.Toso@nyumc.org</span>
+			<span class="Bellvevue">Lutheran:</span>
+			<span class="For">Contact info TBD</span>
+		</div>	
+		
 	</div>	
 
 

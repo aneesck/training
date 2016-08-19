@@ -30,14 +30,11 @@ body{
   	color: #ffffff;
 }
 .container {
-  	padding-right: 35px;
-  	padding-left: 35px;
-  	margin: 0px;
-  	width: 100%;
-  	padding-top: 35px;
+  	padding: 20px 0px;
+  	max-width: 1150px;
+  	margin: auto;
 }
 .Joe{
-	width: 168px;
   	height: 29px;
 	font-size: 24px;
   	font-weight: 700;
@@ -46,13 +43,12 @@ body{
 }
 
 .Save{
-	width: 120px;
   	height: 23px;
    	font-size: 18px;
   	font-weight: 700;
   	color: #580f8b;
   	display: inline-block;
-  	float: right;
+  	text-align: right;
 }
 hr{
 	border-color: #999;
@@ -62,32 +58,26 @@ hr{
 ul{
 	list-style: none;
     display: flex;
-    float: right;
-    position: relative;
-    top: -48px;
     font-size: 16px;
   	font-weight: 400;
   	line-height: 1.5;
   	color: #777777;
 }
-ul.NoLabel{
-	top: -62px;
-}
-ul.BorderBox{
-	top: -10px;
-}
+
 span.first_close{
 	position: relative;
-    left: 685px;
+    left: 100.7%;
+    top: -32px;
 }
 span.second_close{
 	position: relative;
-    left: 1224px;
+    left: 1225px;
     top: -50px;
 }
 li{
-	padding-left: 20px;
+	padding: 0px 8px;
 	text-align: center;
+	min-width: 13%;
 }
 li.total_list{
   	font-weight: 700;
@@ -105,14 +95,71 @@ select{
     appearance: none;
     padding: 8px;
 }
-option{
-	height: 40px;
-	
+.dropdown{
+  	height: 43px;
+  	border-radius: 5px;
+  	background-color: #ffffff;
+  	border: solid 1px #979797;
+  	display: inline-block;
+  	width: 100%;
 }
-select + span{
-    position: relative;
-    left: -30px;
-    color: #580f8b;
+.ui-select-bootstrap > .ui-select-match > .btn {
+    text-align: left !important;
+    height: 40px;
+    border-width: 0px;
+    position: absolute;
+}
+input[type=search]{
+	display: none;
+}
+.ui-select-choices-group{
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+}
+.ui-select-bootstrap > .ui-select-choices, .ui-select-bootstrap > .ui-select-no-choice{
+	padding: 0px !important;
+}
+.ui-select-bootstrap .ui-select-choices-row>span:hover, .ui-select-bootstrap .ui-select-choices-row.active>span:hover{
+	background-color: #580f8b !important;
+	color: #fff !important;
+}
+.ui-select-bootstrap > .ui-select-match > .btn:hover {
+    background-color: white;
+}
+.ui-select-bootstrap .ui-select-choices-row>span{
+	height: 43px;
+    border: 1px solid #979797;
+    border-width: 1px 0px 0px 0px;
+    font-size: 18px;
+  	font-weight: 400;
+  	padding: 10px;
+}
+.ui-select-bootstrap .ui-select-match-text span{
+	font-size: 18px;
+  	font-weight: 400;
+  	padding-top: 4px
+}
+.ui-select-bootstrap > .ui-select-match > .btn{
+	font-size: 18px;
+  	font-weight: 400;
+  	padding-top: 7px;
+}
+.liftup::after{
+	font-family: FontAwesome;
+   	content: "\f078";
+   	color: #580f8b;
+   	position: relative;
+    left: 90%;
+    top: -32px;
+    font-size: 18px;
+}
+.ui-select-bootstrap .ui-select-choices-row.active>span{
+	background-color: white !important;
+	color: #333;
+}
+.ui-select-bootstrap .ui-select-toggle > .caret{
+	display: none;
 }
 div + i{
 	color: #ccc;
@@ -139,21 +186,21 @@ button{
   	height: 43px;
   	border-radius: 5px;
   	border: solid 1px #979797;
+  	text-align: center;
 }
 .total_box{
 	width: 55px;
   	height: 43px;
   	border-radius: 5px;
   	border: solid 2px #979797;
+  	text-align: center;
 }
-.Questions{
-	height: 29px;
+.Questions{	
   	font-size: 24px;
   	font-weight: 400;
   	color: #666666;
 }
 .For{
-	height: 50px;
     font-size: 16px;
   	font-weight: 400;
   	line-height: 1.5;
@@ -161,7 +208,6 @@ button{
   	display: inline-block;
 }
 .Bellvevue{
-  	height: 21px;
   	font-size: 16px;
   	font-weight: 700;
   	line-height: 1.11;
@@ -169,7 +215,7 @@ button{
   	display: inline-block;
 }
 .Vivian{
-	height: 50px;
+	padding-bottom: 20px;
     font-size: 16px;
   	font-weight: 400;
   	line-height: 1.5;
@@ -177,16 +223,15 @@ button{
   	display: inline-block;
 }
 .description{
-	width: 958px;
 	height: 50px;
     font-size: 18px;
   	font-weight: 400;
   	line-height: 1.33;
   	color: #777777;
   	display: inline-block;
+  	margin-bottom: 25px;
 }
 .Week{
-	width: 431px;
   	height: 25px;
   	font-size: 24px;
   	font-weight: 700;
@@ -202,12 +247,19 @@ button{
   	display: inline-block;
 }
 .Hours{
-	width: 297px;
   	height: 29px;
   	font-size: 24px;
   	font-weight: 700;
   	color: #2272cc;
   	display: inline-block;
+
+}
+.Hours::after{
+	font-family: FontAwesome;
+   	content: "\f059";
+   	color: #ccc;
+   	font-size: 18px;
+   	margin-left: 10px;
 }
 .Report{
   	height: 23px;
@@ -220,10 +272,9 @@ button{
   	font-size: 18px;
   	font-weight: 700;
   	line-height: 1.33;
-  	text-align: center;
+  	text-align: right;
   	color: #777777;
   	display: inline-block;
-    padding-left: 31%;
 }
 .Unscheduled{
   	height: 29px;
@@ -232,8 +283,6 @@ button{
   	color: #2272cc;
 }
 .If{
-	width: 407px;
-  	height: 75px;
   	font-size: 18px;
   	font-weight: 400;
   	line-height: 1.33;
@@ -241,18 +290,34 @@ button{
   	display: inline-block;
 }
 ul.Checkbox{
-	top: -45px;
     border: 1px solid #ccc;
     padding: 10px 25px;
 }
 .Checkbox li{
-	padding-left: 25px;
-    padding-right: 25px;
+	padding: 5px 25px;
 }
 .tiny_box{
 	width: 18.7px;
-  	height: 25px;
   	font-size: 23.7px;
   	font-weight: 400;
   	color: #777777;
+}
+.RemovableList  span{
+	color: red;
+	position: relative;
+    top: 7px;
+    cursor: pointer;
+}
+.liftup{
+	margin-top: -12px;
+}
+.footer span{
+	display: block;
+}
+.Report span, .Report i{
+	cursor: pointer;
+}
+.checkbox-container{
+	padding-right: 0px;
+	padding-left: 25px;
 }
