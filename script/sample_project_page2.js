@@ -1,5 +1,5 @@
 var app = angular.module(' ', ['ui.select']);
-app.controller('MyController', function($scope) {
+app.controller('MyController', function($scope,Calculations) {
      $scope.itemArray = [
         {id: 1, name: 'first'},
         {id: 2, name: 'second'},
@@ -7,114 +7,70 @@ app.controller('MyController', function($scope) {
         {id: 4, name: 'fourth'}
     ];
 
-    
-    
-    $scope.activitytotal = [];
-
-    $scope.activities = [{
+    $scope.weektotal = [];
+    $scope.total = [];
+ 
+    $scope.activities1 = [{
     	locationName: {},
     	activityName: {},
-    	time: []
+    	time: [],
+    	activityTotal:""
     }];
 
-    $scope.activity = [{}];
+     $scope.activities2 = [{
+    	locationName: {},
+    	activityName: {},
+    	time: [],
+    	activityTotal:""
+    }];
+
    	$scope.addActivity = function(){
-   		$scope.activity.push({});
+   		var activity = {
+	    	locationName: {},         
+	    	activityName: {},
+	    	time: [],
+	    	activityTotal:""
+    	};
+   		$scope.activities1.push(activity);
    	}
 
-    $scope.removeActivity=function($index){ 
-  $scope.activity.splice($index,1);    
-}
+    $scope.removeActivity=function(index){ 
+	  	$scope.activities1.splice(index,1);
+	  	$scope.evaluate1();
+	}
 
+	$scope.addActivity2 = function(){
+   		var activity = {
+	    	locationName: {},
+	    	activityName: {},
+	    	time: [],
+	    	activityTotal:""
+    	};
+   		$scope.activities2.push(activity);
+   	}
 
-
-
-
-
-    
-    $scope.weektotal = [];
-    $scope.value = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
-    $scope.total = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
- 
+    $scope.removeActivity2=function(index){ 
+	  	$scope.activities2.splice(index,1);
+	  	$scope.evaluate2();
+	}
 
    	$scope.evaluate1 = function(){
-   		// alert($scope.location1.value.name);
-   		for(var j=0; j<$scope.activity.length; j++){
-   		$scope.activitytotal[j] = 0;
-	   		for(var i=0; i<7; i++){
-	   			if( (!isNaN($scope.activities[j].time[i])) && $scope.activities[j].time[i] !== '' ) {
-	   				$scope.activitytotal[j]= $scope.activitytotal[j]+parseFloat($scope.activities[j].time[i]);
-	   			}
-	   		}
-	   		if($scope.activitytotal[j] === 0)
-	   			$scope.activitytotal[j] = "";	
-   		}
+   		$scope.activities1 = Calculations.calculateActivityTotal($scope.activities1);
+   		$scope.total = Calculations.calculateTotal($scope.total,$scope.activities1,0);
+   		$scope.weektotal[1] = Calculations.calculateWeekTotal($scope.weektotal[1],$scope.activities1);
+  	}	
 
-   		for(var i = 0; i<7; i++){
-   			$scope.total[i] = 0;
-   			for(var j=0; j<$scope.activity.length; j++){
-   				if( (!isNaN($scope.activities[j].time[i])) && $scope.activities[j].time[i] !== '' ) {
-	   				$scope.total[i]= $scope.total[i]+parseFloat($scope.activities[j].time[i]);
-	   			}
-   			}
-   			if($scope.total[i] === 0)
-	   			$scope.total[i] = "";	
-   		}
+  	$scope.evaluate2 = function(){
+   		$scope.activities2 = Calculations.calculateActivityTotal($scope.activities2);
+   		$scope.total = Calculations.calculateTotal($scope.total,$scope.activities2,7);
+   		$scope.weektotal[2] = Calculations.calculateWeekTotal($scope.weektotal[2],$scope.activities2);
+  	}	
 
- 
-   			$scope.weektotal[1]=0;
-   			for(var j=0; j<$scope.activity.length; j++){
-   				if( (!isNaN($scope.activitytotal[j])) && $scope.activitytotal[j] !== '' ) {
-	   				$scope.weektotal[1]= $scope.weektotal[1]+parseFloat($scope.activitytotal[j]);
-	   			}
-   			}
-   			if($scope.weektotal[1] === 0)
-	   			$scope.weektotal[1] = "";
-   		
-
-   	}	
+  	$scope.print = function(){
+  		var str1 = JSON.stringify($scope.activities1,null,2);
+  		var str2 = JSON.stringify($scope.activities2,null,2);
+  		alert(str1+str2);console.log(str1+str2);
+  	}
 
 
-
-
-
-$scope.evaluate2 = function(){
-   		for(var j=3; j<5; j++){
-   		$scope.activitytotal[j] = 0;
-	   		for(var i=1; i<8; i++){
-	   			if( (!isNaN($scope.value[j][i])) && $scope.value[j][i] !== '' ) {
-	   				$scope.activitytotal[j]= $scope.activitytotal[j]+parseFloat($scope.value[j][i]);
-	   			}
-	   		}
-	   		if($scope.activitytotal[j] === 0)
-	   			$scope.activitytotal[j] = "";	
-   		}
-
-   		for(var i = 1; i<8; i++){
-   			$scope.total[2][i] = 0;
-   			for(var j=3; j<5; j++){
-   				if( (!isNaN($scope.value[j][i])) && $scope.value[j][i] !== '' ) {
-	   				$scope.total[2][i]= $scope.total[2][i]+parseFloat($scope.value[j][i]);
-	   			}
-   			}
-   			if($scope.total[2][i] === 0)
-	   			$scope.total[2][i] = "";	
-   		}
-
- 
-   			$scope.weektotal[2]=0;
-   			for(var j=3; j<5; j++){
-   				if( (!isNaN($scope.activitytotal[j])) && $scope.activitytotal[j] !== '' ) {
-	   				$scope.weektotal[2]= $scope.weektotal[2]+parseFloat($scope.activitytotal[j]);
-	   			}
-   			}
-   			if($scope.weektotal[2] === 0)
-	   			$scope.weektotal[2] = "";
-   		
-
-   	}
-
-
-
-   	
 });

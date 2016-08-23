@@ -18,6 +18,7 @@
 
   	<link rel="stylesheet" type="text/css" href="css/sample_project_page2.css">
   	<script type="text/javascript" src="script/sample_project_page2.js"></script>
+  	<script type="text/javascript" src="script/sample_project_page2_service.js"></script>
 
 </head>
 <body>
@@ -33,7 +34,7 @@
 	<div class="container" ng-app=" " ng-controller="MyController as cont">
 		<div class="row">
 			<div class="Joe col-sm-6">Joe Smith, MD</div>
-			<div class="Save col-sm-6">Save | Submit</div>
+			<div class="Save col-sm-6" ng-click="print()">Save | Submit</div>
 		</div>	
 		<hr><br>
 		<div class="row">
@@ -78,21 +79,21 @@
 				</li>
 			</ul>
 		</div>
-		<!-- <div class="row">
-			<div class="col-md-6 col-lg-6 col-sm-6">
+		<div class="row" ng-repeat="activity in activities1 track by $index">	
+			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="selected.value">
-			    		<ui-select-match placeholder="Choose an option">
+					<ui-select ng-model="activity.locationName.value">
+			    		<ui-select-match placeholder="Choose a location">
 			        		<span ng-bind="$select.selected.name"></span>
 			    		</ui-select-match>
 			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
 			        		<span ng-bind="item.name"></span>
 			    		</ui-select-choices>
-					</ui-select>	
+					</ui-select>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="selected.value">
-			    		<ui-select-match placeholder="Choose an option">
+					<ui-select ng-model="activity.activityName.value">
+			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.name"></span>
 			    		</ui-select-match>
 			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
@@ -103,88 +104,38 @@
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[1][1]" ng-keyup="evaluate1()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[0]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || mondayChecked1 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[1][2]" ng-keyup="evaluate1()">
-				</li>
-				<li>	
-					<input class="small_box" type="text" name="" ng-model="value[1][3]" ng-keyup="evaluate1()">
-				</li>
-				<li>		
-					<input class="small_box" type="text" name="" ng-model="value[1][4]" ng-keyup="evaluate1()">
-				</li>
-				<li>			
-					<input class="small_box" type="text" name="" ng-model="value[1][5]" ng-keyup="evaluate1()">
-				</li>
-				<li>	
-					<input class="small_box" type="text" name="" ng-model="value[1][6]" ng-keyup="evaluate1()">
-				</li>
-				<li>	
-					<input class="small_box" type="text" name="" ng-model="value[1][7]" ng-keyup="evaluate1()">
-				</li>
-				<li class="total_list">	
-					<input class="total_box" type="text" name="" ng-model="activitytotal[1]" readonly="">
-				</li>
-			</ul>
-		</div> -->
-		<div class="row" ng-repeat="item in activity">	
-			<div class="col-md-6 col-lg-6 col-sm-6">
-				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activities[$index].locationName.value">
-			    		<ui-select-match placeholder="Choose an option">
-			        		<span ng-bind="$select.selected.name"></span>
-			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
-			    		</ui-select-choices>
-					</ui-select>	
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activities[$index].activityName.value">
-			    		<ui-select-match placeholder="Choose an option">
-			        		<span ng-bind="$select.selected.name"></span>
-			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
-			    		</ui-select-choices>
-					</ui-select>
-				</div>
-			</div>	
-			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
-				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[0]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+					<input type="text" class="small_box" name="" ng-model="activity.time[1]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || tuesdayChecked1 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[1]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+					<input type="text" class="small_box" name="" ng-model="activity.time[2]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || wednesdayChecked1 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[2]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+					<input type="text" class="small_box" name="" ng-model="activity.time[3]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || thursdayChecked1 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[3]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+					<input type="text" class="small_box" name="" ng-model="activity.time[4]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || fridayChecked1 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[4]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+					<input type="text" class="small_box" name="" ng-model="activity.time[5]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || saturdayChecked1 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[5]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
+					<input type="text" class="small_box" name="" ng-model="activity.time[6]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || sundayChecked1 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activities[$index].time[6]" ng-keyup="evaluate1()" ng-disabled="activities[$index].locationName.value == undefined || activities[$index].activityName.value == undefined">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="activitytotal[$index]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
 				</li>
 				<span>
 					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity($index)"></i>
 				</span>
 			</ul>	
 		</div>
-		<div class="row" ng-click="addActivity()">	
+		<div class="row">	
 			<div class="Report col-sm-12 col-lg-12 col-md-12">
-				<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
-				<span>Report another activity</span>
+				<i class="fa fa-plus-circle fa-lg" aria-hidden="true" ng-click="addActivity()"></i>
+				<span ng-click="addActivity()">Report another activity</span>
 			</div><br>
 		</div>
 		<div class="row">	
@@ -226,37 +177,44 @@
 					<li>
 						Mon<br>
 						3/4<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox1" type="checkbox" ng-model="mondayChecked1"/>
+    					<label for="checkbox1"></label>
 					</li>
 					<li>
 						Tues<br>
 						3/5<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox2" type="checkbox" ng-model="tuesdayChecked1"/>
+    					<label for="checkbox2"></label>
 					</li>
 					<li>
 						Wed<br>
 						3/6<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox3" type="checkbox" ng-model="wednesdayChecked1"/>
+    					<label for="checkbox3"></label>
 					</li>
 					<li>
 						Thurs<br>
 						3/7<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox4" type="checkbox" ng-model="thursdayChecked1"/>
+    					<label for="checkbox4"></label>
 					</li>
 					<li>
 						Fri<br>
 						3/8<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox5" type="checkbox" ng-model="fridayChecked1"/>
+    					<label for="checkbox5"></label>
 					</li>
 					<li>
 						Sat<br>
 						3/9<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox6" type="checkbox" ng-model="saturdayChecked1"/>
+    					<label for="checkbox6"></label>
 					</li>
 					<li>
 						Sun<br>
 						3/10<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox7" type="checkbox" ng-model="sundayChecked1"/>
+    					<label for="checkbox7"></label>
 					</li>	
 				</ul>
 			</div>	
@@ -304,21 +262,21 @@
 				</li>
 			</ul>
 		</div><br>
-		<div class="row">	
-			<div class="col-md-6 col-lg-6 col-sm-6">
+		<div class="row" ng-repeat="activity in activities2 track by $index">	
+			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="selected.value">
-			    		<ui-select-match placeholder="Choose an option">
+					<ui-select ng-model="activity.locationName.value">
+			    		<ui-select-match placeholder="Choose a location">
 			        		<span ng-bind="$select.selected.name"></span>
 			    		</ui-select-match>
 			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
 			        		<span ng-bind="item.name"></span>
 			    		</ui-select-choices>
-					</ui-select>	
+					</ui-select>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="selected.value">
-			    		<ui-select-match placeholder="Choose an option">
+					<ui-select ng-model="activity.activityName.value">
+			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.name"></span>
 			    		</ui-select-match>
 			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
@@ -329,110 +287,63 @@
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][1]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[0]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || mondayChecked2 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][2]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[1]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || tuesdayChecked2 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][3]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[2]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || wednesdayChecked2 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][4]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[3]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || thursdayChecked2 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][5]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[4]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || fridayChecked2 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][6]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[5]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || saturdayChecked2 === true">
 				</li>
 				<li>
-					<input class="small_box" type="text" name="" ng-model="value[3][7]" ng-keyup="evaluate2()">
-				</li>
-				<li class="total_list">
-					<input class="total_box" type="text" name="" ng-model="activitytotal[3]" readonly="">
-				</li>
-			</ul>
-		</div><br>
-		<div class="row">
-			<div class="col-md-6 col-lg-6 col-sm-6">
-				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="selected.value">
-			    		<ui-select-match placeholder="Choose an option">
-			        		<span ng-bind="$select.selected.name"></span>
-			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
-			    		</ui-select-choices>
-					</ui-select>	
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="selected.value">
-			    		<ui-select-match placeholder="Choose an option">
-			        		<span ng-bind="$select.selected.name"></span>
-			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
-			    		</ui-select-choices>
-					</ui-select>
-				</div>
-			</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
-				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][1]" ng-keyup="evaluate2()">
+					<input type="text" class="small_box" name="" ng-model="activity.time[6]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || sundayChecked2 === true">
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][2]" ng-keyup="evaluate2()">
+					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
 				</li>
-				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][3]" ng-keyup="evaluate2()">
-				</li>
-				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][4]" ng-keyup="evaluate2()">
-				</li>
-				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][5]" ng-keyup="evaluate2()">
-				</li>
-				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][6]" ng-keyup="evaluate2()">
-				</li>
-				<li>
-					<input type="text" class="small_box" name="" ng-model="value[4][7]" ng-keyup="evaluate2()">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="activitytotal[4]" readonly="">
-				</li>
-			</ul>
-		</div>
-		<div class="row"">	
-			<div class="Report col-sm-12 col-lg-12 col-md-12">
-				<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
-				<span>Report another activity</span>
-			</div>
+				<span>
+					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity2($index)"></i>
+				</span>
+			</ul>	
 		</div>
 		<div class="row">	
-			<div class="WeekOnTotals col-sm-6">Week on Totals:</div>
-			<ul class="BorderBox col-sm-6">
+			<div class="Report col-sm-12 col-lg-12 col-md-12">
+				<i class="fa fa-plus-circle fa-lg" aria-hidden="true" ng-click="addActivity2()"></i>
+				<span ng-click="addActivity2()">Report another activity</span>
+			</div><br>
+		</div>
+		<div class="row">	
+			<div class="WeekOnTotals col-sm-6 col-lg-6 col-md-6">Week on Totals:</div>
+			<ul class="col-sm-6 col-lg-6 col-md-6">
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][1]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[7]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][2]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[8]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][3]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[9]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][4]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[10]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][5]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[11]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][6]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[12]" readonly="">
 				</li>
 				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2][7]" readonly="">
+					<input type="text" class="total_box" name="" ng-model="total[13]" readonly="">
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="weektotal[2]" readonly="">
@@ -449,37 +360,44 @@
 						<li>
 						Mon<br>
 						3/4<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox11" type="checkbox" ng-model="mondayChecked2"/>
+    					<label for="checkbox11"></label>
 					</li>
 					<li>
 						Tues<br>
 						3/5<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox12" type="checkbox" ng-model="tuesdayChecked2"/>
+    					<label for="checkbox12"></label>
 					</li>
 					<li>
 						Wed<br>
 						3/6<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox13" type="checkbox" ng-model="wednesdayChecked2"/>
+    					<label for="checkbox13"></label>
 					</li>
 					<li>
 						Thurs<br>
 						3/7<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox14" type="checkbox" ng-model="thursdayChecked2"/>
+    					<label for="checkbox14"></label>
 					</li>
 					<li>
 						Fri<br>
 						3/8<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox15" type="checkbox" ng-model="fridayChecked2"/>
+    					<label for="checkbox15"></label>
 					</li>
 					<li>
 						Sat<br>
 						3/9<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox16" type="checkbox" ng-model="saturdayChecked2"/>
+    					<label for="checkbox16"></label>
 					</li>
 					<li>
 						Sun<br>
 						3/10<br>
-						<input type="checkbox" class="tiny_box" name="">
+						<input id="checkbox17" type="checkbox" ng-model="sundayChecked2"/>
+    					<label for="checkbox17"></label>
 					</li>	
 				</ul>
 			</div>	
