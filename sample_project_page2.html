@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Sample Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -19,6 +20,7 @@
   	<link rel="stylesheet" type="text/css" href="css/sample_project_page2.css">
   	<script type="text/javascript" src="script/sample_project_page2.js"></script>
   	<script type="text/javascript" src="script/sample_project_page2_service.js"></script>
+  	<script type="text/javascript" src="script/sample_project_page2_directive.js"></script>
 
 </head>
 <body>
@@ -39,12 +41,17 @@
 		<hr><br>
 		<div class="row">
 			<div class="description col-sm-12 col-lg-12 col-md-12">Please enter hours for which you were compensated by the hospital into the boxes provided in whole numbers or .5 increments (example: 3 or 3.5)</div>	
-			<div class="Week col-sm-12 col-lg-12 col-md-12">Week One: March 4 - March 10, 2016 </div>
+			<div class="Week col-sm-12 col-lg-12 col-md-12">Week One: March 4 - March 10, 2016 </div><br>
 			<div class="Survey col-sm-12 col-lg-12 col-md-12">Survey Close Date: 5/16</div>
 		</div>	
+		<div class="row" ng-show="displayError()">
+			<div class="col-sm-12 col-lg-12 col-md-12">
+				<div class="alert-box">Total Hours more than 24</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6">
+			<ul class="col-sm-6 col-lg-6 col-md-6 week-names">
 				<li>
 					Mon<br>
 					3/4
@@ -90,9 +97,12 @@
 			        		<span ng-bind="item.name"></span>
 			    		</ui-select-choices>
 					</ui-select>
+					<span class="red-color" ng-hide="activity.locationName.value == undefined">
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName($index)"></i>
+					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activity.activityName.value">
+					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect($index)">
 			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.name"></span>
 			    		</ui-select-match>
@@ -100,29 +110,32 @@
 			        		<span ng-bind="item.name"></span>
 			    		</ui-select-choices>
 					</ui-select>
+					<span class="red-color" ng-hide="activity.activityName.value == undefined">
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName($index)"></i>
+					</span>
 				</div>
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[0]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || mondayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[0]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || mondayChecked1 === true" allow-decimal-numbers >
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[1]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || tuesdayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[1]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || tuesdayChecked1 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[2]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || wednesdayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[2]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || wednesdayChecked1 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[3]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || thursdayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[3]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || thursdayChecked1 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[4]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || fridayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[4]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || fridayChecked1 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[5]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || saturdayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[5]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || saturdayChecked1 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[6]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || sundayChecked1 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[6]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || sundayChecked1 === true" allow-decimal-numbers>
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
@@ -141,26 +154,8 @@
 		<div class="row">	
 			<div class="WeekOnTotals col-sm-6 col-lg-6 col-md-6">Week on Totals:</div>
 			<ul class="col-sm-6 col-lg-6 col-md-6">
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[0]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[1]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[2]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[3]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[4]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[5]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[6]" readonly="">
+				<li ng-repeat="totals in total | limitTo : 7 : 0 track by $index">
+					<input type="text" class="total_box" name="" ng-model="totals" readonly="">
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="weektotal[1]" readonly="">
@@ -177,43 +172,43 @@
 					<li>
 						Mon<br>
 						3/4<br>
-						<input id="checkbox1" type="checkbox" ng-model="mondayChecked1"/>
+						<input id="checkbox1" type="checkbox" ng-model="mondayChecked1" ng-change="clearText(0)"/>
     					<label for="checkbox1"></label>
 					</li>
 					<li>
 						Tues<br>
 						3/5<br>
-						<input id="checkbox2" type="checkbox" ng-model="tuesdayChecked1"/>
+						<input id="checkbox2" type="checkbox" ng-model="tuesdayChecked1" ng-change="clearText(1)"/>
     					<label for="checkbox2"></label>
 					</li>
 					<li>
 						Wed<br>
 						3/6<br>
-						<input id="checkbox3" type="checkbox" ng-model="wednesdayChecked1"/>
+						<input id="checkbox3" type="checkbox" ng-model="wednesdayChecked1" ng-change="clearText(2)"/>
     					<label for="checkbox3"></label>
 					</li>
 					<li>
 						Thurs<br>
 						3/7<br>
-						<input id="checkbox4" type="checkbox" ng-model="thursdayChecked1"/>
+						<input id="checkbox4" type="checkbox" ng-model="thursdayChecked1" ng-change="clearText(3)"/>
     					<label for="checkbox4"></label>
 					</li>
 					<li>
 						Fri<br>
 						3/8<br>
-						<input id="checkbox5" type="checkbox" ng-model="fridayChecked1"/>
+						<input id="checkbox5" type="checkbox" ng-model="fridayChecked1" ng-change="clearText(4)"/>
     					<label for="checkbox5"></label>
 					</li>
 					<li>
 						Sat<br>
 						3/9<br>
-						<input id="checkbox6" type="checkbox" ng-model="saturdayChecked1"/>
+						<input id="checkbox6" type="checkbox" ng-model="saturdayChecked1" ng-change="clearText(5)"/>
     					<label for="checkbox6"></label>
 					</li>
 					<li>
 						Sun<br>
 						3/10<br>
-						<input id="checkbox7" type="checkbox" ng-model="sundayChecked1"/>
+						<input id="checkbox7" type="checkbox" ng-model="sundayChecked1" ng-change="clearText(6)"/>
     					<label for="checkbox7"></label>
 					</li>	
 				</ul>
@@ -222,12 +217,17 @@
 		<br>
 		<hr><br>
 		<div class="row">
-			<div class="Week col-sm-12 col-lg-12 col-md-12">Week Two: March 11 - March 17, 2016 </div>
+			<div class="Week col-sm-12 col-lg-12 col-md-12">Week Two: March 11 - March 17, 2016 </div><br>
 			<div class="Survey col-sm-12 col-lg-12 col-md-12">Survey Close Date: 5/16</div>
 		</div>	
+		<div class="row" ng-show="displayError2()">
+			<div class="col-sm-12 col-lg-12 col-md-12">
+				<div class="alert-box">Total Hours more than 24</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6">
+			<ul class="col-sm-6 col-lg-6 col-md-6 week-names">
 				<li>
 					Mon<br>
 					3/11
@@ -273,9 +273,12 @@
 			        		<span ng-bind="item.name"></span>
 			    		</ui-select-choices>
 					</ui-select>
+					<span class="red-color" ng-hide="activity.locationName.value == undefined">
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName2($index)"></i>
+					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activity.activityName.value">
+					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect2($index)">
 			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.name"></span>
 			    		</ui-select-match>
@@ -283,29 +286,32 @@
 			        		<span ng-bind="item.name"></span>
 			    		</ui-select-choices>
 					</ui-select>
+					<span class="red-color" ng-hide="activity.activityName.value == undefined">
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName2($index)"></i>
+					</span>
 				</div>
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[0]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || mondayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[0]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || mondayChecked2 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[1]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || tuesdayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[1]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || tuesdayChecked2 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[2]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || wednesdayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[2]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || wednesdayChecked2 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[3]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || thursdayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[3]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || thursdayChecked2 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[4]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || fridayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[4]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || fridayChecked2 === true" allow-decimal-numbers>
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[5]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || saturdayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[5]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || saturdayChecked2 === true" allow-decimal-numbers> 
 				</li>
 				<li>
-					<input type="text" class="small_box" name="" ng-model="activity.time[6]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || sundayChecked2 === true">
+					<input type="text" class="small_box" name="" ng-model="activity.time[6]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || sundayChecked2 === true" allow-decimal-numbers>
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
@@ -324,26 +330,8 @@
 		<div class="row">	
 			<div class="WeekOnTotals col-sm-6 col-lg-6 col-md-6">Week on Totals:</div>
 			<ul class="col-sm-6 col-lg-6 col-md-6">
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[7]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[8]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[9]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[10]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[11]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[12]" readonly="">
-				</li>
-				<li>
-					<input type="text" class="total_box" name="" ng-model="total[13]" readonly="">
+				<li ng-repeat="totals in total| limitTo : 13 : 7 track by $index">
+					<input type="text" class="total_box" name="" ng-model="totals" readonly="">
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="weektotal[2]" readonly="">
@@ -360,43 +348,43 @@
 						<li>
 						Mon<br>
 						3/4<br>
-						<input id="checkbox11" type="checkbox" ng-model="mondayChecked2"/>
+						<input id="checkbox11" type="checkbox" ng-model="mondayChecked2" ng-change="clearText2(0)"/>
     					<label for="checkbox11"></label>
 					</li>
 					<li>
 						Tues<br>
 						3/5<br>
-						<input id="checkbox12" type="checkbox" ng-model="tuesdayChecked2"/>
+						<input id="checkbox12" type="checkbox" ng-model="tuesdayChecked2" ng-change="clearText2(1)"/>
     					<label for="checkbox12"></label>
 					</li>
 					<li>
 						Wed<br>
 						3/6<br>
-						<input id="checkbox13" type="checkbox" ng-model="wednesdayChecked2"/>
+						<input id="checkbox13" type="checkbox" ng-model="wednesdayChecked2" ng-change="clearText2(2)"/>
     					<label for="checkbox13"></label>
 					</li>
 					<li>
 						Thurs<br>
 						3/7<br>
-						<input id="checkbox14" type="checkbox" ng-model="thursdayChecked2"/>
+						<input id="checkbox14" type="checkbox" ng-model="thursdayChecked2" ng-change="clearText2(3)"/>
     					<label for="checkbox14"></label>
 					</li>
 					<li>
 						Fri<br>
 						3/8<br>
-						<input id="checkbox15" type="checkbox" ng-model="fridayChecked2"/>
+						<input id="checkbox15" type="checkbox" ng-model="fridayChecked2" ng-change="clearText2(4)"/>
     					<label for="checkbox15"></label>
 					</li>
 					<li>
 						Sat<br>
 						3/9<br>
-						<input id="checkbox16" type="checkbox" ng-model="saturdayChecked2"/>
+						<input id="checkbox16" type="checkbox" ng-model="saturdayChecked2" ng-change="clearText2(5)"/>
     					<label for="checkbox16"></label>
 					</li>
 					<li>
 						Sun<br>
 						3/10<br>
-						<input id="checkbox17" type="checkbox" ng-model="sundayChecked2"/>
+						<input id="checkbox17" type="checkbox" ng-model="sundayChecked2" ng-change="clearText2(6)"/>
     					<label for="checkbox17"></label>
 					</li>	
 				</ul>

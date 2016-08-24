@@ -8,7 +8,7 @@ app.controller('MyController', function($scope,Calculations) {
     ];
 
     $scope.weektotal = [];
-    $scope.total = [];
+    $scope.total = ["","","","","","","","","","","","","",""];
  
     $scope.activities1 = [{
     	locationName: {},
@@ -72,5 +72,74 @@ app.controller('MyController', function($scope,Calculations) {
   		alert(str1+str2);console.log(str1+str2);
   	}
 
+  	$scope.clearText = function(index){
+  		for(var i=0; i<$scope.activities1.length; i++ )
+  			$scope.activities1[i].time[index]="";
+  		$scope.evaluate1();
+  	}
 
+  	$scope.clearText2 = function(index){
+  		for(var i=0; i<$scope.activities2.length; i++ )
+  			$scope.activities2[i].time[index]="";
+  		$scope.evaluate2();
+  	}
+  	$scope.removeActivityName = function(index){
+  		$scope.activities1[index].time = [];
+  		$scope.activities1[index].activityName = {};
+  		$scope.evaluate1();
+  	}
+  	$scope.removeLocationName = function(index){
+  		$scope.activities1[index].time = [];
+  		$scope.activities1[index].activityName = {};
+  		$scope.activities1[index].locationName = {};
+  		$scope.evaluate1();
+  	}
+  	$scope.removeActivityName2 = function(index){
+  		$scope.activities2[index].time = [];
+  		$scope.activities2[index].activityName = {};
+  		$scope.evaluate2();
+  	}
+  	$scope.removeLocationName2 = function(index){
+  		$scope.activities2[index].time = [];
+  		$scope.activities2[index].activityName = {};
+  		$scope.activities2[index].locationName = {};
+  		$scope.evaluate2();
+  	}
+  	$scope.displayError = function(){
+  		for(var i=0;i<7;i++){
+  			if($scope.total[i] > 24)
+  				return true;
+  		}
+  		return false;
+  	}
+  	$scope.displayError2 = function(){
+  		for(var i=7;i<14;i++){
+  			if($scope.total[i] > 24)
+  				return true;
+  		}
+  		return false;
+  	}
+  	$scope.compareSelect = function(index){
+  		var selectedString = $scope.activities1[index].locationName.value.name
+  			+$scope.activities1[index].activityName.value.name;
+  		for(var i=0;i<index;i++){
+  			var compareString = $scope.activities1[i].locationName.value.name+$scope.activities1[i].activityName.value.name;
+  			if(selectedString === compareString){
+  				alert("Combination already selected");
+  				$scope.activities1[index].activityName={};
+  			}
+  		}
+  	}
+  	$scope.compareSelect2 = function(index){
+  		var selectedString = $scope.activities2[index].locationName.value.name
+  			+$scope.activities2[index].activityName.value.name;
+  		for(var i=0;i<index;i++){
+  			var compareString = $scope.activities2[i].locationName.value.name+$scope.activities2[i].activityName.value.name;
+  			if(selectedString === compareString){
+  				alert("Combination already selected");
+  				$scope.activities2[index].activityName={};
+  			}
+  		}
+  	}
 });
+
