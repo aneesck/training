@@ -8,7 +8,9 @@ app.controller('MyController', function($scope,Calculations) {
     ];
 
     $scope.weektotal = [];
-    $scope.total = ["","","","","","","","","","","","","",""];
+    $scope.total = [];
+    $scope.alerting = false;
+    $scope.contents = "";
  
     $scope.activities1 = [{
     	locationName: {},
@@ -69,7 +71,8 @@ app.controller('MyController', function($scope,Calculations) {
   	$scope.print = function(){
   		var str1 = JSON.stringify($scope.activities1,null,2);
   		var str2 = JSON.stringify($scope.activities2,null,2);
-  		alert(str1+str2);console.log(str1+str2);
+  		$scope.contents = str1+str2;
+  		$scope.alerting = true;
   	}
 
   	$scope.clearText = function(index){
@@ -120,26 +123,40 @@ app.controller('MyController', function($scope,Calculations) {
   		return false;
   	}
   	$scope.compareSelect = function(index){
-  		var selectedString = $scope.activities1[index].locationName.value.name
-  			+$scope.activities1[index].activityName.value.name;
-  		for(var i=0;i<index;i++){
-  			var compareString = $scope.activities1[i].locationName.value.name+$scope.activities1[i].activityName.value.name;
-  			if(selectedString === compareString){
-  				alert("Combination already selected");
-  				$scope.activities1[index].activityName={};
-  			}
-  		}
+  		if($scope.activities1[index].activityName.value !== undefined){
+	  		var selectedString = $scope.activities1[index].locationName.value.name
+	  			+$scope.activities1[index].activityName.value.name;
+	  		for(var i=0;i<$scope.activities1.length;i++){
+	  			if(($scope.activities1[i].locationName.value !== undefined) &&
+	  			 						($scope.activities1[i].activityName.value !== undefined) && (i !== index)){
+		  			var compareString = $scope.activities1[i].locationName.value.name+
+		  								$scope.activities1[i].activityName.value.name;
+		  			if(selectedString === compareString){
+		  				$scope.contents = "Combination already selected";
+		  				$scope.alerting = true;
+		  				$scope.activities1[index].activityName={};
+		  			}
+		  		}	
+	  		}
+	  	}	
   	}
   	$scope.compareSelect2 = function(index){
-  		var selectedString = $scope.activities2[index].locationName.value.name
-  			+$scope.activities2[index].activityName.value.name;
-  		for(var i=0;i<index;i++){
-  			var compareString = $scope.activities2[i].locationName.value.name+$scope.activities2[i].activityName.value.name;
-  			if(selectedString === compareString){
-  				alert("Combination already selected");
-  				$scope.activities2[index].activityName={};
-  			}
-  		}
+  		if($scope.activities1[index].activityName.value !== undefined){
+	  		var selectedString = $scope.activities2[index].locationName.value.name
+	  			+$scope.activities2[index].activityName.value.name;
+	  		for(var i=0;i<$scope.activities2.length;i++){
+	  				if(($scope.activities2[i].locationName.value !== undefined) &&
+	  			 						($scope.activities2[i].activityName.value !== undefined) && (i !== index)){
+		  			var compareString = $scope.activities2[i].locationName.value.name+
+		  								$scope.activities2[i].activityName.value.name;
+		  			if(selectedString === compareString){
+		  				$scope.contents = "Combination already selected";
+		  				$scope.alerting = true;
+		  				$scope.activities2[index].activityName={};
+		  			}
+		  		}	
+	  		}
+	  	}	
   	}
 });
 
