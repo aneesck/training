@@ -51,33 +51,9 @@
 		<div class="row">
 			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
 			<ul class="col-sm-6 col-lg-6 col-md-6 week-names">
-				<li>
-					Mon<br>
-					3/4
-				</li>
-				<li>
-					Tues<br>
-					3/5
-				</li>
-				<li>
-					Wed<br>
-					3/6
-				</li>
-				<li>
-					Thurs<br>
-					3/7
-				</li>	
-				<li>
-					Fri<br>
-					3/8
-				</li>
-				<li>
-					Sat<br>
-					3/9
-				</li>
-				<li>
-					Sun<br>
-					3/10
+				<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
+					{{weekDays[$index]}}<br>
+					{{date1[$index]}}
 				</li>
 				<li>
 					Activity<br>
@@ -88,12 +64,13 @@
 		<div class="row" ng-repeat="activity in activities1 track by $index">	
 			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activity.locationName.value" on-select="compareSelect($index)">
+					<span class="loading"><img src="images/ajax-loader.gif" ng-show="loading"></span>
+					<ui-select ng-model="activity.locationName.value" on-select="locationSelected1($index)" ng-class="{'hide-arrow-icon': loading}">
 			    		<ui-select-match placeholder="Choose a location">
-			        		<span ng-bind="$select.selected.name"></span>
+			        		<span ng-bind="$select.selected"></span>
 			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
+			    		<ui-select-choices repeat="item in locationArray">
+			        		<span ng-bind="item"></span>
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.locationName.value == undefined">
@@ -101,12 +78,13 @@
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect($index)">
+					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
+					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect($index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">
-			        		<span ng-bind="$select.selected.name"></span>
+			        		<span ng-bind="$select.selected.label"></span>
 			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
+			    		<ui-select-choices repeat="item in activity.actionArray">
+			        		<span ng-bind="item.label"></span>
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.activityName.value == undefined">
@@ -116,7 +94,7 @@
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li ng-repeat="boxes in [0,1,2,3,4,5,6] track by $index">
-					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || {{'activity1Checked'+$index}} === true" allow-decimal-numbers>
+					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity1Checked[$index] === true" allow-decimal-numbers>
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
@@ -150,47 +128,11 @@
 			</div>	
 			<div class="col-sm-6 col-lg-6 col-md-6 checkbox-container">
 				<ul class="Checkbox">
-					<li>
-						Mon<br>
-						3/4<br>
-						<input id="checkbox1" type="checkbox" ng-model="activity1Checked0" ng-change="clearText(0)"/>
-    					<label for="checkbox1"></label>
-					</li>
-					<li>
-						Tues<br>
-						3/5<br>
-						<input id="checkbox2" type="checkbox" ng-model="activity1Checked1" ng-change="clearText(1)"/>
-    					<label for="checkbox2"></label>
-					</li>
-					<li>
-						Wed<br>
-						3/6<br>
-						<input id="checkbox3" type="checkbox" ng-model="activity1Checked2" ng-change="clearText(2)"/>
-    					<label for="checkbox3"></label>
-					</li>
-					<li>
-						Thurs<br>
-						3/7<br>
-						<input id="checkbox4" type="checkbox" ng-model="activity1Checked3" ng-change="clearText(3)"/>
-    					<label for="checkbox4"></label>
-					</li>
-					<li>
-						Fri<br>
-						3/8<br>
-						<input id="checkbox5" type="checkbox" ng-model="activity1Checked4" ng-change="clearText(4)"/>
-    					<label for="checkbox5"></label>
-					</li>
-					<li>
-						Sat<br>
-						3/9<br>
-						<input id="checkbox6" type="checkbox" ng-model="activity1Checked5" ng-change="clearText(5)"/>
-    					<label for="checkbox6"></label>
-					</li>
-					<li>
-						Sun<br>
-						3/10<br>
-						<input id="checkbox7" type="checkbox" ng-model="activity1Checked6" ng-change="clearText(6)"/>
-    					<label for="checkbox7"></label>
+					<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
+						{{weekDays[$index]}}<br>
+						{{date1[$index]}}<br>
+						<input id="{{'checkbox'+$index}}" type="checkbox" ng-model="activity1Checked[$index]" ng-change="clearText($index)"/>
+    					<label for="{{'checkbox'+$index}}"></label>
 					</li>	
 				</ul>
 			</div>	
@@ -209,33 +151,9 @@
 		<div class="row">
 			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
 			<ul class="col-sm-6 col-lg-6 col-md-6 week-names">
-				<li>
-					Mon<br>
-					3/11
-				</li>
-				<li>
-					Tues<br>
-					3/12
-				</li>
-				<li>
-					Wed<br>
-					3/13
-				</li>
-				<li>
-					Thurs<br>
-					3/14
-				</li>	
-				<li>
-					Fri<br>
-					3/15
-				</li>
-				<li>
-					Sat<br>
-					3/16
-				</li>
-				<li>
-					Sun<br>
-					3/17
+			<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
+					{{weekDays[$index]}}<br>
+					{{date2[$index]}}
 				</li>
 				<li>
 					Activity<br>
@@ -246,12 +164,13 @@
 		<div class="row" ng-repeat="activity in activities2 track by $index">	
 			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activity.locationName.value" on-select="compareSelect2($index)">
+					<span class="loading"><img src="images/ajax-loader.gif" ng-show="loading"></span>
+					<ui-select ng-model="activity.locationName.value" on-select="locationSelected2($index)" ng-class="{'hide-arrow-icon': loading}">
 			    		<ui-select-match placeholder="Choose a location">
-			        		<span ng-bind="$select.selected.name"></span>
+			        		<span ng-bind="$select.selected"></span>
 			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
+			    		<ui-select-choices repeat="item in locationArray">
+			        		<span ng-bind="item"></span>
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.locationName.value == undefined">
@@ -259,12 +178,13 @@
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
-					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect2($index)">
+					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
+					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect2($index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">
-			        		<span ng-bind="$select.selected.name"></span>
+			        		<span ng-bind="$select.selected.label"></span>
 			    		</ui-select-match>
-			    		<ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-			        		<span ng-bind="item.name"></span>
+			    		<ui-select-choices repeat="item in activity.actionArray">
+			        		<span ng-bind="item.label"></span>
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.activityName.value == undefined">
@@ -274,7 +194,7 @@
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li ng-repeat="boxes in [0,1,2,3,4,5,6] track by $index">
-					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || {{'activity2Checked'+$index}} === true" allow-decimal-numbers>
+					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity2Checked[$index] === true" allow-decimal-numbers>
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
@@ -308,48 +228,12 @@
 			</div>	
 			<div class="col-sm-6 col-lg-6 col-md-6 checkbox-container">
 				<ul class="Checkbox">
-						<li>
-						Mon<br>
-						3/4<br>
-						<input id="checkbox11" type="checkbox" ng-model="activity2Checked0" ng-change="clearText2(0)"/>
-    					<label for="checkbox11"></label>
+						<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
+						{{weekDays[$index]}}<br>
+						{{date2[$index]}}<br>
+						<input id="{{'checkbox2'+$index}}" type="checkbox" ng-model="activity2Checked[$index]" ng-change="clearText($index)"/>
+    					<label for="{{'checkbox2'+$index}}"></label>
 					</li>
-					<li>
-						Tues<br>
-						3/5<br>
-						<input id="checkbox12" type="checkbox" ng-model="activity2Checked1" ng-change="clearText2(1)"/>
-    					<label for="checkbox12"></label>
-					</li>
-					<li>
-						Wed<br>
-						3/6<br>
-						<input id="checkbox13" type="checkbox" ng-model="activity2Checked2" ng-change="clearText2(2)"/>
-    					<label for="checkbox13"></label>
-					</li>
-					<li>
-						Thurs<br>
-						3/7<br>
-						<input id="checkbox14" type="checkbox" ng-model="activity2Checked3" ng-change="clearText2(3)"/>
-    					<label for="checkbox14"></label>
-					</li>
-					<li>
-						Fri<br>
-						3/8<br>
-						<input id="checkbox15" type="checkbox" ng-model="activity2Checked4" ng-change="clearText2(4)"/>
-    					<label for="checkbox15"></label>
-					</li>
-					<li>
-						Sat<br>
-						3/9<br>
-						<input id="checkbox16" type="checkbox" ng-model="activity2Checked5" ng-change="clearText2(5)"/>
-    					<label for="checkbox16"></label>
-					</li>
-					<li>
-						Sun<br>
-						3/10<br>
-						<input id="checkbox17" type="checkbox" ng-model="activity2Checked6" ng-change="clearText2(6)"/>
-    					<label for="checkbox17"></label>
-					</li>	
 				</ul>
 			</div>	
 		</div>
