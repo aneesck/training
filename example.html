@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ng-route example</title>
+		<script type="text/javascript" src="script/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+
+<p><a href="#">Main</a></p>
+
+<a href="#red">form</a>
+<a href="#green">housing</a>
+<a href="#blue">mozilla</a>
+
+<div ng-view></div>
+
+</body>
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "example.html"
+    })
+    .when("/red", {
+        templateUrl : "form.html"
+    })
+    .when("/green", {
+        templateUrl : "housing.html"
+    })
+    .when("/blue", {
+        templateUrl : "moz.html"
+    });
+});
+</script>
+
+
+</html>

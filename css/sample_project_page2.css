@@ -71,13 +71,45 @@ body{
   display: inline-block;
 }
 .Save{
-  height: 23px;
   font-size: 18px;
   font-weight: 700;
   color: #580f8b;
   display: inline-block;
   text-align: right;
   cursor: pointer;
+  background-color: white;
+  width:auto;
+  padding: 0px;
+  padding-right: 5px;
+  margin: 0px;
+  height: auto;
+  border-width: 0px;
+}
+.submit{
+  font-size: 18px;
+  font-weight: 700;
+  color: #580f8b;
+  display: inline-block;
+  text-align: left;
+  cursor: pointer;
+  padding-left: 5px;
+  background-color: white;
+  border-width: 0px;
+  padding: 0px;
+  width:auto;
+  height: auto;
+  margin: 0px;
+}
+.save-button-container{
+  text-align: right;
+  display: inline-block;
+}
+.button-container{
+  display: inline-block;
+}
+.save-container{
+  border: solid #580f8b;
+  border-width: 0px 2px 0px 0px;
 }
 hr{
 	border-color: #999;
@@ -159,7 +191,8 @@ input[type=search]{
   background-color: white;
 }
 .ui-select-bootstrap .ui-select-choices-row>span{
-	height: 43px;
+	overflow: visible;
+  white-space: inherit;
   border: 1px solid #979797;
   border-width: 1px 0px 0px 0px;
   font-size: 18px;
@@ -169,6 +202,7 @@ input[type=search]{
 .ui-select-bootstrap .ui-select-match-text span{
 	font-size: 18px;
   font-weight: 400;
+  text-overflow: ellipsis;
 }
 .ui-select-bootstrap > .ui-select-match > .btn{
 	font-size: 18px;

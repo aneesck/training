@@ -10,6 +10,11 @@ app.controller('MyController', function($scope,$http,Calculations) {
     $scope.date2 = ["3/11","3/12","3/13","3/14","3/15","3/16","3/17"];
     $scope.activity1Checked = [];
     $scope.activity2Checked = [];
+
+    var submitData = {
+    	submitFlag:0,
+    	dataString:[{}]
+    }
  
     $scope.activities1 = [{
     	locationName: {},
@@ -113,11 +118,22 @@ app.controller('MyController', function($scope,$http,Calculations) {
    		$scope.weektotal[2] = Calculations.calculateWeekTotal($scope.weektotal[2],$scope.activities2);
   	}	
 
-  	$scope.print = function(){
-  		var str1 = JSON.stringify($scope.activities1,null,2);
-  		var str2 = JSON.stringify($scope.activities2,null,2);
-  		$scope.contents = str1+str2;
-  		$scope.alerting = true;
+  	$scope.print = function(submit){
+  		submitData.submitFlag = submit;
+  		submitData.dataString = JSON.stringify($scope.activities1.concat($scope.activities2));
+  		$http({
+    		method: 'POST',
+    		url: 'http://10.7.2.11:8080/mdtimesurvey/save',
+    		data: JSON.stringify(submitData)
+    		
+    		}).then(
+  				function (response) {
+    			$scope.contents = "Success";
+    			$scope.alerting = true;
+      				}, function (error) {
+    			$scope.contents = "Error";
+    			$scope.alerting = true;
+ 			 });	
   	}
 
   	$scope.clearText = function(index){

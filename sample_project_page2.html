@@ -15,6 +15,7 @@
  	<script type="text/javascript" src="select_plugin/bower_components/angular-ui-select/dist/select.js"></script>
   	<link rel="stylesheet" type="text/css" href="select_plugin/bower_components/angular-ui-select/dist/select.css">
 
+
   	<link rel="stylesheet" type="text/css" href="css/sample_project_page2.css">
   	<script type="text/javascript" src="script/sample_project_page2.js"></script>
   	<script type="text/javascript" src="script/sample_project_page2_service.js"></script>
@@ -34,8 +35,15 @@
 	<div class="alert-popup" ng-bind="contents" ng-show="alerting==true"></div>
 	<div class="container">
 		<div class="row">
-			<div class="Joe col-sm-6">Joe Smith, MD</div>
-			<div class="Save col-sm-6" ng-click="print()">Save | Submit</div>
+			<div class="Joe col-sm-6 col-lg-6 col-md-6">Joe Smith, MD</div>
+			<div class="save-button-container col-sm-6 col-lg-6 col-md-6">
+				<div class="save-container button-container">
+					<button class="Save" ng-click="print(0)" ng-disabled="displayError() || displayError2()">Save</button>
+				</div>
+				<div class="button-container">	
+					<button class="submit" ng-click="print(1)" ng-disabled="displayError() || displayError2()">Submit</button>
+				</div>	
+			</div>	
 		</div>	
 		<hr><br>
 		<div class="row">
@@ -79,7 +87,7 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
-					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect($index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
+					<ui-select 	ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect($index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.label"></span>
 			    		</ui-select-match>
