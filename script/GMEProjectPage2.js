@@ -1,5 +1,4 @@
-var app = angular.module(' ', ['ui.select']);
-app.controller('MyController', function($scope,$http,Calculations,Requests) {
+app.controller('MyController', function($scope,$http,Calculations,Requests,SharedData) {
   $scope.loading = true;
   $scope.weektotal = [];
   $scope.total = [];
@@ -17,6 +16,8 @@ app.controller('MyController', function($scope,$http,Calculations,Requests) {
     submitFlag:0,
     dataString:[{}]
   }
+  var dates = SharedData.getValues();
+  console.log(dates);
 
   var activity = function(){
     this.locationName = {};         
@@ -92,13 +93,14 @@ app.controller('MyController', function($scope,$http,Calculations,Requests) {
       function(answer) {
         console.log(answer);
         $scope.contents = "Success";
+        $scope.alerting = true;
       },
       function(reason) {
         console.log("Error in service"+reason);
         $scope.contents = "Error";
+        $scope.alerting = true;
       }
     );
-    $scope.alerting = true;
 	}
 
 	$scope.clearText = function(week,index){

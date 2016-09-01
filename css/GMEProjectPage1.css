@@ -1,0 +1,264 @@
+body{
+	margin: 0px;
+}
+.navbar-default{
+	margin: 0px;
+	width: 100%;
+	background-color: #580f8b;
+	padding-top: 27.4px;
+	padding-bottom: 26.6px;
+	padding-left: 35px;
+	padding-right: 34px;
+	color: white;
+	display: inline-block;
+}
+.navbar .logout{
+	width: 48px;
+  height: 17px;
+  float: right;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.container {
+  padding-right: 35px;
+  padding-left: 35px;
+  margin: 0px;
+  width: 100%;
+}
+.Peter {
+	margin-top: 40px;
+  width: 150px;
+  height: 29px;
+ 	font-size: 24px;
+  font-weight: 700;
+  color: #2272cc;
+}
+.Admin {
+  width: 52px;
+  height: 21px;
+	font-size: 18px;
+  font-weight: 400;
+  color: #2272cc;
+}
+.Lorem {
+	margin-top: 55px;
+  width: 75%;
+  height: 75px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: #777777;
+  margin-bottom: 80px;
+}
+.Lorem .Lorem_heading{
+	width: 278px;
+  height: 22px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #777777;
+}
+.dates{
+	margin-bottom: 600px;
+}
+.active_date{
+	display: inline-block;
+	width: 35%;
+}
+.closing_date{
+	display: inline-block;
+	width: 35%;
+	margin: 0px 3%;
+}
+.Active_Survey{
+	width: 263px;
+  height: 22px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.Closing_Survey{
+	width: 189px;
+  height: 22px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #333333;
+}
+.dates input{
+	width: 100%;
+  height: 43px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: solid 1px #979797;
+  padding: 10px 18px;
+  position: relative;
+  top: -43px;
+}
+.dates input:focus{
+	border-radius: 5px 5px 0px 0px;
+}
+.dates .align_icon{
+	display: inline;
+  position: relative;
+  top: -30px;
+  left: 90%;
+}
+.dates #save{
+	width: 20%;
+  height: 44px;
+  border-radius: 5px;
+  background-color: #979797;
+  border: solid 1px #979797;
+  position: relative;
+  top: -3px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: HelveticaNeue;
+}
+.buttonActive{
+  background-color: #580f8b !important;
+}
+ob-daterangepicker{
+	width: 100%;
+	height: 43px;
+	margin-top: 10px;
+  z-index: 1;
+}
+ob-daterangepicker .picker-dropdown-container {
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+.picker-dropdown-container .picker-dropdown:before{
+	content: "\f073" !important;
+  font-family: FontAwesome;
+  font-size: 20px;
+  float: right;
+  padding-right: 10px;
+}
+.picker-dropdown-container .picker-dropdown:after{
+	display: none;
+}	
+ob-daterangepicker .picker-dropdown-container .picker-dropdown {
+	width: inherit !important;
+	height: inherit !important;
+	border-radius: 5px !important;
+	padding: 6px;
+  padding-left: 15px !important;
+}	
+ob-daterangepicker .picker-dropdown-container .picker-dropdown.open{
+	border-radius: 5px 5px 0px 0px !important;
+}
+ob-daterangepicker .picker-dropdown-container .picker.open {
+  border-radius: 2px 0 2px 2px;
+  border-width: 0px 1px 1px 1px;
+  width: 100%;
+  top: 43px;
+  height: 500px;
+}
+calendar .header .arrow-btn.right {
+  left: -60px;
+  border-width: 0px !important;
+  visibility: visible;
+}
+calendar .header .arrow-btn.left {	
+  border-width: 0px !important;
+}
+calendar[api="picker.endCalendarApi"] {
+  visibility: hidden !important;
+}
+ob-daterangepicker .picker-dropdown-container .picker .ranges-actions .actions {
+	left: 120px;
+	visibility: visible;
+}
+ob-daterangepicker .picker-dropdown-container .picker .ranges-actions.custom-open {
+   visibility: hidden;
+}
+ob-daterangepicker .picker-dropdown-container .picker .date-range {
+	width: 270px;
+}
+calendar .input-container {
+  position: relative;
+  display: none;
+}
+date-range-picker .calendar:first-child {
+  margin-right: 10px;
+  width: 162%;
+}	
+calendar .header {
+	top: -10px !important;
+	font-size: 22px;
+  margin-left: -10px;
+  margin-right: 15px;
+	height: 70px !important;
+	border-width: 0px !important;
+	background-color: white !important;
+	color: black !important;
+}	
+.day {
+  width: 55px !important;
+  height: 55px !important;
+  border: 1px solid #d8d8d8;
+  padding: 10px;
+  font-size: 18px !important;
+}	
+calendar .board .days-of-week .day-name {
+  font-size: 20px !important;
+  width: 55px !important;
+  height: 55px !important;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+calendar .board {
+  top: -15px !important;
+  border-width: 0px !important;
+} 
+calendar .board .day.range-start:not(.other-month):not(.disabled) {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+} 
+calendar .board .day.range-end:not(.other-month):not(.disabled) {
+	background-color: #9933cc !important;
+}	
+calendar .board .day.range-start:not(.other-month):not(.disabled) {
+	background-color: #9933cc !important;
+}	
+calendar .board .day.in-range:not(.other-month):not(.disabled) {
+	background-color: #9933cc !important;
+}	
+.btn.cancel{
+	display: none !important;
+}
+.btn.apply{
+	background-color: white !important;
+	color: #979797 !important;
+	font-size: 18px;
+	font-weight: 700 !important;
+	visibility: hidden;
+}
+.btn.apply:after{
+	content: 'Save';
+	visibility: visible;
+}
+calendar .header .arrow-btn.left::before {
+	content:"\f053";
+	font-family: FontAwesome;
+	color: #580f8b !important;
+}	
+calendar .header .arrow-btn.right::before {
+	content:"\f054";
+	font-family: FontAwesome;
+	color: #580f8b !important;
+}
+calendar .header .arrow-btn::before {
+  top: 75% !important;
+}    
+calendar .board .day.other-month {
+  color: #fff !important;
+}
+calendar .board .day.in-range:not(.other-month):not(.disabled) {
+  border-color: transparent !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important; 
+}
