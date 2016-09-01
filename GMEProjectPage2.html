@@ -39,10 +39,10 @@
 			<div class="Joe col-sm-6 col-lg-6 col-md-6">Joe Smith, MD</div>
 			<div class="save-button-container col-sm-6 col-lg-6 col-md-6">
 				<div class="save-container button-container">
-					<button class="Save" ng-click="print(0)" ng-disabled="displayError() || displayError2()">Save</button>
+					<button class="Save" ng-click="print(0)" ng-disabled="displayError(0,7) || displayError(7,14)">Save</button>
 				</div>
 				<div class="button-container">	
-					<button class="submit" ng-click="print(1)" ng-disabled="displayError() || displayError2()">Submit</button>
+					<button class="submit" ng-click="print(1)" ng-disabled="displayError(0,7) || displayError(7,14)">Submit</button>
 				</div>	
 			</div>	
 		</div>	
@@ -52,7 +52,7 @@
 			<div class="Week col-sm-12 col-lg-12 col-md-12">Week One: March 4 - March 10, 2016 </div><br>
 			<div class="Survey col-sm-12 col-lg-12 col-md-12">Survey Close Date: 5/16</div>
 		</div>	
-		<div class="row" ng-show="displayError()">
+		<div class="row" ng-show="displayError(0,7)">
 			<div class="col-sm-12 col-lg-12 col-md-12">
 				<div class="alert-box">Total Hours more than 24</div>
 			</div>
@@ -74,7 +74,7 @@
 			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="loading"></span>
-					<ui-select ng-model="activity.locationName.value" on-select="locationSelected1($index)" ng-class="{'hide-arrow-icon': loading}">
+					<ui-select ng-model="activity.locationName.value" on-select="locationSelected(activities1,$index)" ng-class="{'hide-arrow-icon': loading}">
 			    		<ui-select-match placeholder="Choose a location">
 			        		<span ng-bind="$select.selected"></span>
 			    		</ui-select-match>
@@ -83,12 +83,12 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.locationName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName($index)"></i>
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName(activities1,$index)"></i>
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
-					<ui-select 	ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect($index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
+					<ui-select 	ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect(activities1,$index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.label"></span>
 			    		</ui-select-match>
@@ -97,26 +97,26 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.activityName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName($index)"></i>
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName(activities1,$index)"></i>
 					</span>
 				</div>
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li ng-repeat="boxes in [0,1,2,3,4,5,6] track by $index">
-					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate1()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity1Checked[$index] === true" allow-decimal-numbers>
+					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate(activities1)" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity1Checked[$index] === true" allow-decimal-numbers>
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
 				</li>
 				<span>
-					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity($index)"></i>
+					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity(activities1,$index)"></i>
 				</span>
 			</ul>	
 		</div>
 		<div class="row">	
 			<div class="Report col-sm-12 col-lg-12 col-md-12">
-				<i class="fa fa-plus-circle fa-lg" aria-hidden="true" ng-click="addActivity(this)"></i>
-				<span ng-click="addActivity()">Report another activity</span>
+				<i class="fa fa-plus-circle fa-lg" aria-hidden="true" ng-click="addActivity(activities1)"></i>
+				<span ng-click="addActivity(activities1)">Report another activity</span>
 			</div><br>
 		</div>
 		<div class="row">	
@@ -140,7 +140,7 @@
 					<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
 						{{weekDays[$index]}}<br>
 						{{date1[$index]}}<br>
-						<input id="{{'checkbox'+$index}}" type="checkbox" ng-model="activity1Checked[$index]" ng-change="clearText($index)"/>
+						<input id="{{'checkbox'+$index}}" type="checkbox" ng-model="activity1Checked[$index]" ng-change="clearText(activities1,$index)"/>
     					<label for="{{'checkbox'+$index}}"></label>
 					</li>	
 				</ul>
@@ -152,7 +152,7 @@
 			<div class="Week col-sm-12 col-lg-12 col-md-12">Week Two: March 11 - March 17, 2016 </div><br>
 			<div class="Survey col-sm-12 col-lg-12 col-md-12">Survey Close Date: 5/16</div>
 		</div>	
-		<div class="row" ng-show="displayError2()">
+		<div class="row" ng-show="displayError(7,14)">
 			<div class="col-sm-12 col-lg-12 col-md-12">
 				<div class="alert-box">Total Hours more than 24</div>
 			</div>
@@ -174,7 +174,7 @@
 			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="loading"></span>
-					<ui-select ng-model="activity.locationName.value" on-select="locationSelected2($index)" ng-class="{'hide-arrow-icon': loading}">
+					<ui-select ng-model="activity.locationName.value" on-select="locationSelected(activities2,$index)" ng-class="{'hide-arrow-icon': loading}">
 			    		<ui-select-match placeholder="Choose a location">
 			        		<span ng-bind="$select.selected"></span>
 			    		</ui-select-match>
@@ -183,12 +183,12 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.locationName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName2($index)"></i>
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName(activities2,$index)"></i>
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
-					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect2($index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
+					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect(activities2,$index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">
 			        		<span ng-bind="$select.selected.label"></span>
 			    		</ui-select-match>
@@ -197,26 +197,26 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.activityName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName2($index)"></i>
+						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName(activities2,$index)"></i>
 					</span>
 				</div>
 			</div>	
 			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
 				<li ng-repeat="boxes in [0,1,2,3,4,5,6] track by $index">
-					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate2()" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity2Checked[$index] === true" allow-decimal-numbers>
+					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-keyup="evaluate(activities2)" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity2Checked[$index] === true" allow-decimal-numbers>
 				</li>
 				<li>
 					<input type="text" class="total_box" name="" ng-model="activity.activityTotal" readonly="">
 				</li>
 				<span>
-					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity2($index)"></i>
+					<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivity(activities2,$index)"></i>
 				</span>
 			</ul>	
 		</div>
 		<div class="row">	
 			<div class="Report col-sm-12 col-lg-12 col-md-12">
-				<i class="fa fa-plus-circle fa-lg" aria-hidden="true" ng-click="addActivity2()"></i>
-				<span ng-click="addActivity2()">Report another activity</span>
+				<i class="fa fa-plus-circle fa-lg" aria-hidden="true" ng-click="addActivity(activities2)"></i>
+				<span ng-click="addActivity(activities2)">Report another activity</span>
 			</div><br>
 		</div>
 		<div class="row">	
@@ -240,7 +240,7 @@
 						<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
 						{{weekDays[$index]}}<br>
 						{{date2[$index]}}<br>
-						<input id="{{'checkbox2'+$index}}" type="checkbox" ng-model="activity2Checked[$index]" ng-change="clearText2($index)"/>
+						<input id="{{'checkbox2'+$index}}" type="checkbox" ng-model="activity2Checked[$index]" ng-change="clearText(activities2,$index)"/>
     					<label for="{{'checkbox2'+$index}}"></label>
 					</li>
 				</ul>

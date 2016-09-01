@@ -18,7 +18,7 @@ app.factory('Requests', function($http,$q){
         	 var promise = $http({	method: 'POST',	url: location, data: value }),
         	 deferObject =  deferObject || $q.defer();
         	 promise.then(
-  				function(answer){
+  			function(answer){
            	    deferObject.resolve(answer);
           	},
            function(reason){
