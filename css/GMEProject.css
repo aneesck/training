@@ -20,13 +20,22 @@ body{
   min-height: 250px;
   z-index: 2;
   background-color: #fff;
+  text-align: center;
   padding: 50px;
   font-size: 18px;
   max-height: 400px;
   overflow-y: scroll;
   overflow: -moz-scrollbars-none;
 }
+.alert-popup-button{
+  background-color: #580f8b;
+  position: absolute;
+  color: white;
+  bottom: 5px;
+  left: calc(50% - 94px);
+}
 .alert-popup::-webkit-scrollbar { 
+  
   display: none;
 }
 .navbar-default{
@@ -102,11 +111,13 @@ body{
 .active_date{
   display: inline-block;
   width: 35%;
+  position: relative;
 }
 .closing_date{
   display: inline-block;
   width: 35%;
   margin: 0px 3%;
+  position: relative;
 }
 .Active_Survey{
   width: 263px;
@@ -128,8 +139,12 @@ body{
   background-color: #ffffff;
   border: solid 1px #979797;
   padding: 10px 18px;
-  position: relative;
-  top: -43px;
+  position: absolute;
+  top: 32px;
+  z-index: 0;
+}
+.picker-dropdown > span.ng-binding{
+  display: none;
 }
 .dates input:focus{
   border-radius: 5px 5px 0px 0px;
@@ -147,7 +162,7 @@ body{
   background-color: #979797;
   border: solid 1px #979797;
   position: relative;
-  top: -3px;
+  top: -16px;
   font-size: 18px;
   font-weight: 400;
   color: #ffffff;

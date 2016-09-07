@@ -140,7 +140,7 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
 		  		var compareString = week[i].locationName.value+
 		  				week[i].activityName.value.label;
 		  		if(selectedString === compareString){
-		  			$scope.contents = "Combination already selected";
+		  			$scope.contents = "This Location/Activity cannot be repeated twice this week.";
 		  			$scope.alerting = true;
 		  			week[index].activityName={};
 		  		}

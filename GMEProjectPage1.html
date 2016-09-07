@@ -18,12 +18,18 @@
 		<div class="dates"  ng-controller="DateRange">
 			<div class="active_date">
 				<div class="Active_Survey">Active Survey Dates (2 weeks)</div>
+				<div >
+					<input type="text" ng-value="range1.start+'-'+range1.end" readonly>
+				</div>
 				<ob-daterangepicker class="right" format="format1" week-days-name="['S', 'M', 'T', 'W', 'T', 'F', 'S']"
 					range="range1"></ob-daterangepicker>
 				
 			</div>
 			<div class="closing_date">
 				<div class="Closing_Survey">Survey Closing Date</div>
+				<div>
+					<input type="text" ng-model="range2.start" readonly>
+				</div>
 				<ob-daterangepicker range="range2" format="format2" class="right" week-days-name="['S', 'M', 'T', 'W', 'T', 'F', 'S']"
 				></ob-daterangepicker>
 				

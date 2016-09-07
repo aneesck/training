@@ -8,7 +8,10 @@
 		</div>
 	</nav>	
 	<div class="background-blur" ng-show="alerting==true" ng-click="alerting=false"></div>
-	<div class="alert-popup" ng-bind="contents" ng-show="alerting==true"></div>
+	<div class="alert-popup" ng-show="alerting==true">
+		<div>{{contents}}</div>
+		<button class="alert-popup-button" ng-click="alerting=false">OK</button>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="Joe col-sm-6 col-lg-6 col-md-6">Joe Smith, MD</div>
