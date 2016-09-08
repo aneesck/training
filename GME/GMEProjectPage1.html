@@ -1,0 +1,42 @@
+	<nav class="navbar navbar-default">
+		<div class="container_fluid">
+			<span class="menu_icon">
+				<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+			</span>
+			<span class="heading">GME Time Management</span>
+			<span class="logout">Logout</span>
+		</div>
+	</nav>	
+	<div class="container" ng-controller="DateRange">
+		<div class="Peter">Peter Allen</div>
+		<div class="Admin">Admin</div>
+		<div class="Lorem">
+			<div class="Lorem_heading">Lorem ipsum dolor sit amet</div>
+			<div>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+			</div>
+		</div>
+		<div ng-hide="comparisonResult">
+			<div class="alert-box">Survey closing date not after active survey date</div>
+		</div><br>
+		<div class="dates">
+			<div class="active_date">
+				<div class="Active_Survey">Active Survey Dates (2 weeks)</div>
+				<div >
+					<input type="text" ng-value="range1.start+'-'+range1.end" readonly>
+				</div>
+				<ob-daterangepicker class="right" format="format1" week-days-name="['S', 'M', 'T', 'W', 'T', 'F', 'S']"
+					range="range1" on-apply="check()"></ob-daterangepicker>
+				
+			</div>
+			<div class="closing_date">
+				<div class="Closing_Survey">Survey Closing Date</div>
+				<div>
+					<input type="text" ng-model="range2.start" readonly>
+				</div>
+				<ob-daterangepicker range="range2" format="format2" class="right" week-days-name="['S', 'M', 'T', 'W', 'T', 'F', 'S']" on-apply="check()"></ob-daterangepicker>				
+			</div>
+			<a href="#page2">
+				<button id="save" ng-class="{buttonActive:comparisonResult}" data-ng-disabled="!comparisonResult" ng-click='print()'>Save</button>
+			</a>	
+		</div>
+	</div>	

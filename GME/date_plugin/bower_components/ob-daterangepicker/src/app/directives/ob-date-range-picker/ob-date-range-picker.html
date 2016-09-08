@@ -1,0 +1,37 @@
+<div class="picker-dropdown-container" ng-class="{'disabled': obDateRangePicker.disabled()}">
+  <div class="picker-dropdown" ng-class="{'open': obDateRangePicker.isPickerVisible}" ng-click="obDateRangePicker.togglePicker()">
+    <span>{{obDateRangePicker.value}}</span>
+  </div>
+  <div class="picker" ng-class="{'open': obDateRangePicker.isPickerVisible}" ng-show="obDateRangePicker.isPickerVisible">
+    <div class="date-range" ng-show="obDateRangePicker.isCustomVisible">
+      <date-range-picker ng-if="obDateRangePicker.isPickerVisible"
+        api="obDateRangePicker.pickerApi"
+        interceptors="obDateRangePicker.pickerInterceptors"
+        linked-calendars="obDateRangePicker.linkedCalendars()"
+        week-start="obDateRangePicker.weekStart()"
+        range="obDateRangePicker._range"
+        week-days-name="obDateRangePicker.weekDaysName()"
+        min-day="obDateRangePicker._getMinDay()"
+        max-day="obDateRangePicker._getMaxDay()"
+        month-format="obDateRangePicker.monthFormat()"
+        input-format="obDateRangePicker.inputFormat()">
+      </date-range-picker>
+    </div>
+
+    <div class="ranges-actions" ng-class="{'custom-open': obDateRangePicker.isCustomVisible}">
+      <div class="ranges">
+        <div class="range"
+             ng-repeat="range in obDateRangePicker.preRanges track by $index"
+             ng-class="{'selected': obDateRangePicker.selectedRengeIndex === $index, 'disabled': range.disabled}"
+             ng-click="obDateRangePicker.predefinedRangeSelected(range, $index)"
+             ng-if="!$last || ($last && !obDateRangePicker.calendarsAlwaysOn())">{{range.name}}
+        </div>
+      </div>
+
+      <div class="actions" ng-if="!obDateRangePicker.autoApply()">
+        <div class="btn cancel" ng-click="obDateRangePicker.discardChanges()">Cancel</div>
+        <div class="btn apply" ng-click="obDateRangePicker.applyChanges()">APPLY</div>
+      </div>
+    </div>
+  </div>
+</div>
