@@ -1,13 +1,25 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div>
-			<span class="menu_icon">
-				<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-			</span>
-			<span class="heading">GME Physician Time Survey</span>
-			<span class="logout">Logout</span>
-		</div>
-	</nav>	
+				<span class="menu_icon" ng-click="menuboxOpen = true">
+					<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+				</span>
+				<span class="heading">GME Physician Time Survey</span>
+				<span class="logout">Logout</span>
+			</div>
+		</div>	
+		<div class="menu-box-close" ng-show="menuboxOpen" ng-click="menuboxOpen = false">
+			<span><i class="fa fa-times fa-3x" aria-hidden="true"></i></span>
+		</div>	
+	</nav>
+	<div class="menu-box-content" ng-show="menuboxOpen">
+		<ul>
+			<li><a>Exhibit 1 Bellevue</a></li>
+			<li><a>Exhibit 1 HJD</a></li>
+			<li><a>Exhibit 1 Lutheran</a></li>
+			<li><a>Exhibit 1 NYUHC</a></li>
+		</ul>
+	</div>	
 	<div class="background-blur" ng-show="alerting==true" ng-click="alerting=false"></div>
 	<div class="alert-popup" ng-show="alerting==true">
 		<div>{{contents}}</div>
@@ -25,7 +37,7 @@
 				</div>	
 			</div>	
 		</div>	
-		<br><hr><br>
+		<hr><br>
 		<div class="row">
 			<div class="description col-sm-12 col-lg-12 col-md-12">Please enter hours for which you were compensated by the hospital into the boxes provided in whole numbers or .5 increments (example: 3 or 3.5)</div>	
 			<div class="Week col-sm-12 col-lg-12 col-md-12">{{"Week One: "+weekOne.start+" - "+weekOne.end+", "+weekOne.year}}</div><br>
@@ -50,7 +62,7 @@
 			</ul>
 		</div>
 		<div class="row" ng-repeat="activity in activities1 track by $index">	
-			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
+			<div class="col-md-5 col-lg-5 col-sm-5 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="loading"></span>
 					<ui-select ng-model="activity.locationName.value" on-select="locationSelected(activities1,$index)" ng-class="{'hide-arrow-icon': loading}">
@@ -80,7 +92,7 @@
 					</span>
 				</div>
 			</div>	
-			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
+			<ul class="col-sm-7 col-lg-7 col-md-7 RemovableList">
 				<li ng-repeat="boxes in [0,1,2,3,4,5,6] track by $index">
 					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity1Checked[$index] === true" allow-decimal-numbers>
 				</li>
@@ -99,8 +111,8 @@
 			</div><br>
 		</div>
 		<div class="row">	
-			<div class="WeekOnTotals col-sm-6 col-lg-6 col-md-6">Week on Totals:</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6">
+			<div class="WeekOnTotals col-sm-5 col-lg-5 col-md-5">Week on Totals:</div>
+			<ul class="col-sm-7 col-lg-7 col-md-7">
 				<li ng-repeat="totals in [0,1,2,3,4,5,6] track by $index">
 					<input type="text" class="total_box" name="" ng-model="total[$index]" readonly="">
 				</li>
@@ -150,7 +162,7 @@
 			</ul>
 		</div>
 		<div class="row" ng-repeat="activity in activities2 track by $index">	
-			<div class="col-md-6 col-lg-6 col-sm-6 move-right">
+			<div class="col-md-5 col-lg-5 col-sm-5 move-right">
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="loading"></span>
 					<ui-select ng-model="activity.locationName.value" on-select="locationSelected(activities2,$index)" ng-class="{'hide-arrow-icon': loading}">
@@ -180,7 +192,7 @@
 					</span>
 				</div>
 			</div>	
-			<ul class="col-sm-6 col-lg-6 col-md-6 RemovableList">
+			<ul class="col-sm-7 col-lg-7 col-md-7 RemovableList">
 				<li ng-repeat="boxes in [0,1,2,3,4,5,6] track by $index">
 					<input type="text" class="small_box" name="" ng-model="activity.time[$index]" ng-disabled="activity.locationName.value == undefined || activity.activityName.value == undefined || activity2Checked[$index] === true" allow-decimal-numbers>
 				</li>
@@ -199,8 +211,8 @@
 			</div><br>
 		</div>
 		<div class="row">	
-			<div class="WeekOnTotals col-sm-6 col-lg-6 col-md-6">Week on Totals:</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6">
+			<div class="WeekOnTotals col-sm-5 col-lg-5 col-md-5">Week on Totals:</div>
+			<ul class="col-sm-7 col-lg-7 col-md-7">
 				<li ng-repeat="totals in [0,1,2,3,4,5,6] track by $index">
 					<input type="text" class="total_box" name="" ng-model="total[$index+7]" readonly="">
 				</li>

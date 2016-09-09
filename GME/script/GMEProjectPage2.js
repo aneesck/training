@@ -3,6 +3,7 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
   $scope.weektotal = [];
   $scope.total = [];
   $scope.alerting = false;
+  $scope.menuboxOpen = false;
   $scope.contents = "";
   $scope.activity1Checked = [];
   $scope.activity2Checked = [];

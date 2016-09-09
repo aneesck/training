@@ -3,8 +3,47 @@ body{
   max-width: 100vw;
   margin: 0px;
 }
+.container{
+  padding-right: 40px;
+  padding-left: 40px;
+  margin: 0px;
+  width: 100%;
+}
+.menu-box-close{
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: #580f8b;
+  padding: 21px 32px;
+}
+.menu-box-content{
+  width: 300px;
+  background-color: white;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 3px 3px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.menu-box-content ul{
+  display: inline-block;
+  padding: 15px 0px;
+}
+.menu-box-content li{
+  padding: 13px 30px;
+  text-align: left;
+}
+.menu-box-content li a{
+  color: #580f8b;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 22px;
+  cursor: pointer;
+} 
 .row{
   margin: auto;
+  margin-bottom: 15px;
 }
 .background-blur{
 	height: 100vh;
@@ -49,11 +88,10 @@ body{
 	background-color: #580f8b;
 	padding-top: 27.4px;
 	padding-bottom: 26.6px;
-	padding-left: 35px;
-	padding-right: 34px;
 	color: white;
 	display: inline-block;
 	text-align: center;
+  position: relative;
 }
 .menu_icon{
 	float: left;
@@ -73,7 +111,7 @@ body{
   color: #ffffff;
 }
 .container-heading {
-  padding: 20px 0px;
+  padding: 20px 60px;
   max-width: 1150px;	
   margin: auto;
   position: relative;
@@ -176,6 +214,10 @@ body{
 }
 .buttonActive{
   background-color: #580f8b !important;
+}
+button[disabled]{
+    cursor: default;
+    color: #777;
 }
 ob-daterangepicker{
   width: 100%;
@@ -463,7 +505,7 @@ input[type=search]{
 .ui-select-bootstrap > .ui-select-match > .btn{
 	font-size: 18px;
   font-weight: 400;
-  padding-top: 7px;
+  padding-top: 10px;
 }
 .ui-select-bootstrap .ui-select-choices-row.active>span{
 	background-color: white !important;
@@ -573,6 +615,7 @@ button{
   content: "\f078";
   color: #580f8b;
   position: absolute;
+  top: 7px;
   right: 10px;
   font-size: 20px;
 }
