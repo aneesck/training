@@ -20,10 +20,44 @@
 			<li><a>Exhibit 1 NYUHC</a></li>
 		</ul>
 	</div>	
-	<div class="background-blur" ng-show="alerting==true" ng-click="alerting=false"></div>
-	<div class="alert-popup" ng-show="alerting==true">
+	<div class="background-blur" ng-show="alerting"></div>
+	<div class="alert-popup" ng-show="pushAlert">
 		<div>{{contents}}</div>
-		<button class="alert-popup-button" ng-click="alerting=false">OK</button>
+		<button class="alert-popup-button" ng-click="alerting=pushAlert=false">OK</button>
+	</div>
+	<div class="activity-definition" ng-show="description">
+		<div class="header">
+			<span class="Hours">Activity Definitions</span>
+			<span><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="description=alerting=false"></i></span>
+		</div>
+		<div class="scroll-body">
+            <h3>NYUHC, HJD and Lutheran:</h3>
+            <h2>Teaching &amp; Supervision</h2>
+            <p>
+                Supervision of residents; the administration and operation of residency programs including interviewing and evaluating of interns and residents.  Teaching should include all direct teaching activities including grand rounds, educational conferences. Autopsies performed for training of interns and residents.
+            </p>
+
+            <h2>Non-Teaching</h2>
+            <p>
+                Time spent in administering or overseeing clinical departments as well as general hospital administration. Supervision of individuals other than interns and residents, such as nurses, physician assistants, technicians &amp; therapists. Should include committee work not related to GME. Services of general benefit to all patients (Quality Control, etc.).  Autopsies performed for quality assurance purposes.
+            </p>
+            <h3>HJD and Lutheran:</h3>
+            <h2>Direct Patient Care</h2>
+            <p>
+                Time spent doing Patient Care for which you are compensated by the hospital.  Teaching and supervision of interns and residents doing research.  Please note that FGP or Physician Private Practice patient care should not be reported in the survey.
+            </p>
+            <h3>Bellevue:</h3>
+            <h2>Teaching/Resident Supervision/Direct Patient Care</h2>
+            <p>
+                Direct teaching activities pertaining only to Interns and Residents such as lectures, grand rounds, autopsies (for the purpose of teaching) and case conferences.  Administration and operation of a certified Residency Program.  Attending classes, conferences and lectures on Graduate Medical Education.  Supervision of interns and residents in providing direct patient care. Emergency Department on-call/standby time and time actually spent in the hospital performing direct patient care during other on-call time. Direct Patient Care which includes reviewing and completing medical records, hospital forms, reviewing medical literature, reviewing radiology reports, reviewing and interpreting test results, examining specimens or slides and gathering other patient-specific information.
+            </p>
+
+            <h2>Non-Teaching</h2>
+            <p>
+                Non-GME hospital, department administrative duties, and committee work.  Supervision and teaching of other than interns and residents.  Autopsies performed for quality assurance purposes.  Other services of general benefit to all patients.  Seminar attendance non-GME related for which you are compensated.
+            </p>
+
+        </div>
 	</div>
 	<div class="container-heading">
 		<div class="row">
@@ -49,15 +83,17 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6 week-names">
+			<div class="Hours col-sm-5 col-lg-5 col-md-5">Hours Spent on Activities
+				<span class="about"><i class="fa fa-question-circle fa-lg" aria-hidden="true" ng-click="description=alerting=true"></i></span>
+			</div>
+			<ul class="col-sm-7 col-lg-7 col-md-7 week-names">
 				<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
 					{{weekDays[$index]}}<br>
 					{{date1[$index]}}
 				</li>
-				<li>
+				<li><strong>
 					Activity<br>
-					Totals
+					Totals</strong>
 				</li>
 			</ul>
 		</div>
@@ -74,7 +110,7 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.locationName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName(activities1,$index)"></i>
+						<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeLocationName(activities1,$index)"></i>
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
@@ -88,7 +124,7 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.activityName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName(activities1,$index)"></i>
+						<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivityName(activities1,$index)"></i>
 					</span>
 				</div>
 			</div>	
@@ -112,7 +148,7 @@
 		</div>
 		<div class="row">	
 			<div class="WeekOnTotals col-sm-5 col-lg-5 col-md-5">Week on Totals:</div>
-			<ul class="col-sm-7 col-lg-7 col-md-7">
+			<ul class="col-sm-7 col-lg-7 col-md-7 week-totals">
 				<li ng-repeat="totals in [0,1,2,3,4,5,6] track by $index">
 					<input type="text" class="total_box" name="" ng-model="total[$index]" readonly="">
 				</li>
@@ -122,11 +158,11 @@
 			</ul>
 		</div><br>
 		<div class="row">
-			<div class="col-sm-6 col-lg-6 col-md-6">
+			<div class="col-sm-5 col-lg-5 col-md-5">
 				<div class="Unscheduled">Unscheduled Days</div><br>
 				<div class="If">If not scheduled to work, or if off on vacation or sick for the entire day, check the box for that day. Check the box again to clear it. </div>
 			</div>	
-			<div class="col-sm-6 col-lg-6 col-md-6 checkbox-container">
+			<div class="col-sm-7 col-lg-7 col-md-7 checkbox-container">
 				<ul class="Checkbox">
 					<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
 						{{weekDays[$index]}}<br>
@@ -149,15 +185,17 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="Hours col-sm-6 col-lg-6 col-md-6">Hours Spent on Activities</div>
-			<ul class="col-sm-6 col-lg-6 col-md-6 week-names">
+			<div class="Hours col-sm-5 col-lg-5 col-md-5">Hours Spent on Activities
+				<span class="about"><i class="fa fa-question-circle fa-lg" aria-hidden="true" ng-click="description=alerting=true"></i></span>
+			</div>
+			<ul class="col-sm-7 col-lg-7 col-md-7 week-names">
 			<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
 					{{weekDays[$index]}}<br>
 					{{date2[$index]}}
 				</li>
-				<li>
+				<li><strong>
 					Activity<br>
-					Totals
+					Totals</strong>
 				</li>
 			</ul>
 		</div>
@@ -174,7 +212,7 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.locationName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeLocationName(activities2,$index)"></i>
+						<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeLocationName(activities2,$index)"></i>
 					</span>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
@@ -188,7 +226,7 @@
 			    		</ui-select-choices>
 					</ui-select>
 					<span class="red-color" ng-hide="activity.activityName.value == undefined">
-						<i class="fa fa-times-circle" aria-hidden="true" ng-click="removeActivityName(activities2,$index)"></i>
+						<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeActivityName(activities2,$index)"></i>
 					</span>
 				</div>
 			</div>	
@@ -212,7 +250,7 @@
 		</div>
 		<div class="row">	
 			<div class="WeekOnTotals col-sm-5 col-lg-5 col-md-5">Week on Totals:</div>
-			<ul class="col-sm-7 col-lg-7 col-md-7">
+			<ul class="col-sm-7 col-lg-7 col-md-7 week-totals">
 				<li ng-repeat="totals in [0,1,2,3,4,5,6] track by $index">
 					<input type="text" class="total_box" name="" ng-model="total[$index+7]" readonly="">
 				</li>
@@ -222,11 +260,11 @@
 			</ul>
 		</div><br>
 		<div class="row">
-			<div class="col-sm-6 col-lg-6 col-md-6">
+			<div class="col-sm-5 col-lg-5 col-md-5">
 				<div class="Unscheduled">Unscheduled Days</div><br>
 				<div class="If">If not scheduled to work, or if off on vacation or sick for the entire day, check the box for that day. Check the box again to clear it. </div>
 			</div>	
-			<div class="col-sm-6 col-lg-6 col-md-6 checkbox-container">
+			<div class="col-sm-7 col-lg-7 col-md-7 checkbox-container">
 				<ul class="Checkbox">
 						<li ng-repeat="weeks in [0,1,2,3,4,5,6] track by $index">
 						{{weekDays[$index]}}<br>

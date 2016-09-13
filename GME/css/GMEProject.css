@@ -3,6 +3,9 @@ body{
   max-width: 100vw;
   margin: 0px;
 }
+body i{
+  cursor: pointer;
+}
 .container{
   padding-right: 40px;
   padding-left: 40px;
@@ -25,6 +28,8 @@ body{
   position: absolute;
   z-index: 1;
   box-shadow: 3px 3px 2px 0 rgba(0, 0, 0, 0.25);
+  left: 0px;
+  top: 85px;
 }
 .menu-box-content ul{
   display: inline-block;
@@ -55,6 +60,55 @@ body{
 	display: block;
 	z-index: 1;
 	opacity: .6;
+}
+.activity-definition{
+  height: 480px;
+  width: 900px;
+  position: fixed;
+  left: calc(50% - 450px);
+  background-color: #fff;
+  text-align: left;
+  z-index: 2;
+  padding: 30px;
+  top: calc(50% - 240px);
+  border: 1px #cccccc solid;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  overflow-y: hidden;
+}
+.activity-definition:hover{
+  overflow-y: scroll;
+} 
+.activity-definition .header{
+  position: fixed;
+  height: 60px;
+  padding-top: 10px;
+  z-index: 2;
+  width: 850px;
+  left: calc(50% - 430px);
+  top: calc(50% - 239px);
+  background-color: white;
+} 
+.scroll-body{
+  margin-top: 35px;
+}
+.activity-definition .header .Hours{
+  float: left;
+}
+.activity-definition .header span{
+  float: right;
+  cursor: pointer;
+}
+.activity-definition .scroll-body h2{
+  font-size: 18px;
+  font-weight: bolder;
+  color: #777;
+  margin-top: 25px;
+  margin-bottom: 3px;
+}
+.activity-definition .scroll-body p{
+  font-size: 18px;
+  line-height: 24px;
+  color: #777;
 }
 .alert-popup{
 	position: fixed;
@@ -403,6 +457,9 @@ calendar .board .day.in-range:not(.other-month):not(.disabled) {
   text-align: right;
   display: inline-block;
 }
+.save-button-container button:hover{
+  text-decoration: underline;
+}
 .button-container{
   display: inline-block;
 }
@@ -435,7 +492,7 @@ span.second_close{
 li{
 	padding: 0px 8px;
 	text-align: center;
-	min-width: 13%;
+	min-width: 12%;
 }
 li.total_list{
   font-weight: 700;
@@ -444,6 +501,7 @@ li.total_list{
 }
 html input[disabled]{
   cursor: not-allowed;
+  background-color: white;
 }
 select{
 	width: 20%;
@@ -505,7 +563,9 @@ input[type=search]{
 .ui-select-bootstrap > .ui-select-match > .btn{
 	font-size: 18px;
   font-weight: 400;
-  padding-top: 10px;
+  padding-top: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ui-select-bootstrap .ui-select-choices-row.active>span{
 	background-color: white !important;
@@ -542,8 +602,12 @@ button{
 	width: 55px;
   height: 43px;
   border-radius: 5px;
-  border: solid 2px #979797;
+  border: solid 2px #777;
   text-align: center;
+}
+.week-totals{
+  padding-left: 0px;
+  margin-left: -8px;
 }
 .Questions{	
   font-size: 24px;
@@ -588,6 +652,10 @@ button{
  	line-height: 1.08;
   color: #580f8b;
 }
+.week-names{
+  padding-left: 0px;
+  margin-left: -8px;
+}
 .Survey{
 	height: 50px;
   font-size: 20px;
@@ -603,12 +671,19 @@ button{
   color: #2272cc;
   display: inline-block;
 }
-.Hours::after{
-	font-family: FontAwesome;
-  content: "\f059";
+.about{
   color: #ccc;
-  font-size: 18px;
-  margin-left: 10px;
+  font-size: 15px;
+  position: relative;
+  top: -2px;
+  left: 3px;
+}
+.about:hover{
+  cursor:pointer;
+  color: #2272cc;
+}
+.text-muted{
+  font-size: 17px;
 }
 .ui-select-placeholder.text-muted.ng-binding::after{
 	font-family: FontAwesome;
@@ -654,7 +729,8 @@ button{
 }
 ul.Checkbox{
   border: 1px solid #ccc;
-  padding: 10px 25px;
+  width: 92%;
+  padding: 10px 25px 10px 20px;
 }
 .Checkbox li{
 	padding: 5px 25px;
@@ -666,12 +742,16 @@ ul.Checkbox{
   font-weight: 400;
   color: #777777;
 }
+.RemovableList{
+  padding-left: 0px;
+}
 .RemovableList  span{
 	color: red;
 	position: relative;
   top: 7px;
   left: 7px;
   cursor: pointer;
+  font-size: 18px;
 }
 .liftup{
 	margin-top: -5px;
@@ -682,6 +762,15 @@ ul.Checkbox{
 .footer{
 	margin-left: 10px;
 }
+/*.row.footer{
+  position: relative;
+  top: -20px;
+  width: 100vw;
+  left: -140px;
+  padding-left: 145px;
+  border: 1px solid #ccc;
+  border-width: 1px 0px 0px 0px;
+}*/
 .footer span{
 	display: block;
 }
@@ -690,17 +779,18 @@ ul.Checkbox{
 }
 .checkbox-container{
 	padding-right: 0px;
-	padding-left: 25px;
+	padding-left: 0px;
 }
 .red-color{
 	color: red;
 	position: absolute;
   right: 20px;
-  top: 20px;
+  top: 18px;
   font-size: 18px;
 }
 .move-right{
 	padding-right: 0px;
+  margin-right: -8px;
 }
 .alert-box{
 	border: 2px solid red;
@@ -737,9 +827,8 @@ input[type="checkbox"] + label::before {
   height: 2ex;
   width: 2ex;
   background-color: #fff;
-  border: 1px solid rgb(166, 166, 166);
+  border: 2px solid #777;
   border-radius: 4px;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.25);
   margin-right: 0.5em;
 }
 input[type="checkbox"]:checked + label::before {

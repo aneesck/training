@@ -3,6 +3,8 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
   $scope.weektotal = [];
   $scope.total = [];
   $scope.alerting = false;
+  $scope.pushAlert = false;
+  $scope.description = false;
   $scope.menuboxOpen = false;
   $scope.contents = "";
   $scope.activity1Checked = [];
@@ -101,11 +103,13 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
         console.log(answer);
         $scope.contents = "Success";
         $scope.alerting = true;
+        $scope.pushAlert = true;
       },
       function(reason) {
         console.log("Error in service"+reason);
         $scope.contents = "Error";
         $scope.alerting = true;
+        $scope.pushAlert = true;
       }
     );
 	}
@@ -146,6 +150,7 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
 		  		if(selectedString === compareString){
 		  			$scope.contents = "This Location/Activity cannot be repeated twice this week.";
 		  			$scope.alerting = true;
+            $scope.pushAlert = true;
 		  			week[index].activityName={};
 		  		}
 		  	}	
