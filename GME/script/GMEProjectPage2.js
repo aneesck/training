@@ -7,6 +7,8 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
   $scope.description = false;
   $scope.menuboxOpen = false;
   $scope.contents = "";
+  $scope.submitPopup = false;
+  $scope.contentsHeading = "";
   $scope.activity1Checked = [];
   $scope.activity2Checked = [];
   $scope.date1 = [];
@@ -102,12 +104,14 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
       function(answer) {
         console.log(answer);
         $scope.contents = "Success";
+        $scope.contentsHeading = "Data Saved";
         $scope.alerting = true;
         $scope.pushAlert = true;
       },
       function(reason) {
         console.log("Error in service"+reason);
-        $scope.contents = "Error";
+        $scope.contents = "An error occurred while connecting to the server, please check your connectivity and try again. Contact administrator if the error persists.";
+        $scope.contentsHeading = "Connection Error";
         $scope.alerting = true;
         $scope.pushAlert = true;
       }
@@ -138,6 +142,13 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
   	return false;
   }
   	
+  $scope.disableButton = function(){
+    if($scope.displayError(0,7) || $scope.displayError(7,14))
+      return true;
+    if(angular.isNumber($scope.weektotal[1]))
+      return false;
+    return (!angular.isNumber($scope.weektotal[2]));
+  }  
   $scope.compareSelect = function(week,index){
   	if(week[index].activityName.value !== undefined){
 	 		var selectedString = week[index].locationName.value
@@ -149,6 +160,7 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
 		  				week[i].activityName.value.label;
 		  		if(selectedString === compareString){
 		  			$scope.contents = "This Location/Activity cannot be repeated twice this week.";
+            $scope.contentsHeading = "Selection Not possible";
 		  			$scope.alerting = true;
             $scope.pushAlert = true;
 		  			week[index].activityName={};

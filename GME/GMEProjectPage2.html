@@ -22,8 +22,15 @@
 	</div>	
 	<div class="background-blur" ng-show="alerting"></div>
 	<div class="alert-popup" ng-show="pushAlert">
+		<div class="Hours">{{contentsHeading}}</div>
 		<div>{{contents}}</div>
-		<button class="alert-popup-button" ng-click="alerting=pushAlert=false">OK</button>
+		<button class="alert-popup-button" ng-click="alerting=pushAlert=false">Dismiss</button>
+	</div>
+	<div class="alert-popup" ng-show="submitPopup">
+		<div class="Hours">Submit Hours and Activities</div>
+		<div>Do you agree that the data being submitted is accurate?</div>
+		<button class="alert-popup-button cancel" ng-click="submitPopup=alerting=false">Cancel</button>
+		<button class="alert-popup-button agree" ng-click="submitPopup=false;print(1)">Agree and Submit</button>
 	</div>
 	<div class="activity-definition" ng-show="description">
 		<div class="header">
@@ -64,10 +71,10 @@
 			<div class="Joe col-sm-6 col-lg-6 col-md-6">Joe Smith, MD</div>
 			<div class="save-button-container col-sm-6 col-lg-6 col-md-6">
 				<div class="save-container button-container">
-					<button class="Save" ng-click="print(0)" ng-disabled="displayError(0,7) || displayError(7,14)">Save</button>
+					<button class="Save" ng-click="print(0)" ng-disabled="disableButton()">Save</button>
 				</div>
 				<div class="button-container">	
-					<button class="submit" ng-click="print(1)" ng-disabled="displayError(0,7) || displayError(7,14)">Submit</button>
+					<button class="submit" ng-click="submitPopup=alerting=true" ng-disabled="disableButton()">Submit</button>
 				</div>	
 			</div>	
 		</div>	
@@ -79,7 +86,7 @@
 		</div>	
 		<div class="row" ng-show="displayError(0,7)">
 			<div class="col-sm-12 col-lg-12 col-md-12">
-				<div class="alert-box">Total Hours more than 24</div>
+				<div class="alert-box">A maximum of 24 hours can be logged for each day.</div>
 			</div>
 		</div>
 		<div class="row">
@@ -113,7 +120,7 @@
 						<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeLocationName(activities1,$index)"></i>
 					</span>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup increased-width">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
 					<ui-select 	ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect(activities1,$index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">
@@ -181,7 +188,7 @@
 		</div>	
 		<div class="row" ng-show="displayError(7,14)">
 			<div class="col-sm-12 col-lg-12 col-md-12">
-				<div class="alert-box">Total Hours more than 24</div>
+				<div class="alert-box">A maximum of 24 hours can be logged for each day.</div>
 			</div>
 		</div>
 		<div class="row">
@@ -215,7 +222,7 @@
 						<i class="fa fa-times-circle fa-lg" aria-hidden="true" ng-click="removeLocationName(activities2,$index)"></i>
 					</span>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 liftup">
+				<div class="col-lg-6 col-md-6 col-sm-6 liftup increased-width">
 					<span class="loading"><img src="images/ajax-loader.gif" ng-show="activity.loadingAction"></span>
 					<ui-select ng-model="activity.activityName.value" ng-disabled="activity.locationName.value == undefined" on-select="compareSelect(activities2,$index)" ng-class="{'hide-arrow-icon': activity.loadingAction}">
 			    		<ui-select-match placeholder="Choose an activity">

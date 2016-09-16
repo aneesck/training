@@ -112,25 +112,37 @@ body i{
 }
 .alert-popup{
 	position: fixed;
-	left: calc(50% - 250px);
-  width: 500px;
+	left: calc(50% - 308px);
+  width: 616px;
   top: 30%;
   min-height: 250px;
   z-index: 2;
   background-color: #fff;
-  text-align: center;
   padding: 50px;
   font-size: 18px;
   max-height: 400px;
   overflow-y: scroll;
   overflow: -moz-scrollbars-none;
+  padding-left: 30px;
+  padding-top: 40px;
 }
 .alert-popup-button{
   background-color: #580f8b;
   position: absolute;
   color: white;
   bottom: 5px;
-  left: calc(50% - 94px);
+  left: calc(80% - 80px);
+  width: 160px;
+}
+.alert-popup-button.cancel{
+  left: calc(45% - 80px);
+  width: 160px;
+  background-color: white;
+  color: #580f8b;
+}
+.alert-popup-button.agree{
+  left: calc(78% - 105px);
+  width: 210px;
 }
 .alert-popup::-webkit-scrollbar { 
   
@@ -273,6 +285,9 @@ button[disabled]{
     cursor: default;
     color: #777;
 }
+button[disabled]:hover{
+  text-decoration: none !important;
+}
 ob-daterangepicker{
   width: 100%;
   height: 43px;
@@ -367,6 +382,7 @@ calendar .board .days-of-week .day-name {
 calendar .board {
   top: -15px !important;
   border-width: 0px !important;
+  left: 6px;
 } 
 calendar .board .day.range-start:not(.other-month):not(.disabled) {
   border-top-left-radius: 0px !important;
@@ -536,6 +552,9 @@ input[type=search]{
 	margin: 0px;
 	text-align: left;
 }
+.increased-width .ui-select-bootstrap > .ui-select-choices, .ui-select-bootstrap > .ui-select-no-choice{
+  width: 340px;
+}  
 .ui-select-bootstrap > .ui-select-choices, .ui-select-bootstrap > .ui-select-no-choice{
 	padding: 0px !important;
 }
@@ -793,11 +812,11 @@ ul.Checkbox{
   margin-right: -8px;
 }
 .alert-box{
-	border: 2px solid red;
-  text-align: center;
+	border: 1px solid #FC3625;
+  border-radius: 4px;
   padding: 1%;
   font-size: 18px;
-  color: red;
+  color: #FC3625;
 }
 .loading{
   position: absolute;
