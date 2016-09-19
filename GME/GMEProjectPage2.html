@@ -29,10 +29,13 @@
 	<div class="alert-popup" ng-show="submitPopup">
 		<div class="Hours">Submit Hours and Activities</div>
 		<div>Do you agree that the data being submitted is accurate?</div>
-		<button class="alert-popup-button cancel" ng-click="submitPopup=alerting=false">Cancel</button>
-		<button class="alert-popup-button agree" ng-click="submitPopup=false;print(1)">Agree and Submit</button>
+		<button class="alert-popup-button cancel" ng-show="submitPopupButtons" ng-click="submitPopup=alerting=false">Cancel</button>
+		<button class="alert-popup-button agree" ng-show="submitPopupButtons" ng-click="submitPopupButtons=0;print(1)">Agree and Submit</button>
+		<span class="save-loader-image" ng-show="!submitPopupButtons">
+			<img src="images/ajax-loader2.gif">
+		</span>
 	</div>
-	<div class="activity-definition" ng-show="description">
+	<div class="activity-definition" ng-show="description" ng-scrollbars ng-scrollbars-config="config" scroll id="page" ng-class="{scrolled:boolChangeClass}"">
 		<div class="header">
 			<span class="Hours">Activity Definitions</span>
 			<span><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="description=alerting=false"></i></span>
@@ -70,12 +73,15 @@
 		<div class="row">
 			<div class="Joe col-sm-6 col-lg-6 col-md-6">Joe Smith, MD</div>
 			<div class="save-button-container col-sm-6 col-lg-6 col-md-6">
-				<div class="save-container button-container">
-					<button class="Save" ng-click="print(0)" ng-disabled="disableButton()">Save</button>
+				<div class="save-container button-container" ng-show="!saveWait">
+					<button class="Save" ng-click="print(0);saveWait=1" ng-disabled="disableButton()">Save</button>
 				</div>
-				<div class="button-container">	
+				<div class="button-container" ng-show="!saveWait">	
 					<button class="submit" ng-click="submitPopup=alerting=true" ng-disabled="disableButton()">Submit</button>
 				</div>	
+				<span class="save-loader-image" ng-show="saveWait">
+					<img src="images/ajax-loader2.gif">
+				</span>
 			</div>	
 		</div>	
 		<hr><br>
@@ -283,19 +289,19 @@
 			</div>	
 		</div>
 		<br>
-		<hr><br>
-		<div class="row footer">
-			<span class="Questions">Questions</span>
-			<span class="For">For questions regarding how to properly code specific activites on this survey use the following contact information:</span><br>
-			<span class="Bellvevue">Bellvevue Hospital:</span>
-			<span class="For">Vivian Diaz</span>
-			<span class="For">212-562-3422</span>
-			<span class="Vivian">Vivian.Diaz2@bellevue.nychhc.org</span>
-			<span class="Bellvevue">NYUHC/HJD:</span>
-			<span class="For">Robert Toso</span>
-			<span class="For">212-404-4165</span>
-			<span class="Vivian">Robert.Toso@nyumc.org</span>
-			<span class="Bellvevue">Lutheran:</span>
-			<span class="For">Contact info TBD</span>
-		</div>			
 	</div>	
+	<div class="footer">
+		<span class="Questions">Questions</span>
+		<span class="For">For questions regarding how to properly code specific activites on this survey use the following contact information:</span><br>
+		<span class="Bellvevue">Bellvevue Hospital:</span>
+		<span class="For">Vivian Diaz</span>
+		<span class="For">212-562-3422</span>
+		<span class="Vivian">Vivian.Diaz2@bellevue.nychhc.org</span>
+		<span class="Bellvevue">NYUHC/HJD:</span>
+		<span class="For">Robert Toso</span>
+		<span class="For">212-404-4165</span>
+		<span class="Vivian">Robert.Toso@nyumc.org</span>
+		<span class="Bellvevue">Lutheran:</span>
+		<span class="For">Contact info TBD</span>
+	</div>			
+		

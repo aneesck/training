@@ -1,4 +1,4 @@
-var app = angular.module(' ', ['obDateRangePicker','ui.select','ngRoute']);
+var app = angular.module(' ', ['obDateRangePicker','ui.select','ngRoute','ngScrollbars']);
 	app.config(function($routeProvider) {
 	    $routeProvider
 	    .when("/", {

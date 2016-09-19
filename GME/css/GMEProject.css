@@ -62,7 +62,7 @@ body i{
 	opacity: .6;
 }
 .activity-definition{
-  height: 480px;
+  height: 480px !important;
   width: 900px;
   position: fixed;
   left: calc(50% - 450px);
@@ -73,11 +73,12 @@ body i{
   top: calc(50% - 240px);
   border: 1px #cccccc solid;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-  overflow-y: hidden;
 }
-.activity-definition:hover{
-  overflow-y: scroll;
-} 
+.activity-definition span i{
+  font-size: 36px;
+  color: #999;
+}
+
 .activity-definition .header{
   position: fixed;
   height: 60px;
@@ -87,6 +88,9 @@ body i{
   left: calc(50% - 430px);
   top: calc(50% - 239px);
   background-color: white;
+}
+.scrolled .header{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11);
 } 
 .scroll-body{
   margin-top: 35px;
@@ -175,6 +179,10 @@ body i{
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;
+  cursor: pointer;
+}
+.navbar .logout:hover{
+  text-decoration: underline;
 }
 .container-heading {
   padding: 20px 60px;
@@ -182,7 +190,11 @@ body i{
   margin: auto;
   position: relative;
 }
-
+.alert-popup .save-loader-image{
+  left: calc(95% - 50px);
+  bottom: 40px;
+  position: absolute;
+}
 .Peter {
   margin-top: 40px;
   width: 150px;
@@ -779,17 +791,17 @@ ul.Checkbox{
 	position: relative;
 }
 .footer{
-	margin-left: 10px;
-}
-/*.row.footer{
   position: relative;
-  top: -20px;
+  bottom: 0;
   width: 100vw;
-  left: -140px;
-  padding-left: 145px;
+  padding-left: calc(50% - 500px);
+  padding-top: 35px;
+  padding-bottom: 30px;
   border: 1px solid #ccc;
   border-width: 1px 0px 0px 0px;
-}*/
+  background-image: url("../images/stripes.png");
+  background-repeat: repeat;
+}
 .footer span{
 	display: block;
 }

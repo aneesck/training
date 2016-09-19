@@ -30,7 +30,7 @@ app.controller("DateRange", function($scope,SharedData){
     closingDate = new Date($scope.range2.start);
     $scope.comparisonResult = closingDate > compareDate;
     closingDate = formattedDate(closingDate);
-    console.log($scope.comparisonResult);
+  
   }
 
   var formattedDate = function(date) {

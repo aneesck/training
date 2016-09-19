@@ -6,16 +6,37 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
   $scope.pushAlert = false;
   $scope.description = false;
   $scope.menuboxOpen = false;
+  $scope.saveWait = 0;
   $scope.contents = "";
   $scope.submitPopup = false;
+  $scope.submitPopupButtons = 1;
   $scope.contentsHeading = "";
   $scope.activity1Checked = [];
   $scope.activity2Checked = [];
   $scope.date1 = [];
   $scope.date2 = [];
   var sampleData = ["1","2","3","4"];
-  $scope.weekDays = ["Mon","Tues","Wed","Thurs","Fri","Sat","Sun"]
+  $scope.weekDays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
   
+  $scope.config = {
+    autoHideScrollbar: false,
+    theme: 'minimal-dark',
+    advanced:{
+        updateOnContentResize: true
+    },
+        setHeight: 180,
+        axis: 'y',
+        scrollInertia: 500
+  }
+
+  $scope.scrollPos = 0;
+    var e = document.getElementById('activity-definition');
+        $scope.onscroll = function(){console.log(1)
+            $scope.scrollPos = document.body.scrollTop || document.documentElement.scrollTop || 0;
+            $scope.$apply(); //or simply $scope.$digest();
+        };
+  
+
   var dates = SharedData.getValues();
   $scope.weekOne = dates.weekOne;
   $scope.weekTwo = dates.weekTwo;   
@@ -107,6 +128,9 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
         $scope.contentsHeading = "Data Saved";
         $scope.alerting = true;
         $scope.pushAlert = true;
+        $scope.saveWait = 0;
+        $scope.submitPopup = false;
+        $scope.submitPopupButtons = 1;
       },
       function(reason) {
         console.log("Error in service"+reason);
@@ -114,6 +138,9 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
         $scope.contentsHeading = "Connection Error";
         $scope.alerting = true;
         $scope.pushAlert = true;
+        $scope.saveWait = 0;
+        $scope.submitPopup = false;
+        $scope.submitPopupButtons = 1;
       }
     );
 	}
