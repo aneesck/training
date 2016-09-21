@@ -1,5 +1,5 @@
-var app = angular.module(' ', ['obDateRangePicker','ui.select','ngRoute','ngScrollbars']);
-	app.config(function($routeProvider) {
+var app = angular.module(' ', ['ui.router']);
+	app.config(function($stateProvider, $urlRouterProvider) {
 	    $routeProvider
 	    .when("/", {
 	        templateUrl : "GMEProjectPage1.html",

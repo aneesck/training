@@ -16,7 +16,7 @@ app.controller('MyController', function($scope,$http,Calculations,Requests,Share
   $scope.date1 = [];
   $scope.date2 = [];
   var sampleData = ["1","2","3","4"];
-  $scope.weekDays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+  $scope.weekDays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
   
   $scope.config = {
     autoHideScrollbar: false,

@@ -36,20 +36,20 @@
         }  
     }  
 });  
-app.directive("scroll", function ($window) {
-    return function(scope, element, attrs) {
-      
-        angular.element($window).bind("scroll", function() {
-            if (this.pageYOffset >= 1) {
-                 scope.boolChangeClass = true;
-                 console.log('Scrolled below header.');
-             } else {
-                 scope.boolChangeClass = false;
-                 console.log('Header is in view.');
-             }
-            scope.$apply();
-        });
-    };
-});
+// app.directive("scroll", function () {
+//     return function(scope, element, attrs) {
+//       console.log(element)
+//         document.getElementById('page').addEventListener("scroll",function() {console.log("ss")
+//             if (this.pageYOffset >= 1) {
+//                  scope.boolChangeClass = true;
+//                  console.log('Scrolled below header.');
+//              } else {
+//                  scope.boolChangeClass = false;
+//                  console.log('Header is in view.');
+//              }
+//             scope.$apply();
+//         });
+//     };
+// });
 
  
