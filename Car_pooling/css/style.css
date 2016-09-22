@@ -17,6 +17,9 @@ body{
 	position: relative;
 	top: 1px;
 }
+.row{
+	margin-bottom: 10px;
+}
 .view{
 	margin-top: 50px;
 	width: 500px;
@@ -28,10 +31,10 @@ body{
 	background-color: black;
 	border-radius: 5px;
 }
-.home .left-side{
+.left-side{
 	float: right;
 }
-.home .right-side{
+.right-side{
 	float: left;
 }
 button{
@@ -43,21 +46,15 @@ button{
 	border-radius: 4px;
 	margin-bottom: 10px; 
 }
-.sign-up .align-center{
+.align-center{
 	text-align: center;
 }
-.sign-up input{
+input{
 	width: 250px;
     padding: 5px;
-    margin-bottom: 10px;
 }
 .login .align-center{
 	text-align: center;
-}
-.login input{
-	width: 250px;
-    padding: 5px;
-    margin-bottom: 10px;
 }
 .login .align-center span a{
 	color: white;
@@ -65,14 +62,7 @@ button{
 .sign-up .align-center span a{
 	color: white;
 }
-.login .heading{
-	color: white;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-	font-size: 20px;
-	float: left;
-}
-.sign-up .heading{
+.heading{
 	color: white;
 	margin-bottom: 10px;
 	text-transform: uppercase;
@@ -82,4 +72,14 @@ button{
 .nav-tabs>li>a:active
 {
 	background-color: white;
+}
+.error-box{
+	width: 100%;
+	border: 1px solid red;
+	padding: 10px;
+	text-align: center;
+	color: red;
+}
+.error-box-container{
+	margin: 10px 0px;
 }
