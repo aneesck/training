@@ -20,7 +20,8 @@ var app = angular.module(' ', ['ui.router']);
     })
     .state('start', {
       url: "/start",
-      templateUrl: "views/start.html"
+      templateUrl: "views/start.html",
+      controller: "StartPage"
     })
     .state('start.new', {
       url: "/new_ride",
@@ -33,10 +34,8 @@ var app = angular.module(' ', ['ui.router']);
     .state('start.new.create', {
       url: "/create",
       templateUrl: "views/create_ride.html",
-      controller: function(){
-        document.getElementById("pill1").style.backgroundColor = "white";
-        document.getElementById("pill2").style.backgroundColor = "black";
-      }
+      controller: 'CreateRide'
+      
     })
     .state('start.new.join', {
       url: "/join",

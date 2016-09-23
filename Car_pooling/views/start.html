@@ -1,8 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<ul class="nav nav-tabs">
-	    	<li id="tab1"><a ui-sref="start.new">New Ride</a></li>
-	    	<li id="tab2"><a ui-sref="start.select">Select Ride</a></li>
+	    	<li id="tab1" class="col-sm-3 col-lg-3 col-md-3"><a ui-sref="start.new">New Ride</a></li>
+	    	<li id="tab2" class="col-sm-3 col-lg-3 col-md-3"><a ui-sref="start.select">Select Ride</a></li>
+	    	<span class="user-name col-sm-5 col-lg-5 col-md-5">{{"Logged in as "+currentUser}}</span>
+	    	<span class="col-sm-1 col-lg-1 col-md-1"><a class="logout" ng-click="logout()">Logout</a></span>
 	  	</ul>
 	</div>
 	<div ui-view></div>

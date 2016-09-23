@@ -83,3 +83,26 @@ input{
 .error-box-container{
 	margin: 10px 0px;
 }
+.user-name{
+	color: white;
+    font-size: 17px;
+    font-style: italic;
+    position: relative;
+    top: 10px;
+    padding-left: 0px;
+}
+label{
+	color: white;
+}
+.logout{
+    float: right;
+    position: relative;
+    top: 10px;
+}
+.vertical-align{
+	padding-top: 9px;
+}
+.nav-tabs>li>a{
+	padding: 10px 4px;
+}
+
