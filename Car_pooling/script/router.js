@@ -3,6 +3,7 @@ var app = angular.module(' ', ['ui.router']);
 		$urlRouterProvider.otherwise("/home");
 		$urlRouterProvider.when('/start', '/start/new_ride');
     $urlRouterProvider.when('/start/new_ride', '/start/new_ride/create');
+    $urlRouterProvider.when('/start/select_ride', '/start/select_ride/created');
 	    $stateProvider
 	.state('home', {
       url: "/home",
@@ -40,10 +41,7 @@ var app = angular.module(' ', ['ui.router']);
     .state('start.new.join', {
       url: "/join",
       templateUrl: "views/join_ride.html",
-      controller: function(){
-        document.getElementById("pill2").style.backgroundColor = "white";
-        document.getElementById("pill1").style.backgroundColor = "black";
-      }
+      controller: 'JoinRide'
     })
     .state('start.select', {
       url: "/select_ride",
@@ -52,5 +50,15 @@ var app = angular.module(' ', ['ui.router']);
       	document.getElementById("tab2").style.backgroundColor = "white";
       	document.getElementById("tab1").style.backgroundColor = "black";
       }
+    })
+    .state('start.select.created', {
+      url: "/created",
+      templateUrl: "views/created_ride.html",
+      controller: 'CreatedRide'
+    })
+    .state('start.select.joined', {
+      url: "/joined",
+      templateUrl: "views/joined_ride.html",
+      controller: 'JoinedRide'
     })
     });

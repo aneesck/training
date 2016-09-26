@@ -11,7 +11,7 @@ app.controller('CreateRide', function(CurrentUser,$scope,$window,$state) {
     		return false;
     }
     $scope.save = function(){
-    	var array = [{}];
+    	var array  = [];
     	var object = {
     		'name':user,
     		'source':$scope.source,
@@ -21,15 +21,15 @@ app.controller('CreateRide', function(CurrentUser,$scope,$window,$state) {
     		'time':$scope.time
     	};
     	for (var i = 0; i < $window.localStorage.length; i++){
-   			if($window.localStorage.key(i).indexOf(user+'_created') >= 0){console.log(1)
-   				 array = $window.localStorage.getItem($window.localStorage.key(i));
-   				 array = JSON.stringify(array);
-   				console.log(array)
+   			if($window.localStorage.key(i).indexOf(user+'_created') >= 0){
+   				 array = $window.localStorage.getItem($window.localStorage.key(i)) ?
+              				JSON.parse($window.localStorage.getItem($window.localStorage.key(i))) : [];
+				
    			}
   		}
-  		array.push(object);	console.log(array)
-  		$window.localStorage.setItem(user+'_created',array);
-  		// console.log(JSON.parse($window.localStorage.getItem(user+'_created')));
+  		array.push(object);
+  		console.log(array)
+		$window.localStorage.setItem(user+'_created', JSON.stringify(array));
     	$state.reload();
     }
 });	

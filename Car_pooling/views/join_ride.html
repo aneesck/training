@@ -3,7 +3,7 @@
 		<label>Source</label>
 	</div>
 	<div class="col-sm-8 col-lg-8 col-md-8 align-center">
-		<input id="searchSource" onfocus="source()" autofocus placeholder="Source" type="text" name="Location">
+		<input id="searchSource" ng-model="source" googleplace autofocus placeholder="Source" type="text" name="Location">
 	</div>
 </div>
 <div class="row">
@@ -11,15 +11,15 @@
 		<label>Destination</label>
 	</div>
 	<div class="col-sm-8 col-lg-8 col-md-8 align-center">
-		<input id="searchDestination" onfocus="destination()" placeholder="Destination" type="text" name="Location">
+		<input id="searchDestination" ng-model="destination" googleplace placeholder="Destination" type="text" name="Location">
 	</div>
 </div>
-<div class="row">
+<!-- <div class="row">
 	<div class="col-sm-4 col-lg-4 col-md-4 align-center vertical-align">
 		<label>Date</label>
 	</div>
 	<div class="col-sm-8 col-lg-8 col-md-8 align-center">
-		<input type="date" placeholder="Date" name="Date">
+		<input type="date" ng-model="date" placeholder="Date" name="Date">
 	</div>
 </div>
 <div class="row">
@@ -27,11 +27,40 @@
 		<label>Time</label>
 	</div>
 	<div class="col-sm-8 col-lg-8 col-md-8 align-center">
-		<input type="time" placeholder="time" name="Time">
+		<input type="time" ng-model="time" placeholder="time" name="Time">
 	</div>
-</div>
+</div> -->
 <div class="row">
 	<div class="col-sm-12 col-lg-12 col-md-12 align-center">
-		<button>Show Rides</button>
+		<button ng-click="showRides()" ng-disabled="disabled()">Show Rides</button>
 	</div>
 </div>	
+<div ng-show="rideList" class="ride">
+	<div class="container-fluid" ng-repeat="x in list">
+		<div class="row">
+			<div class="col-sm-9 col-lg-9 col-md-9 ride-list">
+				{{x.source+" - "+x.destination+" --- "+x.name}}
+			</div>
+			<div class="col-sm-3 col-lg-3 col-md-3 details-button">
+				<button ng-click="extraDetails($index)" ng-hide	="extra[$index]">Show Details</button>
+				<button ng-click="lesserDetails($index)" ng-show="extra[$index]">Hide Details</button>
+			</div>
+		</div>
+		<div class="row" ng-show="extra[$index]">
+			<div class="col-sm-4 col-lg-4 col-md-4 align-right">Date:</div>
+			<div class="col-sm-8 col-lg-8 col-md-8 align-left">{{x.date}}</div>
+		</div>
+		<div class="row" ng-show="extra[$index]">
+			<div class="col-sm-4 col-lg-4 col-md-4 align-right">Time:</div>
+			<div class="col-sm-8 col-lg-8 col-md-8 align-left">{{x.time}}</div>
+		</div>
+		<div class="row" ng-show="extra[$index]">
+			<div class="col-sm-4 col-lg-4 col-md-4 align-right">Seats:</div>
+			<div class="col-sm-8 col-lg-8 col-md-8 align-left">{{x.seats}}</div>
+		</div>
+		<div class="row align-center" ng-show="extra[$index]">
+			<button ng-click="join($index)">Join</button>
+		</div>
+		</div>
+	</div>	
+</div>
